@@ -6,7 +6,7 @@ const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var gravity :float = 9.8
+var gravity :float = 0.0#9.8
 
 
 func _physics_process(delta):
