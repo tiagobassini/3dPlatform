@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [debug]
 
 settings/stdout/print_fps=true
-settings/stdout/print_gpu_profile=true
 
 [input]
 

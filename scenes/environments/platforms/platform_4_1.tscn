@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdadtq41rclqa"]
+
+[ext_resource type="PackedScene" uid="uid://cpf43536fc836" path="res://assets/environments/platforms/platform_03.glb" id="1_u0vju"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_l3c5g"]
+height = 3.6
+radius = 1.044
+
+[node name="platform_04_1" instance=ExtResource("1_u0vju")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="platform 01_toon_material_0_005" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform 01_toon_material_0_005/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+shape = SubResource("CylinderShape3D_l3c5g")

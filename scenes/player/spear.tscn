@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://did6l28ctf5xc"]
+
+[ext_resource type="PackedScene" uid="uid://dc7emw77t1onk" path="res://assets/player/Spear.glb" id="1_4s16p"]
+[ext_resource type="Script" path="res://scripts/player/spear.gd" id="2_ux228"]
+
+[node name="Spear" instance=ExtResource("1_4s16p")]
+script = ExtResource("2_ux228")
+
+[node name="Spear" parent="." index="0"]
+transform = Transform3D(0.250001, 0, 0, 0, 0.16, 0, 0, 0, 0.249999, 0, 0, 0)
