@@ -112,17 +112,13 @@ func shoot_spear()->void:
 	if not  current_spear:
 		return
 	
-	var position: Vector3 = current_spear.global_position
-	var rotation: Vector3 = current_spear.global_rotation_degrees
 	var socket = current_spear.get_parent()
 	socket.remove_child(current_spear)
 	
-	print("position: ", position)
-	print("rotation: ", rotation)
 	
 	get_tree().root.add_child(current_spear)
 	current_spear.global_position = throw_position.global_position
-	current_spear.global_rotation_degrees = Vector3(-6.995912, 0.014446, -90.0)
+	current_spear.global_rotation_degrees = Vector3(0, 0, -90.0)
 	current_spear.throwed = true
 	current_spear = null
 	spear_respawn_timer.start()
