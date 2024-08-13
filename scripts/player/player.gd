@@ -90,6 +90,7 @@ func change_player_direction()->void:
 	is_flipped = not is_flipped
 	mesh.rotation.y *= -1
 	mesh.position.x *= -1
+	throw_position.position.x *= -1
 	
 	
 
@@ -118,7 +119,7 @@ func shoot_spear()->void:
 	
 	get_tree().root.add_child(current_spear)
 	current_spear.global_position = throw_position.global_position
-	current_spear.global_rotation_degrees = Vector3(0, 0, -90.0)
+	current_spear.is_flipped = is_flipped
 	current_spear.throwed = true
 	current_spear = null
 	spear_respawn_timer.start()
