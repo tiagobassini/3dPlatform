@@ -42,15 +42,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	#var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	#print("direction: ", direction)
-	#print("input_dir: ", input_dir)
-	#var direction = (transform.basis * Vector3(input_dir.x, 0, 0)).normalized()
-	#
-	#print("basis: ",transform.basis," direction: ", direction)
 	
 	if direction and not is_attacking:
 		velocity.x = direction.x * SPEED
@@ -67,11 +59,7 @@ func _physics_process(delta):
 		change_player_direction()
 	
 	animation_tree.set("parameters/Moviment/blend_position", direction.x)
-	
-	#print($AnimationPlayer.current_animation)
-	
-	#animation_tree.set("")
-	
+		
 	move_and_slide()
 
 func change_player_direction()->void:
@@ -95,14 +83,13 @@ func change_player_direction()->void:
 	
 
 func _unhandled_input(event: InputEvent) -> void:
-	
-	if event.is_action("ui_throw") :
+	if event.is_action("ui_throw") and not is_attacking  and current_spear != null:
 		throw_spear()
 
 
 
 func throw_spear()->void:
-	is_attacking = false
+	is_attacking = true
 	state_machine.travel("Throw")
 	
 	pass
@@ -136,11 +123,10 @@ func reload_spear() ->void:
 	current_spear.position = Vector3.ZERO
 
 func on_animation_finished(anim_name: StringName) -> void:
-	#print("-----  anim_name: ", anim_name)
-	if anim_name.to_lower().contains("attack"):
+	print("-----  anim_name: ", anim_name)
+	if anim_name.to_lower().contains("throw"):
 		is_attacking = false
 	pass # Replace with function body.
-	reload_spear()
 
 
 
