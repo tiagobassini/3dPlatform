@@ -27,9 +27,10 @@ var state_machine: AnimationNodeStateMachinePlayback
 
 func _ready() -> void:
 	state_machine = $AnimationTree.get("parameters/playback")
-	current_spear = right_socket.get_child(0)
-	if current_spear == null:
-		current_spear = left_socket.get_child(0)
+	reload_spear()
+	#current_spear = right_socket.get_child(0)
+	#if current_spear == null:
+		#current_spear = left_socket.get_child(0)
 	
 	pass	
 

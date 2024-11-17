@@ -2,6 +2,9 @@ extends Node3D
 class_name Spear
 
 
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 @export var speed: float = 5.5
 var throwed: bool = false
 
