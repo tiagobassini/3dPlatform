@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Platform3d"
-run/main_scene="res://scenes/level/teste_3.tscn"
+run/main_scene="res://scenes/level/level_1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[debug]
+
+shapes/collision/shape_color=Color(0.835294, 0, 0.803922, 0.803922)
+shapes/collision/contact_color=Color(1, 0.2, 0.101961, 0.878431)
 
 [input]
 
@@ -27,3 +32,25 @@ ui_throw={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":90,"key_label":0,"unicode":122,"echo":false,"script":null)
 ]
 }
+magic={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"echo":false,"script":null)
+]
+}
+
+[layer_names]
+
+3d_physics/layer_1="Player"
+3d_physics/layer_2="Enemy"
+3d_physics/layer_3="Player Attack"
+3d_physics/layer_4="Environment "
+3d_physics/layer_5="Collectibles"
+3d_physics/layer_6="Triggers"
+3d_physics/layer_7="Trap "
+3d_physics/layer_8="Enemy Attack  "
+3d_physics/layer_9="Decoration "
+
+[rendering]
+
+lights_and_shadows/positional_shadow/atlas_quadrant_0_subdiv=1
+lights_and_shadows/positional_shadow/atlas_quadrant_1_subdiv=1

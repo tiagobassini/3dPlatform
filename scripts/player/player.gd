@@ -1,9 +1,11 @@
 extends CharacterBody3D
+class_name Player
 
 @export var spear_scene: PackedScene 
 
-const SPEED = 4.0
-const JUMP_VELOCITY = 7.5
+@export var SPEED = 4.0
+@export var JUMP_VELOCITY = 7.5
+@export var SHOOT_SPEED = 4.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -36,6 +38,7 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	# Add the gravity.
+	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
@@ -60,8 +63,10 @@ func _physics_process(delta):
 		change_player_direction()
 	
 	animation_tree.set("parameters/Moviment/blend_position", direction.x)
-		
+	
+	velocity.z = 0.0
 	move_and_slide()
+	#move_and_slide()
 
 func change_player_direction()->void:
 	if current_spear !=null: 
@@ -106,9 +111,13 @@ func shoot_spear()->void:
 	
 	
 	get_tree().root.add_child(current_spear)
-	current_spear.global_position = throw_position.global_position
-	current_spear.is_flipped = is_flipped
-	current_spear.throwed = true
+	current_spear.is_throwed(throw_position.global_position, is_flipped)
+	#current_spear.global_position = 
+	#current_spear.is_flipped = is_flipped
+	#current_spear.throwed = true
+	current_spear.scale = self.scale
+	current_spear.speed = SHOOT_SPEED
+	
 	current_spear = null
 	spear_respawn_timer.start()
 	pass

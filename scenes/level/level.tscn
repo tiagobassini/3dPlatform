@@ -1060,7 +1060,7 @@ shape = SubResource("BoxShape3D_abwja")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.64813, -0.223605, 0)
 
 [node name="block-grass-large-tall" type="MeshInstance3D" parent="Platform/block-grass-large-tall4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52674, 1.55924, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17975, 1.99035, 0)
 mesh = SubResource("ArrayMesh_mjjkb")
 skeleton = NodePath("")
 

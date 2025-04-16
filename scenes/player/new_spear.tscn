@@ -1,6 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3wvqnhi1sdjn"]
+[gd_scene load_steps=40 format=3 uid="uid://c3wvqnhi1sdjn"]
 
 [ext_resource type="Script" path="res://scripts/player/spear.gd" id="1_p7wq4"]
+[ext_resource type="Shader" uid="uid://da2pb73rqp7mf" path="res://scenes/vfx/fire/shader_fire_vfx.tres" id="2_ru5ab"]
+[ext_resource type="Texture2D" uid="uid://clsnpf8ev62on" path="res://scenes/vfx/fire/Voronoi01.png" id="3_eref8"]
+[ext_resource type="Texture2D" uid="uid://78rfuosntqiv" path="res://scenes/vfx/fire/Flame01.png" id="4_3fgb6"]
+[ext_resource type="Texture2D" uid="uid://cwqmvj6n46ki0" path="res://scenes/vfx/fire/Flame02.png" id="5_uxd8l"]
+[ext_resource type="Shader" uid="uid://bd7iifb2il8tc" path="res://scenes/vfx/fire/shader_simple_particle.tres" id="6_gfdv4"]
+[ext_resource type="Texture2D" uid="uid://cp5khhpxngdqh" path="res://scenes/vfx/fire/Flare00.PNG" id="7_wcs6k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ougse"]
 resource_name = "LightWood"
@@ -94,6 +100,175 @@ bind/7/name = &"IK_bone"
 bind/7/bone = -1
 bind/7/pose = Transform3D(0, 1, 1.94707e-07, 1, 0, 0, 0, 1.94707e-07, -1, 1.25025, -0.0293036, 3.53675e-07)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1736j"]
+render_priority = 0
+shader = ExtResource("2_ru5ab")
+shader_parameter/DissolveTiling = Vector2(0.25, 0.25)
+shader_parameter/DissolveSpeed = Vector2(0, 0.15)
+shader_parameter/DissolveAmount = 0.543
+shader_parameter/MainTexture = ExtResource("4_3fgb6")
+shader_parameter/DissolveTexture = ExtResource("3_eref8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m28re"]
+gravity = Vector3(0, 0, 0)
+color = Color(8, 2, 0.4, 0.8)
+
+[sub_resource type="QuadMesh" id="QuadMesh_xhhvv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7n0l6"]
+render_priority = 0
+shader = ExtResource("2_ru5ab")
+shader_parameter/DissolveTiling = Vector2(1, 1)
+shader_parameter/DissolveSpeed = Vector2(0, 0)
+shader_parameter/DissolveAmount = 0.0
+shader_parameter/MainTexture = ExtResource("5_uxd8l")
+shader_parameter/DissolveTexture = ExtResource("3_eref8")
+
+[sub_resource type="Curve" id="Curve_3106q"]
+_data = [Vector2(0.005386, 0.412986), 0.407471, 1.08483, 0, 0, Vector2(0.933573, 0), -0.253895, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_44dka"]
+curve = SubResource("Curve_3106q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cjk1y"]
+lifetime_randomness = 0.15
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 0.4
+angle_min = -360.0
+angle_max = 360.0
+gravity = Vector3(0, 0.8, 0)
+damping_min = 0.5
+damping_max = 1.0
+scale_min = 0.01
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_44dka")
+color = Color(8, 2, 0.4, 0.8)
+
+[sub_resource type="QuadMesh" id="QuadMesh_q4jbv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5102a"]
+render_priority = 0
+shader = ExtResource("2_ru5ab")
+shader_parameter/DissolveTiling = Vector2(1, 1)
+shader_parameter/DissolveSpeed = Vector2(0, 0)
+shader_parameter/DissolveAmount = 0.0
+shader_parameter/MainTexture = ExtResource("5_uxd8l")
+shader_parameter/DissolveTexture = ExtResource("3_eref8")
+
+[sub_resource type="Gradient" id="Gradient_3t5hs"]
+offsets = PackedFloat32Array(0, 0.0340265, 0.149338, 0.42344, 0.650284, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.792157, 1, 1, 1, 1, 1, 1, 1, 0.792745, 1, 1, 1, 0.784314, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2ernd"]
+gradient = SubResource("Gradient_3t5hs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cpkpf"]
+lifetime_randomness = 0.15
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 0.4
+angle_min = -360.0
+angle_max = 360.0
+gravity = Vector3(0, 1.1, 0)
+linear_accel_max = 0.1
+damping_min = 0.5
+damping_max = 1.0
+scale_min = 0.01
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_44dka")
+color = Color(0, 0, 0, 0.823529)
+color_ramp = SubResource("GradientTexture1D_2ernd")
+turbulence_enabled = true
+turbulence_noise_scale = 1.2
+turbulence_noise_speed_random = 0.05
+turbulence_influence_min = 0.05
+
+[sub_resource type="QuadMesh" id="QuadMesh_dnl8c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wbjcc"]
+render_priority = 0
+shader = ExtResource("6_gfdv4")
+shader_parameter/MainTexture = ExtResource("7_wcs6k")
+
+[sub_resource type="Curve" id="Curve_gh1a3"]
+_data = [Vector2(0.00897666, 0), 0.0, 0.0, 0, 0, Vector2(0.303411, 0.395847), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fvrou"]
+curve = SubResource("Curve_gh1a3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3qu1j"]
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 0.6
+gravity = Vector3(0, 0.9, 0)
+scale_min = 0.0
+scale_max = 0.05
+scale_curve = SubResource("CurveTexture_fvrou")
+color = Color(8, 2, 0.4, 0.8)
+turbulence_enabled = true
+turbulence_noise_scale = 5.0
+turbulence_influence_min = 0.05
+turbulence_influence_max = 0.12
+
+[sub_resource type="QuadMesh" id="QuadMesh_jtb4n"]
+
+[sub_resource type="Animation" id="Animation_0u4s7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShaftBody:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uvdqk"]
+resource_name = "collided"
+length = 0.9
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone.002")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -9.46747e-09, -1.38788e-17, -0.00975025, 0.999952, 0.1, 1, 1.52842e-09, 6.2451e-18, 0.00372694, 0.999993, 0.2, 1, 3.53789e-09, -1.04088e-17, 0.0092864, 0.999957, 0.3, 1, 7.78721e-09, -2.42886e-17, 0.0141716, 0.9999, 0.4, 1, -9.36685e-09, 2.77567e-18, 0.00166202, 0.999999, 0.5, 1, -8.91858e-09, 1.38824e-17, 0.025283, 0.99968, 0.6, 1, -8.91692e-09, 1.66635e-17, 0.0353205, 0.999376, 0.7, 1, -9.2977e-09, -6.24711e-18, 0.0158385, 0.999875, 0.8, 1, -9.43889e-09, 0, -0.00234284, 0.999997)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:Bone.003")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -1.02165e-09, 1.19209e-07, -0.00119943, 0.999999, 0.1, 1, -6.37253e-09, 1.19182e-07, -0.0215122, 0.999769, 0.2, 1, -7.42363e-09, 1.19169e-07, -0.0259737, 0.999663, 0.3, 1, -9.72369e-09, 1.19179e-07, -0.0225982, 0.999745, 0.4, 1, -1.17651e-09, 1.19209e-07, 0.000204392, 1, 0.5, 1, -1.53721e-09, 1.19208e-07, 0.00381424, 0.999993, 0.6, 1, -1.48271e-09, 1.19209e-07, 0.00302116, 0.999995, 0.7, 1, -1.37563e-09, 1.19209e-07, 0.00194778, 0.999998, 0.8, 1, -1.12673e-09, 1.19209e-07, -0.000288195, 1)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:Bone.004")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1.72127e-10, 1.40442e-15, 0.000234963, 1, 0.1, 1, -4.39264e-09, -4.23555e-15, -0.0248605, 0.999691, 0.2, 1, -6.98774e-09, 2.827e-15, -0.0320385, 0.999487, 0.3, 1, -9.52411e-09, 5.55372e-17, -0.0306166, 0.999531, 0.4, 1, 2.35275e-10, 2.84496e-15, -4.00559e-05, 1, 0.8, 1, 2.13997e-10, 7.10543e-15, 5.64574e-05, 1)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D:Bone.005")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 1.95115e-10, -4.26951e-15, 0.000266342, 1, 0.1, 1, -2.82792e-09, 2.82862e-15, -0.0160146, 0.999872, 0.3, 1, -6.44401e-09, 7.20412e-15, -0.0207152, 0.999785, 0.4, 1, 2.66668e-10, 2.84288e-15, -4.5388e-05, 1, 0.8, 1, 2.42572e-10, 7.10196e-15, 6.39963e-05, 1)
+tracks/4/type = "position_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature/Skeleton3D:IK_bone")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.121935, -6.58705, 1.18401e-07, 0.1, 1, 0.290655, -6.57408, 1.20925e-07, 0.2, 1, 0.317493, -6.56811, 1.20815e-07, 0.3, 1, 0.217587, -6.57454, 1.19563e-07, 0.4, 1, -0.0208602, -6.59299, 1.17244e-07, 0.5, 1, -0.318249, -6.61866, 1.12246e-07, 0.6, 1, -0.44587, -6.63012, 1.12561e-07, 0.7, 1, -0.198966, -6.60865, 1.16741e-07, 0.8, 1, 0.0293036, -6.5888, 1.18059e-07)
+
 [sub_resource type="Animation" id="Animation_1quqs"]
 resource_name = "idle"
 length = 0.001
@@ -171,15 +346,56 @@ tracks/4/path = NodePath("Armature/Skeleton3D:IK_bone")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = PackedFloat32Array(0, 1, 0.0293036, -6.5888, 1.18059e-07, 0.0333333, 1, 0.127606, -6.57651, 1.20452e-07, 0.0666667, 1, 0.327992, -6.55147, 1.25329e-07, 0.1, 1, 0.585092, -6.51933, 1.31586e-07, 0.133333, 1, 0.853534, -6.48577, 1.3812e-07, 0.166667, 1, 1.08795, -6.45647, 1.43825e-07, 0.2, 1, 1.18625, -6.44418, 1.39087e-07, 0.233333, 1, 1.17113, -6.45033, 1.36108e-07, 0.266667, 1, 1.07282, -6.47112, 1.32059e-07, 0.3, 1, 0.912137, -6.50184, 1.26078e-07, 0.333333, 1, 0.700408, -6.53681, 1.19269e-07, 0.366667, 1, 0.443309, -6.56612, 1.13563e-07, 0.4, 1, 0.169196, -6.58266, 1.1569e-07, 0.433333, 1, -0.110589, -6.58266, 1.19256e-07, 0.466667, 1, -0.384701, -6.56612, 1.22476e-07, 0.5, 1, -0.6418, -6.53681, 1.28181e-07, 0.533333, 1, -0.853528, -6.50184, 1.34991e-07, 0.566667, 1, -1.01421, -6.47112, 1.40972e-07, 0.6, 1, -1.11252, -6.45033, 1.41456e-07, 0.633333, 1, -1.13605, -6.44418, 1.37305e-07, 0.666667, 1, -1.07137, -6.45647, 1.34912e-07, 0.7, 1, -0.904198, -6.48577, 1.29207e-07, 0.733333, 1, -0.690394, -6.51933, 1.22673e-07, 0.766667, 1, -0.450107, -6.55147, 1.16416e-07, 0.8, 1, -0.20349, -6.57651, 1.13322e-07, 0.833333, 1, 0.0293036, -6.5888, 1.18059e-07, 0.866667, 1, 0.21119, -6.58178, 1.19426e-07, 0.9, 1, 0.354036, -6.56747, 1.22213e-07, 0.933333, 1, 0.461183, -6.5491, 1.25789e-07, 0.966667, 1, 0.535973, -6.52993, 1.29522e-07, 1, 1, 0.581749, -6.51318, 1.32783e-07, 1.03333, 1, 0.595522, -6.50616, 1.30075e-07, 1.06667, 1, 0.580128, -6.50967, 1.28373e-07, 1.1, 1, 0.53334, -6.52156, 1.26059e-07, 1.13333, 1, 0.456626, -6.53911, 1.22641e-07, 1.16667, 1, 0.35515, -6.55909, 1.1875e-07, 1.2, 1, 0.230989, -6.57584, 1.1549e-07, 1.23333, 1, 0.0975617, -6.58529, 1.16706e-07, 1.26667, 1, -0.0398322, -6.58705, 1.18401e-07, 1.3, 1, -0.175623, -6.58232, 1.19321e-07, 1.33333, 1, -0.30397, -6.57395, 1.20951e-07, 1.36667, 1, -0.410441, -6.56396, 1.22897e-07, 1.4, 1, -0.491544, -6.55518, 1.24606e-07, 1.43333, 1, -0.541303, -6.54924, 1.24744e-07, 1.46667, 1, -0.553422, -6.54748, 1.23558e-07, 1.5, 1, -0.521285, -6.55099, 1.22874e-07, 1.53333, 1, -0.438106, -6.55937, 1.21244e-07, 1.56667, 1, -0.331532, -6.56895, 1.19378e-07, 1.6, 1, -0.21149, -6.57813, 1.1759e-07, 1.63333, 1, -0.0879031, -6.58529, 1.16706e-07, 1.66667, 1, 0.0293036, -6.5888, 1.18059e-07, 1.7, 1, 0.121935, -6.58705, 1.18401e-07, 1.73333, 1, 0.195425, -6.58347, 1.19098e-07, 1.76667, 1, 0.251193, -6.57888, 1.19992e-07, 1.8, 1, 0.290655, -6.57408, 1.20925e-07, 1.83333, 1, 0.315231, -6.5699, 1.2174e-07, 1.86667, 1, 0.322793, -6.56814, 1.21063e-07, 1.9, 1, 0.317493, -6.56811, 1.20815e-07, 1.93333, 1, 0.298386, -6.56926, 1.20592e-07, 1.96667, 1, 0.26505, -6.57137, 1.20181e-07, 2, 1, 0.217587, -6.57454, 1.19563e-07, 2.03333, 1, 0.15149, -6.57933, 1.1863e-07, 2.06667, 1, 0.0715683, -6.58549, 1.18194e-07, 2.1, 1, -0.0208602, -6.59299, 1.17244e-07, 2.13333, 1, -0.122049, -6.60151, 1.15585e-07, 2.16667, 1, -0.22582, -6.61049, 1.13836e-07, 2.2, 1, -0.318249, -6.61866, 1.12246e-07, 2.23333, 1, -0.391081, -6.62516, 1.1098e-07, 2.26667, 1, -0.436924, -6.62928, 1.11197e-07, 2.3, 1, -0.44587, -6.63012, 1.12561e-07, 2.33333, 1, -0.405496, -6.62661, 1.13244e-07, 2.36667, 1, -0.309219, -6.61824, 1.14874e-07, 2.4, 1, -0.198966, -6.60865, 1.16741e-07, 2.43333, 1, -0.0933717, -6.59947, 1.18529e-07, 2.46667, 1, -0.0110705, -6.59231, 1.19413e-07, 2.5, 1, 0.0293036, -6.5888, 1.18059e-07)
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"launch_player"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ShaftBody:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.9, 1, 1.3, 1.4, 1.8, 2.3, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.331613), Vector3(0, 0, 0), Vector3(0, 0, -0.331613), Vector3(0, 0, 0.0872665), Vector3(0, 0, 0.15708), Vector3(0, 0, -0.0872665), Vector3(0, 0, -0.15708), Vector3(0, 0, 0.0872665), Vector3(0, 0, -0.122173), Vector3(0, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cs1p0"]
 _data = {
+"RESET": SubResource("Animation_0u4s7"),
+"collided": SubResource("Animation_uvdqk"),
 "idle": SubResource("Animation_1quqs"),
 "spring": SubResource("Animation_v3ypl")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kr3jv"]
+size = Vector3(0.2, 0.35, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pjxj3"]
+size = Vector3(0.3, 1.2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6frb5"]
+size = Vector3(0.05, 1.2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2y1h2"]
+size = Vector3(3, 3, 3)
+
 [node name="Spear" type="Node3D"]
 script = ExtResource("1_p7wq4")
+fixed_time = 10.0
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(0.250001, 0, 0, 0, 0.16, 0, 0, 0, 0.249999, 0, 0.3, 0)
@@ -246,7 +462,107 @@ bones/7/scale = Vector3(1, 1, 1)
 mesh = SubResource("ArrayMesh_mjfq8")
 skin = SubResource("Skin_yhob2")
 
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0)
+bone_name = "Bone.001"
+bone_idx = 1
+
+[node name="SpellSocket" type="Node3D" parent="Armature/Skeleton3D/BoneAttachment3D"]
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BoneAttachment3D/SpellSocket"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.697432, 0)
+
+[node name="StaticFlame" type="GPUParticles3D" parent="Armature/Skeleton3D/BoneAttachment3D/SpellSocket/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, -0.366415, 0)
+visible = false
+material_override = SubResource("ShaderMaterial_1736j")
+amount = 2
+lifetime = 3.5
+process_material = SubResource("ParticleProcessMaterial_m28re")
+draw_pass_1 = SubResource("QuadMesh_xhhvv")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BoneAttachment3D/SpellSocket/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_7n0l6")
+amount = 36
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_cjk1y")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="Smoke" type="GPUParticles3D" parent="Armature/Skeleton3D/BoneAttachment3D/SpellSocket/FireVFX"]
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_5102a")
+amount = 30
+amount_ratio = 0.95
+lifetime = 1.5
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_cpkpf")
+draw_pass_1 = SubResource("QuadMesh_dnl8c")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BoneAttachment3D/SpellSocket/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 24
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_3qu1j")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_cs1p0")
 }
+autoplay = "idle"
+speed_scale = 2.0
+
+[node name="BladeArea" type="Area3D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 170
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BladeArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.482269, 0)
+shape = SubResource("BoxShape3D_kr3jv")
+
+[node name="SpringArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28771, 0)
+collision_layer = 32
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpringArea"]
+shape = SubResource("BoxShape3D_pjxj3")
+
+[node name="ShaftBody" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.237174, 0)
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShaftBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.470758, 0)
+shape = SubResource("BoxShape3D_6frb5")
+disabled = true
+
+[node name="ShaftAreaDetector" type="Area3D" parent="."]
+visible = false
+collision_layer = 32
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShaftAreaDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00305176, -0.3, 0)
+shape = SubResource("BoxShape3D_2y1h2")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
+[connection signal="body_entered" from="BladeArea" to="." method="_on_blade_and_body_collided"]
+[connection signal="body_entered" from="SpringArea" to="." method="_on_spring_area_body_entered"]
+[connection signal="body_entered" from="ShaftAreaDetector" to="." method="_on_shaft_area_detector"]
+[connection signal="body_exited" from="ShaftAreaDetector" to="." method="_on_shaft_area_detector_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

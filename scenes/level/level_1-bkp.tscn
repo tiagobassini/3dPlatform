@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://s8e2lkfau8we"]
+
+[ext_resource type="Environment" uid="uid://2cbpwttvx5cx" path="res://resources/sky/enviroment_day2.tres" id="1_14b7l"]
+[ext_resource type="MeshLibrary" uid="uid://b1n1fatuvec08" path="res://resources/tiles/FlootMeshLibrary.tres" id="2_i0st7"]
+[ext_resource type="Shader" path="res://resources/shader/water.gdshader" id="3_s2e84"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0rfp7"]
+render_priority = 0
+shader = ExtResource("3_s2e84")
+shader_parameter/WATER_COL = Color(0.00784314, 0.184314, 0.466667, 1)
+shader_parameter/WATER2_COL = Color(0.0392157, 0.34902, 0.780392, 1)
+shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
+shader_parameter/distortion_speed = 4.0
+shader_parameter/tile = Vector2(200, 40)
+shader_parameter/height = 0.25
+shader_parameter/wave_size = Vector2(2, 2)
+shader_parameter/wave_speed = 1.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sj2fh"]
+material = SubResource("ShaderMaterial_0rfp7")
+size = Vector2(100, 8)
+
+[node name="Level1-2" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0707935, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_14b7l")
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="PlatformsGridmap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_i0st7")
+cell_size = Vector3(0.5, 0.5, 0.5)
+data = {
+"cells": PackedInt32Array(3, 1, 9, 6, 1, 8, 5, 1, 8, 4, 1, 8, 8, 1, 8, 9, 1, 8, 65545, 1, 2, 65544, 1, 2, 65541, 1, 2, 65539, 1, 2, 65540, 1, 2, 7, 1, 8, 10, 1, 10, 11, 1, 12, 65547, 1, 15, 131083, 1, 15, 196619, 1, 18, 196620, 1, 17, 196621, 1, 17, 131084, 1, 14, 131085, 1, 14, 65548, 1, 14, 65549, 1, 14, 65550, 1, 16, 131086, 1, 16, 196622, 1, 19, 196624, 1, 7, 196626, 1, 7, 196628, 1, 7, 131095, 1, 9, 131096, 1, 8, 131097, 1, 8, 131098, 1, 10, 262155, 1, 2, 262158, 1, 1, 262160, 1, 2, 196633, 1, 2, 14, 1, 13, 13, 1, 11, 12, 1, 11, 262146, 1, 6, 196610, 1, 5, 131074, 1, 5, 65538, 1, 5, 2, 1, 4)
+}
+metadata/_editor_floor_ = Vector3(0, 2, 0)
+metadata/_edit_lock_ = true
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("PlaneMesh_sj2fh")
+metadata/_edit_lock_ = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.651079, 0.75901, 0, -0.75901, 0.651079, -8.30609, 14.1293, 0)
+light_energy = 0.462
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34611, 1.09683, 3.15295)

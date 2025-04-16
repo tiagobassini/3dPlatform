@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://dt6g3p2mkc22g"]
+
+[ext_resource type="Environment" uid="uid://2cbpwttvx5cx" path="res://resources/sky/enviroment_day2.tres" id="1_hraek"]
+[ext_resource type="MeshLibrary" uid="uid://b1n1fatuvec08" path="res://resources/tiles/FlootMeshLibrary.tres" id="1_ms4c7"]
+[ext_resource type="Shader" path="res://resources/shader/water.gdshader" id="2_kdhqe"]
+[ext_resource type="Script" path="res://scripts/level/level_1.gd" id="4_d3xbu"]
+[ext_resource type="PackedScene" uid="uid://dt6flgldb5qw3" path="res://scenes/player/player.tscn" id="4_w1j54"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0rfp7"]
+render_priority = 0
+shader = ExtResource("2_kdhqe")
+shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
+shader_parameter/WATER2_COL = Color(0.0392157, 0.34902, 0.780392, 1)
+shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
+shader_parameter/distortion_speed = 4.0
+shader_parameter/tile = Vector2(200, 39)
+shader_parameter/height = 0.25
+shader_parameter/wave_size = Vector2(2, 2)
+shader_parameter/wave_speed = 1.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sj2fh"]
+material = SubResource("ShaderMaterial_0rfp7")
+size = Vector2(100, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kjuso"]
+size = Vector3(100, 1, 10)
+
+[node name="Level1" type="Node3D"]
+script = ExtResource("4_d3xbu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_hraek")
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.16424, -0.597923, 0.232552)
+mesh_library = ExtResource("1_ms4c7")
+cell_size = Vector3(0.5, 0.5, 0.5)
+collision_layer = 8
+collision_mask = 215
+data = {
+"cells": PackedInt32Array(65539, 3, 4, 65550, 3, 6, 65540, 3, 3, 65541, 3, 3, 65542, 3, 3, 65543, 3, 3, 65544, 3, 3, 65545, 3, 3, 65546, 3, 3, 65547, 3, 3, 65548, 3, 3, 65549, 3, 3, 65552, 3, 5, 65554, 3, 5, 65556, 3, 5, 131080, 3, 2, 131083, 3, 1, 196619, 3, 2, 131084, 3, 1048576, 131086, 3, 1048576, 196622, 3, 1048577, 262158, 3, 1048577, 327694, 3, 1048577, 393230, 3, 1048578)
+}
+metadata/_editor_floor_ = Vector3(0, 6, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.651079, 0.75901, 0, -0.75901, 0.651079, 0, 2.3117, 11.1209)
+shadow_enabled = true
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.45042, 0.334976, 1.52146)
+mesh = SubResource("PlaneMesh_sj2fh")
+
+[node name="Area3D" type="Area3D" parent="Water"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Water/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+shape = SubResource("BoxShape3D_kjuso")
+
+[node name="Player" parent="." instance=ExtResource("4_w1j54")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -6, 0.671383, 2)
+platform_on_leave = 2
+SPEED = 2.0
+JUMP_VELOCITY = 5.2
+SHOOT_SPEED = 2.8
+
+[node name="Camera3D2" type="Camera3D" parent="Player"]
+transform = Transform3D(0.0158707, 1.41318, -3.74201, -0.00599354, 3.74205, 1.41317, 3.99996, 0, 0.0169647, -6.06849, 2.26289, 0.09342)
+
+[node name="Camera3D3" type="Camera3D" parent="Player"]
+transform = Transform3D(4, -1.46682e-14, -2.38419e-07, 6.17072e-08, 3.8637, 1.03528, 2.30295e-07, -1.03528, 3.8637, 0.498896, 2.4679, 8)
+current = true
+
+[connection signal="body_entered" from="Water/Area3D" to="." method="_on_area_3d_body_entered"]
