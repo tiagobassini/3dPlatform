@@ -7,12 +7,16 @@ class_name Spear
 @onready var shaft_body_collision: CollisionShape3D = $ShaftBody/CollisionShape3D
 @onready var shaft_area_detector: Area3D = $ShaftAreaDetector
 @onready var timer: Timer = $Timer
+@onready var spell_socket: Node3D = $Armature/Skeleton3D/BoneAttachment3D/SpellSocket
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var speed: float = 5.5
 @export var fixed_time: float = 2.5
 @export var spring_force: float = 5.0
+
+@export var spell: PackedScene
+
 
 var player: Player = null
 var throwed: bool = false
@@ -81,6 +85,8 @@ func _on_blade_and_body_collided(_body: Node3D) -> void:
 	animation_player.play("collided")
 	
 	timer.start(fixed_time)
+		
+	call_spell()
 
 
 
@@ -129,3 +135,13 @@ func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "spring":
 		spring= false
 	pass # Replace with function body.
+
+
+func call_spell()->void:
+	
+	if spell != null :
+		var spell_instance: Node3D = spell.instantiate()
+		get_tree().root.add_child(spell_instance)
+		spell_instance.global_position = spell_socket.global_position
+	
+	pass

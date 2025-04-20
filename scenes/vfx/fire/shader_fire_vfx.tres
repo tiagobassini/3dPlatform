@@ -71,7 +71,7 @@ keep_scale = true
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded;
 
 uniform sampler2D MainTexture;
 uniform vec2 DissolveTiling = vec2(1.000000, 1.000000);
@@ -172,7 +172,8 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-413.35, 22.729)
+modes/cull = 2
+flags/unshaded = true
 nodes/vertex/2/node = SubResource("VisualShaderNodeBillboard_ldgbu")
 nodes/vertex/2/position = Vector2(-80, 240)
 nodes/vertex/connections = PackedInt32Array(2, 0, 0, 10)

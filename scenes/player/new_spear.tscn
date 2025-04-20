@@ -1,12 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://c3wvqnhi1sdjn"]
+[gd_scene load_steps=18 format=3 uid="uid://c3wvqnhi1sdjn"]
 
 [ext_resource type="Script" path="res://scripts/player/spear.gd" id="1_p7wq4"]
-[ext_resource type="Shader" uid="uid://da2pb73rqp7mf" path="res://scenes/vfx/fire/shader_fire_vfx.tres" id="2_ru5ab"]
-[ext_resource type="Texture2D" uid="uid://clsnpf8ev62on" path="res://scenes/vfx/fire/Voronoi01.png" id="3_eref8"]
-[ext_resource type="Texture2D" uid="uid://78rfuosntqiv" path="res://scenes/vfx/fire/Flame01.png" id="4_3fgb6"]
-[ext_resource type="Texture2D" uid="uid://cwqmvj6n46ki0" path="res://scenes/vfx/fire/Flame02.png" id="5_uxd8l"]
-[ext_resource type="Shader" uid="uid://bd7iifb2il8tc" path="res://scenes/vfx/fire/shader_simple_particle.tres" id="6_gfdv4"]
-[ext_resource type="Texture2D" uid="uid://cp5khhpxngdqh" path="res://scenes/vfx/fire/Flare00.PNG" id="7_wcs6k"]
+[ext_resource type="PackedScene" uid="uid://bbb1mraxry4fc" path="res://scenes/vfx/fire/fire_vfx.tscn" id="2_hp46x"]
+[ext_resource type="PackedScene" uid="uid://csc6m1bw33vtv" path="res://scenes/vfx/explosion/explosion_vfx.tscn" id="2_khnbi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ougse"]
 resource_name = "LightWood"
@@ -99,121 +95,6 @@ bind/6/pose = Transform3D(1, 0, 2.38419e-07, 0, -1, 0, 2.38419e-07, 0, -1, 0, -1
 bind/7/name = &"IK_bone"
 bind/7/bone = -1
 bind/7/pose = Transform3D(0, 1, 1.94707e-07, 1, 0, 0, 0, 1.94707e-07, -1, 1.25025, -0.0293036, 3.53675e-07)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1736j"]
-render_priority = 0
-shader = ExtResource("2_ru5ab")
-shader_parameter/DissolveTiling = Vector2(0.25, 0.25)
-shader_parameter/DissolveSpeed = Vector2(0, 0.15)
-shader_parameter/DissolveAmount = 0.543
-shader_parameter/MainTexture = ExtResource("4_3fgb6")
-shader_parameter/DissolveTexture = ExtResource("3_eref8")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m28re"]
-gravity = Vector3(0, 0, 0)
-color = Color(8, 2, 0.4, 0.8)
-
-[sub_resource type="QuadMesh" id="QuadMesh_xhhvv"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7n0l6"]
-render_priority = 0
-shader = ExtResource("2_ru5ab")
-shader_parameter/DissolveTiling = Vector2(1, 1)
-shader_parameter/DissolveSpeed = Vector2(0, 0)
-shader_parameter/DissolveAmount = 0.0
-shader_parameter/MainTexture = ExtResource("5_uxd8l")
-shader_parameter/DissolveTexture = ExtResource("3_eref8")
-
-[sub_resource type="Curve" id="Curve_3106q"]
-_data = [Vector2(0.005386, 0.412986), 0.407471, 1.08483, 0, 0, Vector2(0.933573, 0), -0.253895, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_44dka"]
-curve = SubResource("Curve_3106q")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cjk1y"]
-lifetime_randomness = 0.15
-particle_flag_rotate_y = true
-emission_shape = 1
-emission_sphere_radius = 0.4
-angle_min = -360.0
-angle_max = 360.0
-gravity = Vector3(0, 0.8, 0)
-damping_min = 0.5
-damping_max = 1.0
-scale_min = 0.01
-scale_max = 0.3
-scale_curve = SubResource("CurveTexture_44dka")
-color = Color(8, 2, 0.4, 0.8)
-
-[sub_resource type="QuadMesh" id="QuadMesh_q4jbv"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5102a"]
-render_priority = 0
-shader = ExtResource("2_ru5ab")
-shader_parameter/DissolveTiling = Vector2(1, 1)
-shader_parameter/DissolveSpeed = Vector2(0, 0)
-shader_parameter/DissolveAmount = 0.0
-shader_parameter/MainTexture = ExtResource("5_uxd8l")
-shader_parameter/DissolveTexture = ExtResource("3_eref8")
-
-[sub_resource type="Gradient" id="Gradient_3t5hs"]
-offsets = PackedFloat32Array(0, 0.0340265, 0.149338, 0.42344, 0.650284, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.792157, 1, 1, 1, 1, 1, 1, 1, 0.792745, 1, 1, 1, 0.784314, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_2ernd"]
-gradient = SubResource("Gradient_3t5hs")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cpkpf"]
-lifetime_randomness = 0.15
-particle_flag_rotate_y = true
-emission_shape = 1
-emission_sphere_radius = 0.4
-angle_min = -360.0
-angle_max = 360.0
-gravity = Vector3(0, 1.1, 0)
-linear_accel_max = 0.1
-damping_min = 0.5
-damping_max = 1.0
-scale_min = 0.01
-scale_max = 0.3
-scale_curve = SubResource("CurveTexture_44dka")
-color = Color(0, 0, 0, 0.823529)
-color_ramp = SubResource("GradientTexture1D_2ernd")
-turbulence_enabled = true
-turbulence_noise_scale = 1.2
-turbulence_noise_speed_random = 0.05
-turbulence_influence_min = 0.05
-
-[sub_resource type="QuadMesh" id="QuadMesh_dnl8c"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wbjcc"]
-render_priority = 0
-shader = ExtResource("6_gfdv4")
-shader_parameter/MainTexture = ExtResource("7_wcs6k")
-
-[sub_resource type="Curve" id="Curve_gh1a3"]
-_data = [Vector2(0.00897666, 0), 0.0, 0.0, 0, 0, Vector2(0.303411, 0.395847), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_fvrou"]
-curve = SubResource("Curve_gh1a3")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3qu1j"]
-particle_flag_rotate_y = true
-emission_shape = 1
-emission_sphere_radius = 0.6
-gravity = Vector3(0, 0.9, 0)
-scale_min = 0.0
-scale_max = 0.05
-scale_curve = SubResource("CurveTexture_fvrou")
-color = Color(8, 2, 0.4, 0.8)
-turbulence_enabled = true
-turbulence_noise_scale = 5.0
-turbulence_influence_min = 0.05
-turbulence_influence_max = 0.12
-
-[sub_resource type="QuadMesh" id="QuadMesh_jtb4n"]
 
 [sub_resource type="Animation" id="Animation_0u4s7"]
 length = 0.001
@@ -385,7 +266,7 @@ _data = {
 size = Vector3(0.2, 0.35, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pjxj3"]
-size = Vector3(0.3, 1.2, 0.2)
+size = Vector3(0.3, 1.25339, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6frb5"]
 size = Vector3(0.05, 1.2, 0.2)
@@ -396,6 +277,7 @@ size = Vector3(3, 3, 3)
 [node name="Spear" type="Node3D"]
 script = ExtResource("1_p7wq4")
 fixed_time = 10.0
+spell = ExtResource("2_khnbi")
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(0.250001, 0, 0, 0, 0.16, 0, 0, 0, 0.249999, 0, 0.3, 0)
@@ -468,47 +350,9 @@ bone_name = "Bone.001"
 bone_idx = 1
 
 [node name="SpellSocket" type="Node3D" parent="Armature/Skeleton3D/BoneAttachment3D"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74227e-08, 0, 8.74228e-08, -1, 0, -1, 0)
 
-[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BoneAttachment3D/SpellSocket"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.697432, 0)
-
-[node name="StaticFlame" type="GPUParticles3D" parent="Armature/Skeleton3D/BoneAttachment3D/SpellSocket/FireVFX"]
-transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, -0.366415, 0)
-visible = false
-material_override = SubResource("ShaderMaterial_1736j")
-amount = 2
-lifetime = 3.5
-process_material = SubResource("ParticleProcessMaterial_m28re")
-draw_pass_1 = SubResource("QuadMesh_xhhvv")
-
-[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BoneAttachment3D/SpellSocket/FireVFX"]
-transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
-material_override = SubResource("ShaderMaterial_7n0l6")
-amount = 36
-lifetime = 1.3
-randomness = 0.01
-visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
-process_material = SubResource("ParticleProcessMaterial_cjk1y")
-draw_pass_1 = SubResource("QuadMesh_q4jbv")
-
-[node name="Smoke" type="GPUParticles3D" parent="Armature/Skeleton3D/BoneAttachment3D/SpellSocket/FireVFX"]
-sorting_offset = -1.0
-material_override = SubResource("ShaderMaterial_5102a")
-amount = 30
-amount_ratio = 0.95
-lifetime = 1.5
-visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
-process_material = SubResource("ParticleProcessMaterial_cpkpf")
-draw_pass_1 = SubResource("QuadMesh_dnl8c")
-
-[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BoneAttachment3D/SpellSocket/FireVFX"]
-sorting_offset = 1.0
-material_override = SubResource("ShaderMaterial_wbjcc")
-amount = 24
-randomness = 0.01
-visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
-process_material = SubResource("ParticleProcessMaterial_3qu1j")
-draw_pass_1 = SubResource("QuadMesh_jtb4n")
+[node name="FireVFX" parent="Armature/Skeleton3D/BoneAttachment3D/SpellSocket" instance=ExtResource("2_hp46x")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -535,10 +379,12 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpringArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0266967, 0)
 shape = SubResource("BoxShape3D_pjxj3")
 
 [node name="ShaftBody" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.237174, 0)
+visible = false
 collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ShaftBody"]

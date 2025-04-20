@@ -1,17 +1,36 @@
-[gd_scene load_steps=9 format=3 uid="uid://dt6g3p2mkc22g"]
+[gd_scene load_steps=14 format=3 uid="uid://dt6g3p2mkc22g"]
 
 [ext_resource type="Environment" uid="uid://2cbpwttvx5cx" path="res://resources/sky/enviroment_day2.tres" id="1_hraek"]
 [ext_resource type="MeshLibrary" uid="uid://b1n1fatuvec08" path="res://resources/tiles/FlootMeshLibrary.tres" id="1_ms4c7"]
 [ext_resource type="Shader" path="res://resources/shader/water.gdshader" id="2_kdhqe"]
+[ext_resource type="ArrayMesh" uid="uid://bixsb2njbiklc" path="res://scenes/vfx/thunder/thunder_edited.tres" id="3_udbcl"]
 [ext_resource type="Script" path="res://scripts/level/level_1.gd" id="4_d3xbu"]
 [ext_resource type="PackedScene" uid="uid://dt6flgldb5qw3" path="res://scenes/player/player.tscn" id="4_w1j54"]
+[ext_resource type="AudioStream" uid="uid://b3cv4lrip73dx" path="res://assets/sounds/musics/musica 2.mp3" id="7_kpw5j"]
+
+[sub_resource type="Gradient" id="Gradient_5yknb"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p0nmp"]
+gradient = SubResource("Gradient_5yknb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a3p6j"]
+lifetime_randomness = 0.15
+particle_flag_rotate_y = true
+emission_shape_offset = Vector3(0, 1, 0)
+emission_shape = 3
+emission_box_extents = Vector3(20, 0, 2)
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_p0nmp")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0rfp7"]
 render_priority = 0
 shader = ExtResource("2_kdhqe")
-shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
-shader_parameter/WATER2_COL = Color(0.0392157, 0.34902, 0.780392, 1)
-shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
+shader_parameter/WATER_COL = Color(0.360784, 0.215686, 0.909804, 1)
+shader_parameter/WATER2_COL = Color(0.290196, 0.34902, 0.780392, 1)
+shader_parameter/FOAM_COL = Color(0.811765, 0.796078, 0.964706, 1)
 shader_parameter/distortion_speed = 4.0
 shader_parameter/tile = Vector2(200, 39)
 shader_parameter/height = 0.25
@@ -30,6 +49,16 @@ script = ExtResource("4_d3xbu")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_hraek")
+
+[node name="ThunderVFX" type="Node3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, -0.836839)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="WorldEnvironment/ThunderVFX"]
+amount = 1
+amount_ratio = 0.8
+lifetime = 0.25
+process_material = SubResource("ParticleProcessMaterial_a3p6j")
+draw_pass_1 = ExtResource("3_udbcl")
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.16424, -0.597923, 0.232552)
@@ -69,5 +98,12 @@ transform = Transform3D(0.0158707, 1.41318, -3.74201, -0.00599354, 3.74205, 1.41
 [node name="Camera3D3" type="Camera3D" parent="Player"]
 transform = Transform3D(4, -1.46682e-14, -2.38419e-07, 6.17072e-08, 3.8637, 1.03528, 2.30295e-07, -1.03528, 3.8637, 0.498896, 2.4679, 8)
 current = true
+
+[node name="Sound" type="Node3D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("7_kpw5j")
+volume_db = -22.0
+autoplay = true
 
 [connection signal="body_entered" from="Water/Area3D" to="." method="_on_area_3d_body_entered"]
