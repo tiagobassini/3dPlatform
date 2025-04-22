@@ -11,16 +11,18 @@ uniform float clouds_speed : hint_range(-1.0, 1.0, 0.001) = 0.015;
 uniform int clouds_samples : hint_range(8, 32, 8) = 16;
 uniform int shadow_sample : hint_range(1, 4, 1) = 4;
 
-uniform float clouds_density : hint_range(0.0, 1.0, 0.1) = 0.5;
+uniform float clouds_density : hint_range(0.0, 1.0, 0.05) = 0.5;
 uniform float clouds_scale : hint_range(0.5, 1.5, 0.1) = 1.0;
 uniform float clouds_smoothness : hint_range(0.01, 0.1, 0.01) = 0.035;
 uniform vec3 clouds_light_color : source_color;
 uniform float clouds_shadow_intensity : hint_range(0.1, 10.0, 0.1) = 1.0;
 
 group_uniforms high_clouds;
-
 uniform sampler2D high_clouds_sampler;
+uniform float high_clouds_speed : hint_range(-1.0, 1.0, 0.001) = 0.00;
 uniform float high_clouds_density : hint_range(0.0, 1.0, 0.05) = 0.0;
+uniform float high_clouds_scale : hint_range(0.1, 5.0, 0.1) = 1.0;
+uniform vec3 high_clouds_color : source_color = vec3(1.0);
 
 group_uniforms sky;
 
@@ -46,6 +48,7 @@ uniform sampler2D shooting_star_sampler : filter_linear, repeat_disable;
 uniform vec3 shooting_star_tint : source_color;
 uniform int shooting_stars_frequency : hint_range(0, 1000, 1) = 5;
 uniform float shooting_stars_lifetime : hint_range(0.0, 5.0, 0.01) = 0.5;
+uniform float shooting_stars_speed : hint_range(0.0, 2.0, 0.01) = 0.4;
 
 uniform vec3 shooting_stars_direction  = vec3(0.0, -1.0, 0.0);
 
@@ -53,10 +56,6 @@ uniform vec3 shooting_stars_direction  = vec3(0.0, -1.0, 0.0);
 
 float rand(float n){return fract(sin(n) * 43758.5453123);}
 
-// Voronoi method credit:
-// The MIT License
-// Copyright © 2013 Inigo Quilez
-// https://www.shadertoy.com/view/ldl3Dl
 
 vec3 hash( vec3 x ){
 	x = vec3( dot(x,vec3(127.1,311.7, 74.7)),
@@ -87,7 +86,6 @@ vec3 voronoi( in vec3 x ){
     return vec3( sqrt( res ), abs(id) );
 }
 
-// https://stackoverflow.com/questions/18558910/direction-vector-to-rotation-matrix
 
 mat3 direction_to_matrix(vec3 direction) {
 	vec3 x_axis = normalize(cross(vec3(0.0, 1.0, 0.0), direction));
@@ -139,6 +137,8 @@ vec2 cloud_ray_march(vec3 direction, vec3 sun_direction){
 	return vec2(density, light / float(shadow_sample * clouds_samples));
 }
 
+
+
 vec3 random_direction(float seed){
 	float phi = rand(seed) * PI;
 	float costheta = rand(seed + 100.0) * 2.0 - 1.0;
@@ -160,7 +160,7 @@ float get_shooting_star(vec3 eyedir){
 		float a = rand_value * 0.8;
 		mat3 angle = mat3(vec3(cos(a), -sin(a), 0.0), vec3(sin(a), cos(a), 0.0), vec3(0.0, 0.0, 1.0));	
 		vec3 shooting_dir = direction_to_matrix(random_direction(seed)) * angle * eyedir;
-		vec2 shooting_uv = ((shooting_dir.xy + vec2(0.0, progress * 0.4)) * (8.0 + rand_scale)) + vec2(0.5);
+		vec2 shooting_uv = ((shooting_dir.xy + vec2(0.0, progress * shooting_stars_speed)) * (8.0 + rand_scale)) + vec2(0.5);
 		
 		float shooting_mask = ceil(
 			clamp(shooting_uv.x * (1.0 - shooting_uv.x), 0.0, 1.0) *
@@ -213,20 +213,17 @@ void sky() {
 	sky_color = mix(sky_color, astro_color.rgb * astro_intensity * astro_tint, astro_color.a * astro_mask * bottom_mask);
 	
 	// Add high clouds
-	
-	if(high_clouds_density > 0.0){
-		vec2 high_clouds_uv = (EYEDIR.xz / clamp(EYEDIR.y, 0.0, 1.0)) * 0.25 + TIME * 0.001;
+		if(high_clouds_density > 0.0){
+		vec2 high_clouds_uv = ((EYEDIR.xz / clamp(EYEDIR.y, 0.01, 1.0)) * 0.25 * high_clouds_scale) + TIME * high_clouds_speed;
 		float high_clouds_mask = texture(high_clouds_sampler, high_clouds_uv).x;
-		sky_color = mix(sky_color, clouds_light_color, smoothstep(0.0, 1.0, high_clouds_mask) * horizon_mask * bottom_mask * high_clouds_density);
+		
+		sky_color = mix(sky_color, high_clouds_color, smoothstep(0.0, 1.0, high_clouds_mask) * horizon_mask * bottom_mask * high_clouds_density);
 	}
-	
-	
 	
 	// clouds
 	if (AT_HALF_RES_PASS) {
 		vec3 clouds_direction = vec3(EYEDIR.xz / clamp(EYEDIR.y, 0.0, 1.0), 1.0);
 		vec2 clouds = EYEDIR.y > 0.0 ? cloud_ray_march(clouds_direction, LIGHT0_DIRECTION) : vec2(0.0);
-		
 		COLOR = mix(bottom_color, clouds_light_color, exp(-clouds.y * clouds_shadow_intensity));
 		ALPHA = (1.0 - exp(-clouds.x * horizon_mask * bottom_mask * 10.0));
 		

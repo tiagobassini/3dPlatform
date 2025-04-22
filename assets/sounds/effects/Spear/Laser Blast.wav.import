@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dmmw8d44if161"
+path="res://.godot/imported/Laser Blast.wav-9165bda581ac6201edc5a0410302957f.sample"
+
+[deps]
+
+source_file="res://assets/sounds/effects/Spear/Laser Blast.wav"
+dest_files=["res://.godot/imported/Laser Blast.wav-9165bda581ac6201edc5a0410302957f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
