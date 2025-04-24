@@ -43,7 +43,7 @@ noise = SubResource("FastNoiseLite_kfvpo")
 
 [resource]
 shader = ExtResource("1_metr0")
-shader_parameter/clouds_speed = -0.055
+shader_parameter/clouds_speed = -0.00999995
 shader_parameter/clouds_samples = 8
 shader_parameter/shadow_sample = 4
 shader_parameter/clouds_density = 0.65
@@ -54,7 +54,7 @@ shader_parameter/clouds_shadow_intensity = 1.0
 shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_v7m2v")
 shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_u733s")
 shader_parameter/cloud_curves = SubResource("CurveTexture_kpaia")
-shader_parameter/high_clouds_speed = -0.1
+shader_parameter/high_clouds_speed = -0.05
 shader_parameter/high_clouds_density = 1.0
 shader_parameter/high_clouds_scale = 2.6
 shader_parameter/high_clouds_color = Color(0.509804, 0.415686, 0.635294, 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dt6g3p2mkc22g"]
+[gd_scene load_steps=22 format=3 uid="uid://dt6g3p2mkc22g"]
 
 [ext_resource type="Environment" uid="uid://2cbpwttvx5cx" path="res://resources/sky/enviroment_day2.tres" id="1_hraek"]
 [ext_resource type="MeshLibrary" uid="uid://b1n1fatuvec08" path="res://resources/tiles/FlootMeshLibrary.tres" id="1_ms4c7"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://scripts/level/level_1.gd" id="4_d3xbu"]
 [ext_resource type="PackedScene" uid="uid://dt6flgldb5qw3" path="res://scenes/player/player.tscn" id="4_w1j54"]
 [ext_resource type="AudioStream" uid="uid://b3cv4lrip73dx" path="res://assets/sounds/musics/musica 2.mp3" id="7_kpw5j"]
+[ext_resource type="Script" path="res://scripts/environment/Weather.gd" id="7_mouy5"]
+[ext_resource type="RibbonTrailMesh" uid="uid://8f4uu1y7laye" path="res://Weather/Rain/realish_rain_particle_process_material.tres" id="9_2c446"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0rfp7"]
 render_priority = 0
@@ -43,6 +45,65 @@ angle_max = 180.0
 gravity = Vector3(0, 0, 0)
 scale_max = 2.0
 color_ramp = SubResource("GradientTexture1D_p0nmp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dofo3"]
+lifetime_randomness = 0.1
+emission_shape_offset = Vector3(10, 0, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1, 5, 5)
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 0, 0)
+color = Color(1, 1, 1, 0.352941)
+turbulence_noise_speed = Vector3(10, 0, 0)
+turbulence_noise_speed_random = 0.0
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vi4nx"]
+load_path = "res://.godot/imported/Circle.png-f35525acfd8733ae1d5f16c684718bf8.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bsj6"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.745098)
+albedo_texture = SubResource("CompressedTexture2D_vi4nx")
+heightmap_scale = -16.0
+refraction_scale = 1.0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+distance_fade_mode = 1
+distance_fade_max_distance = 5.0
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_jyot8"]
+material = SubResource("StandardMaterial3D_1bsj6")
+shape = 0
+size = 1.5
+sections = 2
+section_length = 0.01
+section_segments = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iv4vk"]
+size = Vector3(10, 10, 10)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tsn6p"]
+emission_shape = 3
+emission_box_extents = Vector3(20, 1, 10)
+direction = Vector3(0, -1, 0)
+spread = 5.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(-30, -9.8, 0)
+color = Color(1, 1, 1, 0.352941)
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
 
 [node name="Level1" type="Node3D"]
 script = ExtResource("4_d3xbu")
@@ -97,9 +158,9 @@ volume_db = -22.0
 autoplay = true
 
 [node name="Weather" type="Node3D" parent="."]
+script = ExtResource("7_mouy5")
 
 [node name="ThunderVFX" type="Node3D" parent="Weather"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, -0.836839)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Weather/ThunderVFX"]
 amount = 1
@@ -110,7 +171,34 @@ draw_pass_1 = ExtResource("3_udbcl")
 
 [node name="Wind" type="Node3D" parent="Weather"]
 
+[node name="Wind_Particles" type="GPUParticles3D" parent="Weather/Wind"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.95934)
+amount = 30
+lifetime = 2.0
+preprocess = 1.0
+visibility_aabb = AABB(-4, -12, -4, 8, 12, 8)
+transform_align = 1
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_dofo3")
+draw_pass_1 = SubResource("RibbonTrailMesh_jyot8")
+
+[node name="Area3D" type="Area3D" parent="Weather/Wind/Wind_Particles"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Weather/Wind/Wind_Particles/Area3D"]
+shape = SubResource("BoxShape3D_iv4vk")
+
 [node name="Rain" type="Node3D" parent="Weather"]
+
+[node name="Rain_Particles" type="GPUParticles3D" parent="Weather/Rain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+amount = 1000
+preprocess = 1.0
+randomness = 0.85
+visibility_aabb = AABB(-4, -12, -4, 8, 12, 8)
+trail_enabled = true
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_tsn6p")
+draw_pass_1 = ExtResource("9_2c446")
 
 [node name="WeatherAnimationPlayer" type="AnimationPlayer" parent="Weather"]
 root_node = NodePath("../..")
