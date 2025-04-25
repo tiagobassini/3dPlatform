@@ -1,14 +1,16 @@
-[gd_scene load_steps=22 format=3 uid="uid://dt6g3p2mkc22g"]
+[gd_scene load_steps=30 format=3 uid="uid://dt6g3p2mkc22g"]
 
 [ext_resource type="Environment" uid="uid://2cbpwttvx5cx" path="res://resources/sky/enviroment_day2.tres" id="1_hraek"]
 [ext_resource type="MeshLibrary" uid="uid://b1n1fatuvec08" path="res://resources/tiles/FlootMeshLibrary.tres" id="1_ms4c7"]
 [ext_resource type="Shader" path="res://resources/shader/water.gdshader" id="2_kdhqe"]
-[ext_resource type="ArrayMesh" uid="uid://bixsb2njbiklc" path="res://scenes/vfx/thunder/thunder_edited.tres" id="3_udbcl"]
+[ext_resource type="ArrayMesh" uid="uid://bixsb2njbiklc" path="res://scenes/vfx/weather/thunder/thunder_edited.tres" id="3_udbcl"]
 [ext_resource type="Script" path="res://scripts/level/level_1.gd" id="4_d3xbu"]
 [ext_resource type="PackedScene" uid="uid://dt6flgldb5qw3" path="res://scenes/player/player.tscn" id="4_w1j54"]
 [ext_resource type="AudioStream" uid="uid://b3cv4lrip73dx" path="res://assets/sounds/musics/musica 2.mp3" id="7_kpw5j"]
 [ext_resource type="Script" path="res://scripts/environment/Weather.gd" id="7_mouy5"]
-[ext_resource type="RibbonTrailMesh" uid="uid://8f4uu1y7laye" path="res://Weather/Rain/realish_rain_particle_process_material.tres" id="9_2c446"]
+[ext_resource type="Texture2D" uid="uid://bbvqsd22bwuc5" path="res://scenes/vfx/weather/wind/texture/Circle.png" id="9_m0sxx"]
+[ext_resource type="Texture2D" uid="uid://ct0xdcjn10f0u" path="res://scenes/vfx/weather/rain/texture/Circle.png" id="10_idsnd"]
+[ext_resource type="AudioStream" uid="uid://fs5pp2tb71pt" path="res://assets/sounds/effects/thunder/lighting_spell_electric_impact_thunder_dark_dry_01.wav" id="11_pxp3n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0rfp7"]
 render_priority = 0
@@ -37,14 +39,100 @@ gradient = SubResource("Gradient_5yknb")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a3p6j"]
 lifetime_randomness = 0.15
 particle_flag_rotate_y = true
-emission_shape_offset = Vector3(0, 1, 0)
+emission_shape_offset = Vector3(0, 0, -4)
 emission_shape = 3
-emission_box_extents = Vector3(20, 0, 2)
+emission_box_extents = Vector3(10, 0, 5)
 angle_min = -180.0
 angle_max = 180.0
 gravity = Vector3(0, 0, 0)
 scale_max = 2.0
 color_ramp = SubResource("GradientTexture1D_p0nmp")
+
+[sub_resource type="Animation" id="Animation_mj4i3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WorldEnvironment:environment:volumetric_fog_emission_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weather/ThunderVFX/ThunderSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weather/ThunderVFX/Thunder_Particles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_o54vw"]
+resource_name = "thunder_light"
+length = 2.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WorldEnvironment:environment:volumetric_fog_emission_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 600.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weather/ThunderVFX/ThunderSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weather/ThunderVFX/Thunder_Particles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.07),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vcmik"]
+_data = {
+"RESET": SubResource("Animation_mj4i3"),
+"thunder_light": SubResource("Animation_o54vw")
+}
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dofo3"]
 lifetime_randomness = 0.1
@@ -62,16 +150,12 @@ turbulence_noise_speed_random = 0.0
 turbulence_influence_min = 0.0
 turbulence_influence_max = 0.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vi4nx"]
-load_path = "res://.godot/imported/Circle.png-f35525acfd8733ae1d5f16c684718bf8.s3tc.ctex"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bsj6"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 0.745098)
-albedo_texture = SubResource("CompressedTexture2D_vi4nx")
+albedo_texture = ExtResource("9_m0sxx")
 heightmap_scale = -16.0
 refraction_scale = 1.0
 billboard_mode = 3
@@ -86,13 +170,13 @@ material = SubResource("StandardMaterial3D_1bsj6")
 shape = 0
 size = 1.5
 sections = 2
-section_length = 0.01
+section_length = 0.005
 section_segments = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iv4vk"]
 size = Vector3(10, 10, 10)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tsn6p"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ij6jt"]
 emission_shape = 3
 emission_box_extents = Vector3(20, 1, 10)
 direction = Vector3(0, -1, 0)
@@ -104,6 +188,35 @@ color = Color(1, 1, 1, 0.352941)
 collision_mode = 1
 collision_friction = 0.0
 collision_bounce = 0.0
+
+[sub_resource type="Curve" id="Curve_8i0d1"]
+_data = [Vector2(0.494253, 1), 0.0, 0.0, 0, 0, Vector2(0.867816, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4cri"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.701961, 0.572549, 0.831373, 1)
+albedo_texture = ExtResource("10_idsnd")
+heightmap_scale = -16.0
+refraction_scale = 1.0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_r687n"]
+material = SubResource("StandardMaterial3D_p4cri")
+size = 0.02
+sections = 4
+section_length = 0.001
+curve = SubResource("Curve_8i0d1")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yo2wc"]
+radius = 0.15
 
 [node name="Level1" type="Node3D"]
 script = ExtResource("4_d3xbu")
@@ -139,7 +252,6 @@ shape = SubResource("BoxShape3D_kjuso")
 [node name="Player" parent="." instance=ExtResource("4_w1j54")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -6, 0.671383, 2)
 platform_on_leave = 2
-SPEED = 2.0
 JUMP_VELOCITY = 5.2
 SHOOT_SPEED = 2.8
 
@@ -152,28 +264,44 @@ current = true
 
 [node name="Sound" type="Node3D" parent="."]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sound"]
+[node name="LevelMusicPlayer" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("7_kpw5j")
 volume_db = -22.0
 autoplay = true
+bus = &"Music"
 
-[node name="Weather" type="Node3D" parent="."]
+[node name="Weather" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.318759, 1.97833)
 script = ExtResource("7_mouy5")
+target = NodePath("../Player")
 
 [node name="ThunderVFX" type="Node3D" parent="Weather"]
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Weather/ThunderVFX"]
+[node name="Thunder_Particles" type="GPUParticles3D" parent="Weather/ThunderVFX"]
+emitting = false
 amount = 1
 amount_ratio = 0.8
 lifetime = 0.25
+one_shot = true
 process_material = SubResource("ParticleProcessMaterial_a3p6j")
 draw_pass_1 = ExtResource("3_udbcl")
+
+[node name="ThunderSound" type="AudioStreamPlayer3D" parent="Weather/ThunderVFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.41483, 0, 0)
+stream = ExtResource("11_pxp3n")
+volume_db = -15.0
+bus = &"Effect"
+
+[node name="ThunderAnimationPlayer" type="AnimationPlayer" parent="Weather/ThunderVFX"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_vcmik")
+}
 
 [node name="Wind" type="Node3D" parent="Weather"]
 
 [node name="Wind_Particles" type="GPUParticles3D" parent="Weather/Wind"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.95934)
-amount = 30
+amount = 36
 lifetime = 2.0
 preprocess = 1.0
 visibility_aabb = AABB(-4, -12, -4, 8, 12, 8)
@@ -182,9 +310,11 @@ trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_dofo3")
 draw_pass_1 = SubResource("RibbonTrailMesh_jyot8")
 
-[node name="Area3D" type="Area3D" parent="Weather/Wind/Wind_Particles"]
+[node name="WindForceEffectArea" type="Area3D" parent="Weather/Wind/Wind_Particles"]
+collision_layer = 8
+collision_mask = 17
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Weather/Wind/Wind_Particles/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Weather/Wind/Wind_Particles/WindForceEffectArea"]
 shape = SubResource("BoxShape3D_iv4vk")
 
 [node name="Rain" type="Node3D" parent="Weather"]
@@ -197,10 +327,25 @@ randomness = 0.85
 visibility_aabb = AABB(-4, -12, -4, 8, 12, 8)
 trail_enabled = true
 trail_lifetime = 0.1
-process_material = SubResource("ParticleProcessMaterial_tsn6p")
-draw_pass_1 = ExtResource("9_2c446")
+process_material = SubResource("ParticleProcessMaterial_ij6jt")
+draw_pass_1 = SubResource("RibbonTrailMesh_r687n")
 
-[node name="WeatherAnimationPlayer" type="AnimationPlayer" parent="Weather"]
-root_node = NodePath("../..")
+[node name="RainSound" type="AudioStreamPlayer3D" parent="Weather/Rain"]
+
+[node name="WeatherUpdateTimer" type="Timer" parent="Weather"]
+wait_time = 10.0
+autostart = true
+
+[node name="box" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+collision_layer = 16
+collision_mask = 9
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="box"]
+shape = SubResource("SphereShape3D_yo2wc")
 
 [connection signal="body_entered" from="Water/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="animation_finished" from="Weather/ThunderVFX/ThunderAnimationPlayer" to="Weather" method="_on__animation_finished"]
+[connection signal="body_entered" from="Weather/Wind/Wind_Particles/WindForceEffectArea" to="Weather" method="_on_wind_area_body_entered"]
+[connection signal="body_exited" from="Weather/Wind/Wind_Particles/WindForceEffectArea" to="Weather" method="_on_wind_area_body_exited"]
+[connection signal="timeout" from="Weather/WeatherUpdateTimer" to="Weather" method="_on_weather_update_timeout"]

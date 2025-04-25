@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c6rftssmatwqh"
+path="res://.godot/imported/ht_electric (#2); ht_energy (#2).wav-497b4a71d866f8bf95459bf9ee06a6c3.sample"
+
+[deps]
+
+source_file="res://assets/sounds/effects/player_moviments/ht_electric (#2); ht_energy (#2).wav"
+dest_files=["res://.godot/imported/ht_electric (#2); ht_energy (#2).wav-497b4a71d866f8bf95459bf9ee06a6c3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

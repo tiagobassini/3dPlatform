@@ -3,7 +3,7 @@ class_name Player
 
 @export var spear_scene: PackedScene 
 
-@export var SPEED = 4.0
+@export var SPEED = 2.0
 @export var JUMP_VELOCITY = 7.5
 @export var SHOOT_SPEED = 4.0
 
@@ -29,11 +29,7 @@ var state_machine: AnimationNodeStateMachinePlayback
 
 func _ready() -> void:
 	state_machine = $AnimationTree.get("parameters/playback")
-	reload_spear()
-	#current_spear = right_socket.get_child(0)
-	#if current_spear == null:
-		#current_spear = left_socket.get_child(0)
-	
+	reload_spear()	
 	pass	
 
 func _physics_process(delta):
@@ -46,27 +42,26 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var direction:Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
 	if direction and not is_attacking:
-		velocity.x = direction.x * SPEED
-		velocity.z = 0.0#direction.z * SPEED
+		velocity.x += direction.x * SPEED
+		if abs(velocity.x) > SPEED:
+			velocity.x = direction.x * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		#velocity.z = move_toward(velocity.z, 0, SPEED)
-		velocity.z = 0.0
+		velocity.x = move_toward(velocity.x, 0, SPEED*0.65)
 	
-	
-	if velocity.x >0 and is_flipped:
+	if direction.x >0 and is_flipped:
 		change_player_direction()
-	elif velocity.x < 0 and not is_flipped:
+	elif direction.x < 0 and not is_flipped:
 		change_player_direction()
 	
 	animation_tree.set("parameters/Moviment/blend_position", direction.x)
 	
 	velocity.z = 0.0
+	#print("vel x:", velocity.x)
 	move_and_slide()
-	#move_and_slide()
+	pass
 
 func change_player_direction()->void:
 	if current_spear !=null: 
@@ -85,19 +80,18 @@ func change_player_direction()->void:
 	mesh.rotation.y *= -1
 	mesh.position.x *= -1
 	throw_position.position.x *= -1
-	
-	
+	pass
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action("ui_throw") and not is_attacking  and current_spear != null:
 		throw_spear()
-
+	pass
 
 
 func throw_spear()->void:
 	is_attacking = true
 	state_machine.travel("Throw")
-	
 	pass
 
 
