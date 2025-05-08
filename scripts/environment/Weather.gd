@@ -3,8 +3,10 @@ class_name Weather
 
 @export var target: Node3D
 
-@export var current_wind_force: int = -30
+@export var current_wind_force: float = -30.0
 @export var current_rain_force: int = 1000
+
+var newer_wind_force: float
 
 
 @onready var wind_particles: GPUParticles3D = $Wind/Wind_Particles
@@ -27,67 +29,49 @@ func _ready() -> void:
 	_set_rain_force(current_rain_force)
 	pass # Replace with function body.
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	follow_target()
 	thunder_animation()
 	wind_force_drag()
+	
+	verify_weather_change(delta)
 	pass
 
+func _set_wind_force(wind_force:float)->void:
+	newer_wind_force = wind_force
 
-func _set_wind_force(wind_force:int)->void:
-	current_wind_force = wind_force
+func _update_wind(_delta:float)->void: 
+	current_wind_force =  move_toward(current_wind_force, newer_wind_force, 10*_delta)
 	
-	var direction:int = -1 if wind_force < 0 else 1
-	
-	
-	rain_particles.process_material.gravity.x = wind_force
+	var direction:int = -1 if current_wind_force < 0.0 else 1
+	rain_particles.process_material.gravity.x = current_wind_force
 	
 	#wind attributes
-	wind_force = abs(wind_force)
+	var wind_force:float = abs(current_wind_force)
 	wind_particles.emitting = false if wind_force ==0 else true
-	wind_particles.amount = wind_force + 10
+	wind_particles.amount = int(wind_force) + 10
 	wind_particles.process_material.direction.x = direction
 	wind_particles.process_material.initial_velocity_min = wind_force
 	wind_particles.process_material.initial_velocity_max = wind_force
-	@warning_ignore("integer_division")
-	wind_particles.draw_pass_1.size = wind_force / 10
+	#@warning_ignore("integer_division")
+	wind_particles.draw_pass_1.size = wind_force / 10.0
 	wind_particles.process_material.emission_shape_offset.x = 10 if direction ==-1 else -10
 	
 	wind_force_effect_area.monitoring= true if wind_force>10 else false
 	pass
 
-
-
 func _set_rain_force(rain_force:int)->void:
 	current_rain_force = rain_force
 	rain_particles.emitting = false if rain_force ==0 else true
-	rain_particles.amount = rain_force
 	pass
 
-func rain_force_update()->void:
-	var prob:int = randi() % 100
+func verify_weather_change(_delta:float)->void:
+	if current_rain_force != rain_particles.amount :
+		rain_particles.amount = lerp(rain_particles.amount, current_rain_force, 0.2 )
 	
-	if prob % 2 ==0:
-		return
-	
-	var new_rain_force:int = (randi() %15 +1) *100
-	_set_wind_force(new_rain_force)
-	pass
-
-
-
-func wind_force_update()->void:
-	var prob:int = randi() % 100
-	
-	if prob % 2 ==0:
-		return
-	
-	var new_wind_force:int = randi_range(-3,3)
-	new_wind_force = 0 if new_wind_force<2 and new_wind_force>-2 else new_wind_force
-	_set_wind_force(new_wind_force)
-	
-	
-	pass
+	if current_wind_force != newer_wind_force :
+		_update_wind(_delta)
+		pass
 
 func wind_force_drag()->void:
 	
@@ -119,7 +103,7 @@ func _on_wind_area_body_exited(body: Node3D) -> void:
 func thunder_animation()->void:
 	if anim_finished :
 		var prob = randi() % 100
-		print("prob: ", prob)
+		#print("prob: ", prob)
 		anim_finished=false
 		if prob <=50:
 			thunder_particles.amount = (randi()%5)+1
@@ -139,7 +123,17 @@ func follow_target()->void:
 
 func _on_weather_update_timeout() -> void:
 	
-	rain_force_update()
-	wind_force_update()
+	if randi() % 100 % 2 ==0:
+		var new_rain_force:int = (randi() %20 +1) *100
+		_set_rain_force(new_rain_force)
 	
+	if current_rain_force <400 :
+		_set_wind_force(0)
+	else:
+		if (randi() % 10) % 2 ==0:
+			return
+		
+		var new_wind_force:int = randi_range(-3,3)
+		new_wind_force = 0 if new_wind_force<2 and new_wind_force>-2 else new_wind_force
+		_set_wind_force(new_wind_force * 10)
 	pass # Replace with function body.

@@ -127,7 +127,7 @@ func reload_spear() ->void:
 	current_spear.position = Vector3.ZERO
 
 func on_animation_finished(anim_name: StringName) -> void:
-	print("-----  anim_name: ", anim_name)
+	#print("-----  anim_name: ", anim_name)
 	if anim_name.to_lower().contains("throw"):
 		is_attacking = false
 	pass # Replace with function body.
