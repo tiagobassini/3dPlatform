@@ -274,6 +274,7 @@ bus = &"Music"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.318759, 1.97833)
 script = ExtResource("7_mouy5")
 target = NodePath("../Player")
+current_wind_force = -2.0
 
 [node name="ThunderVFX" type="Node3D" parent="Weather"]
 

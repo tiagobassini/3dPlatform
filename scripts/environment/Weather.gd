@@ -3,9 +3,12 @@ class_name Weather
 
 @export var target: Node3D
 
-@export var current_wind_force: float = -30.0
-@export var current_rain_force: int = 1000
+@export_range(-4,4) var current_wind_force: float = 2
+@export_range(0, 4) var max_wind_intensity:float =4
 
+
+@export_range(0,30) var current_rain_force: int = 20
+@export_range(0, 30) var max_rain_intensity:int = 30
 var newer_wind_force: float
 
 
@@ -40,15 +43,18 @@ func _physics_process(delta: float) -> void:
 func _set_wind_force(wind_force:float)->void:
 	newer_wind_force = wind_force
 
-func _update_wind(_delta:float)->void: 
-	current_wind_force =  move_toward(current_wind_force, newer_wind_force, 10*_delta)
+func _update_wind(_delta:float)->void:
+	
+	current_wind_force =  move_toward(current_wind_force, newer_wind_force, _delta)
 	
 	var direction:int = -1 if current_wind_force < 0.0 else 1
-	rain_particles.process_material.gravity.x = current_wind_force
+	
+	#current_wind_force *=10
+	rain_particles.process_material.gravity.x = current_wind_force*10
 	
 	#wind attributes
-	var wind_force:float = abs(current_wind_force)
-	wind_particles.emitting = false if wind_force ==0 else true
+	var wind_force:float = abs(current_wind_force)*10
+	wind_particles.emitting = false if wind_force == 0.0 else true
 	wind_particles.amount = int(wind_force) + 10
 	wind_particles.process_material.direction.x = direction
 	wind_particles.process_material.initial_velocity_min = wind_force
@@ -66,8 +72,9 @@ func _set_rain_force(rain_force:int)->void:
 	pass
 
 func verify_weather_change(_delta:float)->void:
-	if current_rain_force != rain_particles.amount :
-		rain_particles.amount = lerp(rain_particles.amount, current_rain_force, 0.2 )
+	var rain_force = current_rain_force*100
+	if rain_force != rain_particles.amount :
+		rain_particles.amount = lerp(rain_particles.amount, rain_force, 0.2 )
 	
 	if current_wind_force != newer_wind_force :
 		_update_wind(_delta)
@@ -124,16 +131,17 @@ func follow_target()->void:
 func _on_weather_update_timeout() -> void:
 	
 	if randi() % 100 % 2 ==0:
-		var new_rain_force:int = (randi() %20 +1) *100
+		var new_rain_force:int = ((randi() % max_rain_intensity)+1)
 		_set_rain_force(new_rain_force)
 	
-	if current_rain_force <400 :
+	if current_rain_force <5 :
 		_set_wind_force(0)
 	else:
 		if (randi() % 10) % 2 ==0:
 			return
 		
-		var new_wind_force:int = randi_range(-3,3)
-		new_wind_force = 0 if new_wind_force<2 and new_wind_force>-2 else new_wind_force
-		_set_wind_force(new_wind_force * 10)
-	pass # Replace with function body.
+		var new_wind_force:float = randf_range(-max_wind_intensity,max_wind_intensity)
+		new_wind_force = 0.0 if new_wind_force<2.0 and new_wind_force>-2.0 else new_wind_force
+		print("new wind force: ", new_wind_force)
+		_set_wind_force(new_wind_force)
+	pass 
