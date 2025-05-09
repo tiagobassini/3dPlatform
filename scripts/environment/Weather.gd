@@ -3,6 +3,9 @@ class_name Weather
 
 @export var target: Node3D
 
+@export var wind_enable: bool = false
+@export var rain_enable: bool = true
+
 @export_range(-4,4) var current_wind_force: float = 2
 @export_range(0, 4) var max_wind_intensity:float =4
 
@@ -72,13 +75,21 @@ func _set_rain_force(rain_force:int)->void:
 	pass
 
 func verify_weather_change(_delta:float)->void:
-	var rain_force = current_rain_force*100
-	if rain_force != rain_particles.amount :
-		rain_particles.amount = lerp(rain_particles.amount, rain_force, 0.2 )
+	rain_particles.emitting = rain_enable
 	
-	if current_wind_force != newer_wind_force :
-		_update_wind(_delta)
-		pass
+	if rain_enable :
+		var rain_force = current_rain_force*100
+		if rain_force != rain_particles.amount :
+			rain_particles.amount = lerp(rain_particles.amount, rain_force, 0.2 )
+	
+	wind_particles.emitting = wind_enable
+	wind_force_effect_area.monitoring= wind_enable
+	if wind_enable:
+		if current_wind_force != newer_wind_force :
+			_update_wind(_delta)
+	
+		
+	pass
 
 func wind_force_drag()->void:
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dt6g3p2mkc22g"]
+[gd_scene load_steps=29 format=3 uid="uid://dt6g3p2mkc22g"]
 
 [ext_resource type="Environment" uid="uid://2cbpwttvx5cx" path="res://resources/sky/enviroment_day2.tres" id="1_hraek"]
 [ext_resource type="MeshLibrary" uid="uid://b1n1fatuvec08" path="res://resources/tiles/FlootMeshLibrary.tres" id="1_ms4c7"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/environment/Weather.gd" id="7_mouy5"]
 [ext_resource type="Texture2D" uid="uid://bbvqsd22bwuc5" path="res://scenes/vfx/weather/wind/texture/Circle.png" id="9_m0sxx"]
 [ext_resource type="Texture2D" uid="uid://ct0xdcjn10f0u" path="res://scenes/vfx/weather/rain/texture/Circle.png" id="10_idsnd"]
-[ext_resource type="AudioStream" uid="uid://fs5pp2tb71pt" path="res://assets/sounds/effects/thunder/lighting_spell_electric_impact_thunder_dark_dry_01.wav" id="11_pxp3n"]
+[ext_resource type="AudioStream" uid="uid://fs5pp2tb71pt" path="res://assets/sounds/effects/Thunder/lighting_spell_electric_impact_thunder_dark_dry_01.wav" id="11_pxp3n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0rfp7"]
 render_priority = 0
@@ -215,9 +215,6 @@ sections = 4
 section_length = 0.001
 curve = SubResource("Curve_8i0d1")
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_yo2wc"]
-radius = 0.15
-
 [node name="Level1" type="Node3D"]
 script = ExtResource("4_d3xbu")
 
@@ -334,16 +331,8 @@ draw_pass_1 = SubResource("RibbonTrailMesh_r687n")
 [node name="RainSound" type="AudioStreamPlayer3D" parent="Weather/Rain"]
 
 [node name="WeatherUpdateTimer" type="Timer" parent="Weather"]
-wait_time = 10.0
+wait_time = 30.0
 autostart = true
-
-[node name="box" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
-collision_layer = 16
-collision_mask = 9
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="box"]
-shape = SubResource("SphereShape3D_yo2wc")
 
 [connection signal="body_entered" from="Water/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="animation_finished" from="Weather/ThunderVFX/ThunderAnimationPlayer" to="Weather" method="_on__animation_finished"]
