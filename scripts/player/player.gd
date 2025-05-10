@@ -91,7 +91,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func throw_spear()->void:
 	is_attacking = true
-	state_machine.travel("Throw")
+	if not is_on_floor(): 
+		state_machine.travel("AirThrow")
+	else:
+		state_machine.travel("Throw")
 	pass
 
 

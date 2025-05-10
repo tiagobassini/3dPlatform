@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dnbx0yw3avid7"
-path="res://.godot/imported/fire_punch_finisher_06.wav-044d11e823d185f925234ef2b56f7f5b.sample"
+path="res://.godot/imported/fire_punch_finisher_06.wav-23fbaf6b6ccf961d37255a170439496c.sample"
 
 [deps]
 
-source_file="res://assets/sounds/effects/Fire/fire_punch_finisher_06.wav"
-dest_files=["res://.godot/imported/fire_punch_finisher_06.wav-044d11e823d185f925234ef2b56f7f5b.sample"]
+source_file="res://assets/sounds/effects/fire/fire_punch_finisher_06.wav"
+dest_files=["res://.godot/imported/fire_punch_finisher_06.wav-23fbaf6b6ccf961d37255a170439496c.sample"]
 
 [params]
 

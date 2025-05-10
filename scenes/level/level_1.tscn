@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/environment/Weather.gd" id="7_mouy5"]
 [ext_resource type="Texture2D" uid="uid://bbvqsd22bwuc5" path="res://scenes/vfx/weather/wind/texture/Circle.png" id="9_m0sxx"]
 [ext_resource type="Texture2D" uid="uid://ct0xdcjn10f0u" path="res://scenes/vfx/weather/rain/texture/Circle.png" id="10_idsnd"]
-[ext_resource type="AudioStream" uid="uid://fs5pp2tb71pt" path="res://assets/sounds/effects/Thunder/lighting_spell_electric_impact_thunder_dark_dry_01.wav" id="11_pxp3n"]
+[ext_resource type="AudioStream" uid="uid://fs5pp2tb71pt" path="res://assets/sounds/effects/thunder/lighting_spell_electric_impact_thunder_dark_dry_01.wav" id="11_pxp3n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0rfp7"]
 render_priority = 0
@@ -228,9 +228,9 @@ cell_size = Vector3(0.5, 0.5, 0.5)
 collision_layer = 8
 collision_mask = 215
 data = {
-"cells": PackedInt32Array(65539, 3, 4, 65550, 3, 6, 65540, 3, 3, 65541, 3, 3, 65542, 3, 3, 65543, 3, 3, 65544, 3, 3, 65545, 3, 3, 65546, 3, 3, 65547, 3, 3, 65548, 3, 3, 65549, 3, 3, 65552, 3, 5, 65554, 3, 5, 65556, 3, 5, 131080, 3, 2, 131083, 3, 1, 196619, 3, 2, 131084, 3, 1048576, 131086, 3, 1048576, 196622, 3, 1048577, 262158, 3, 1048577, 327694, 3, 1048577, 393230, 3, 1048578)
+"cells": PackedInt32Array(65539, 3, 4, 65550, 3, 6, 65540, 3, 3, 65541, 3, 3, 65542, 3, 3, 65543, 3, 3, 65544, 3, 3, 65545, 3, 3, 65546, 3, 3, 65547, 3, 3, 65548, 3, 3, 65549, 3, 3, 65552, 3, 5, 65554, 3, 5, 65556, 3, 5, 131080, 3, 2, 131083, 3, 1, 196619, 3, 2, 131084, 3, 1048576, 131086, 3, 1048576, 196622, 3, 1048577, 262158, 3, 1048577, 327694, 3, 1048577, 393230, 3, 1048578, 65558, 3, 0, 131094, 3, 2, 65560, 3, 8, 131096, 3, 11, 196632, 3, 11, 262168, 3, 14, 65561, 3, 7, 65562, 3, 7, 65563, 3, 7, 65564, 3, 7, 65565, 3, 7, 65566, 3, 7, 65567, 3, 9, 196639, 3, 12, 327711, 3, 6, 327710, 3, 3, 327709, 3, 3, 327708, 3, 3, 327707, 3, 3, 327706, 3, 3, 327705, 3, 4, 262169, 3, 13, 131097, 3, 10, 196638, 3, 10, 196637, 3, 10, 196636, 3, 10, 196633, 3, 10, 196635, 3, 11, 196643, 3, 5, 131106, 3, 5, 65569, 3, 5, 393250, 3, 0, 458786, 3, 2, 524321, 3, 3, 524322, 3, 6, 524320, 3, 4, 262180, 3, 5, 327717, 3, 5, 458792, 3, 4, 458797, 3, 6, 458793, 3, 3, 458794, 3, 3, 458795, 3, 3, 458796, 3, 3, 524325, 3, 5)
 }
-metadata/_editor_floor_ = Vector3(0, 6, 0)
+metadata/_editor_floor_ = Vector3(0, 7, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.651079, 0.75901, 0, -0.75901, 0.651079, 0, 2.3117, 11.1209)

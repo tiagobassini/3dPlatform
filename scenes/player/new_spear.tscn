@@ -359,7 +359,7 @@ libraries = {
 "": SubResource("AnimationLibrary_cs1p0")
 }
 autoplay = "idle"
-speed_scale = 2.0
+speed_scale = 2.5
 
 [node name="BladeArea" type="Area3D" parent="."]
 visible = false

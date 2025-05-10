@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c8xoe7cilvrr3"
-path="res://.godot/imported/Laser Blast 3.wav-ba2f593e1cc90805ad4f7d84f019f209.sample"
+path="res://.godot/imported/Laser Blast 3.wav-55430a3b5a21b68ed5839a802fa8d8f5.sample"
 
 [deps]
 
-source_file="res://assets/sounds/effects/Spear/Laser Blast 3.wav"
-dest_files=["res://.godot/imported/Laser Blast 3.wav-ba2f593e1cc90805ad4f7d84f019f209.sample"]
+source_file="res://assets/sounds/effects/spear/Laser Blast 3.wav"
+dest_files=["res://.godot/imported/Laser Blast 3.wav-55430a3b5a21b68ed5839a802fa8d8f5.sample"]
 
 [params]
 
