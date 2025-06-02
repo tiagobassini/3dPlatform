@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c133xaq6gsda7"]
+
+[ext_resource type="Texture2D" uid="uid://bh57ogodeq1lf" path="res://scenes/vfx/earth/model/textures/T_rocks_A_color.png" id="1_8rhob"]
+
+[resource]
+albedo_texture = ExtResource("1_8rhob")
