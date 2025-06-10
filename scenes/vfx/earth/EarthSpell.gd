@@ -1,24 +1,26 @@
 extends Node3D
 
 @onready var ground_sensor: Node3D = $GroundSensor
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var spikes: Node3D = $Spikes
 
 var passed: bool = false
 
-
-
-#@onready var spikes: Array[Node3D] = [spike_1, spike_2, spike_3, spike_4, spike_5, spike_6]
-#@onready var spikes: Array[Node3D] = []
-
 var spikes_count: int = 0
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	_verify_ground_size()
+	print("spell")
+	#_verify_ground_size()
 	pass
 
-
+func _physics_process(_delta: float) -> void:
+	
+	if not passed:
+		passed = true
+		_verify_ground_size()
+	pass
 
 
 func _verify_ground_size()->void:
@@ -32,14 +34,23 @@ func _verify_ground_size()->void:
 		
 		if end_ground :
 			var spike: Node3D = spikes.get_child(spikes_count)
-			spike.hide()
-			for child in spike.get_children():
-				child.queue_free()
+			#spike.hide()
+			spike.show()
+			var stone = spike.get_child(0)
+			if stone.name.contains("Stone"):
+				stone.get_child(0).queue_free()
+			
 		else:
-			print("i: ", spikes_count , " colidiu")
+			#print("i: ", spikes_count , " colidiu")
 			spikes.get_child(spikes_count).show()
-			print("spike ",spikes_count, ": ",spikes.get_child(spikes_count).name, " foi exibido")
+			#print("spike ",spikes_count, ": ",spikes.get_child(spikes_count).name, " foi exibido")
 		spikes_count+=1
-		
+	
+	animation_player.play("Init")
 	pass
 
+
+
+func _on_animation_finished(_anim_name: StringName) -> void:
+	queue_free()
+	pass # Replace with function body.

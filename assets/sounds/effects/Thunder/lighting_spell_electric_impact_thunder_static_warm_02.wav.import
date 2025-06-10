@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b2tkfdvg2br3y"
-path="res://.godot/imported/lighting_spell_electric_impact_thunder_static_warm_02.wav-616267356f5ab2b8ff3ee6516f900ea9.sample"
+path="res://.godot/imported/lighting_spell_electric_impact_thunder_static_warm_02.wav-652af1d9a014cc7c7b266ff8c8f75b95.sample"
 
 [deps]
 
-source_file="res://assets/sounds/effects/Thunder/lighting_spell_electric_impact_thunder_static_warm_02.wav"
-dest_files=["res://.godot/imported/lighting_spell_electric_impact_thunder_static_warm_02.wav-616267356f5ab2b8ff3ee6516f900ea9.sample"]
+source_file="res://assets/sounds/effects/thunder/lighting_spell_electric_impact_thunder_static_warm_02.wav"
+dest_files=["res://.godot/imported/lighting_spell_electric_impact_thunder_static_warm_02.wav-652af1d9a014cc7c7b266ff8c8f75b95.sample"]
 
 [params]
 

@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name Player
 
 @export var spear_scene: PackedScene 
+@export var earth_spell_scene:PackedScene
 
 @export var SPEED = 2.0
 @export var JUMP_VELOCITY = 7.5
@@ -86,6 +87,9 @@ func change_player_direction()->void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action("ui_throw") and not is_attacking  and current_spear != null:
 		throw_spear()
+	elif event.is_action("ui_spell") and not is_attacking  and current_spear != null:
+		print("teste")
+		spell_attack()
 	pass
 
 
@@ -97,6 +101,10 @@ func throw_spear()->void:
 		state_machine.travel("Throw")
 	pass
 
+func spell_attack()->void:
+	if is_on_floor():
+		state_machine.travel("CastSpell")
+	pass
 
 func shoot_spear()->void:
 	print("spear shooted!")
@@ -130,9 +138,11 @@ func reload_spear() ->void:
 	current_spear.position = Vector3.ZERO
 
 func on_animation_finished(anim_name: StringName) -> void:
-	#print("-----  anim_name: ", anim_name)
+	print("-----  anim_name: ", anim_name)
 	if anim_name.to_lower().contains("throw"):
 		is_attacking = false
+	
+	spawn_spell()
 	pass # Replace with function body.
 
 
@@ -141,3 +151,20 @@ func on_animation_finished(anim_name: StringName) -> void:
 func spear_respawn_timeout() -> void:
 	reload_spear()
 	pass # Replace with function body.
+
+
+func spawn_spell()->void:
+	
+	if earth_spell_scene ==null:
+		return
+	
+	var spell:Node3D = earth_spell_scene.instantiate()
+	
+	
+	get_tree().root.add_child(spell)
+	spell.global_position = throw_position.global_position
+	spell.global_position.y -= 0.3
+	if is_flipped:
+		spell.rotation.y = deg_to_rad(180)
+	
+	pass

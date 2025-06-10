@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://ct8l3ui8ofelw"]
+[gd_scene load_steps=43 format=3 uid="uid://ct8l3ui8ofelw"]
 
 [ext_resource type="Material" uid="uid://c133xaq6gsda7" path="res://scenes/vfx/earth/model/rock_material.tres" id="1_8ub2g"]
 [ext_resource type="Script" path="res://scenes/vfx/earth/EarthSpell.gd" id="1_pvmkf"]
@@ -6,16 +6,9 @@
 [ext_resource type="ArrayMesh" uid="uid://dh8b7o7t514h2" path="res://scenes/vfx/earth/small_piece.res" id="3_yu4sb"]
 [ext_resource type="Texture2D" uid="uid://cc8ta7prbbd8q" path="res://scenes/vfx/earth/texture/T_VFX_RoundSmoke72.png" id="4_8ubfv"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_0ao00"]
-size = Vector2(20, 10)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_un3uq"]
-size = Vector3(20, 0.2, 10)
-
 [sub_resource type="Animation" id="Animation_or1il"]
 resource_name = "Init"
 length = 5.0
-loop_mode = 1
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -24,7 +17,7 @@ tracks/0/path = NodePath("Spikes/Spike1/Stone1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 4.15, 4.25, 4.35, 4.45, 4.55, 4.65, 4.75),
+"times": PackedFloat32Array(0.01, 0.1, 0.2, 4.15, 4.25, 4.35, 4.45, 4.55, 4.65, 4.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0.294, -1.738, -0.078), Vector3(0.044, 0.25, -0.002), Vector3(0.072254, 0.0172135, -0.0109559), Vector3(0.072254, 0.0172135, -0.0109559), Vector3(0.0437332, 0.242707, -0.00234711), Vector3(0.072254, 0.0172135, -0.0109559), Vector3(0.0437332, 0.242707, -0.00234711), Vector3(0.072254, 0.0172135, -0.0109559), Vector3(0.0437332, 0.242707, -0.00234711), Vector3(0.294335, -1.73862, -0.0779895)]
@@ -240,7 +233,7 @@ tracks/18/path = NodePath("Spikes/Spike1/SmokeDust1:emitting")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(0, 0.21, 0.23),
+"times": PackedFloat32Array(0.01, 0.21, 0.23),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, true, false]
@@ -301,6 +294,78 @@ tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
 "times": PackedFloat32Array(0.92, 1.23, 1.24),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Spikes/Spike1/SmallDebrees1:emitting")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0.01, 0.19, 0.21),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Spikes/Spike2/SmallDebrees2:emitting")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0.16, 0.38, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Spikes/Spike3/SmallDebrees3:emitting")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0.32, 0.59, 0.61),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Spikes/Spike4/SmallDebrees4:emitting")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0.53, 0.78, 0.81),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Spikes/Spike5/SmallDebrees5:emitting")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0.78, 0.97, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Spikes/Spike6/SmallDebrees6:emitting")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0.92, 1.2, 1.23),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, true, false]
@@ -885,66 +950,44 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ym5qa")
 
-[node name="Node3D" type="Node3D"]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 5, 18)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.0766)
-
-[node name="Camera3D2" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.885272, 0.465074, 0, -0.465074, 0.885272, 0, 3.65135, 6.80528)
-current = true
-
-[node name="floor" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_0ao00")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="floor"]
-collision_layer = 8
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-shape = SubResource("BoxShape3D_un3uq")
-
-[node name="EarthSpell" type="Node3D" parent="."]
+[node name="EarthSpell" type="Node3D"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 script = ExtResource("1_pvmkf")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EarthSpell"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_pr5jp")
 }
 autoplay = "Init"
 
-[node name="Spikes" type="Node3D" parent="EarthSpell"]
+[node name="Spikes" type="Node3D" parent="."]
 
-[node name="Spike1" type="Node3D" parent="EarthSpell/Spikes"]
+[node name="Spike1" type="Node3D" parent="Spikes"]
 
-[node name="Stone1" type="MeshInstance3D" parent="EarthSpell/Spikes/Spike1"]
+[node name="Stone1" type="MeshInstance3D" parent="Spikes/Spike1"]
 transform = Transform3D(-1.25125, -0.250784, -0.644478, -0.189008, 1.98277, -0.042904, 0.80538, 0.0756978, -1.01134, 0.072254, 0.0172135, -0.0109559)
 material_override = ExtResource("1_8ub2g")
 mesh = SubResource("ArrayMesh_hcuv1")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="EarthSpell/Spikes/Spike1/Stone1"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Spikes/Spike1/Stone1"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EarthSpell/Spikes/Spike1/Stone1/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spikes/Spike1/Stone1/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_moo2s")
 
-[node name="Stone8" type="MeshInstance3D" parent="EarthSpell/Spikes/Spike1/Stone1"]
+[node name="Stone8" type="MeshInstance3D" parent="Spikes/Spike1/Stone1"]
 transform = Transform3D(-0.455776, -0.34559, 0.340793, -0.201346, 0.816028, 0.00489954, -0.546335, -0.384909, -0.44924, 0.067995, -0.17258, -0.234819)
 material_override = ExtResource("1_8ub2g")
 mesh = SubResource("ArrayMesh_lobbc")
 skeleton = NodePath("")
 
-[node name="Decal1" type="Decal" parent="EarthSpell/Spikes/Spike1"]
+[node name="Decal1" type="Decal" parent="Spikes/Spike1"]
 transform = Transform3D(0.619587, 0, -0.784928, 0, 1, 0, 0.784928, 0, 0.619587, 0.00777912, 0, 0.0233393)
 size = Vector3(2.5, 0.5, 2.5)
 texture_albedo = ExtResource("2_xkmqk")
 
-[node name="SmallDebrees1" type="GPUParticles3D" parent="EarthSpell/Spikes/Spike1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72403, 0.504997, 0)
+[node name="SmallDebrees1" type="GPUParticles3D" parent="Spikes/Spike1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 emitting = false
 amount = 128
 lifetime = 4.0
@@ -952,7 +995,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_aa357")
 draw_pass_1 = ExtResource("3_yu4sb")
 
-[node name="SmokeDust1" type="GPUParticles3D" parent="EarthSpell/Spikes/Spike1"]
+[node name="SmokeDust1" type="GPUParticles3D" parent="Spikes/Spike1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0901878, 0)
 material_override = SubResource("StandardMaterial3D_lj3qq")
 amount = 36
@@ -960,38 +1003,38 @@ lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_sewn2")
 draw_pass_1 = SubResource("QuadMesh_57xpo")
 
-[node name="Spike2" type="Node3D" parent="EarthSpell/Spikes"]
+[node name="Spike2" type="Node3D" parent="Spikes"]
 
-[node name="Stone2" type="MeshInstance3D" parent="EarthSpell/Spikes/Spike2"]
+[node name="Stone2" type="MeshInstance3D" parent="Spikes/Spike2"]
 transform = Transform3D(1.25751, 1.11819, 0.484416, -0.410715, 2.81791, -0.32322, -0.707102, 0.351817, 1.04922, 1.1705, -0.127615, 0.00264426)
 material_override = ExtResource("1_8ub2g")
 mesh = SubResource("ArrayMesh_lobbc")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="EarthSpell/Spikes/Spike2/Stone2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Spikes/Spike2/Stone2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EarthSpell/Spikes/Spike2/Stone2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spikes/Spike2/Stone2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_gbohe")
 
-[node name="stone15" type="MeshInstance3D" parent="EarthSpell/Spikes/Spike2/Stone2"]
+[node name="stone15" type="MeshInstance3D" parent="Spikes/Spike2/Stone2"]
 transform = Transform3D(0.503335, -0.269983, 0.115916, -0.0982048, -0.203897, 0.258591, -0.150344, -0.521399, -0.701555, -0.267703, 0.120443, 0.44035)
 material_override = ExtResource("1_8ub2g")
 mesh = SubResource("ArrayMesh_hcuv1")
 skeleton = NodePath("")
 
-[node name="stone12" type="MeshInstance3D" parent="EarthSpell/Spikes/Spike2/Stone2"]
+[node name="stone12" type="MeshInstance3D" parent="Spikes/Spike2/Stone2"]
 transform = Transform3D(-0.32086, -0.250898, -0.255596, 0.0889688, -0.219386, 0.0698405, -0.269517, -0.00174476, 0.624579, 0.0461789, 0.0547689, -0.484059)
 material_override = ExtResource("1_8ub2g")
 mesh = SubResource("ArrayMesh_hcuv1")
 skeleton = NodePath("")
 
-[node name="Decal2" type="Decal" parent="EarthSpell/Spikes/Spike2"]
+[node name="Decal2" type="Decal" parent="Spikes/Spike2"]
 transform = Transform3D(-0.994049, 0, 0.108936, 0, 1, 0, -0.108936, 0, -0.994049, 1.242, 0, 0)
 size = Vector3(3, 0.5, 3)
 texture_albedo = ExtResource("2_xkmqk")
 
-[node name="SmallDebrees2" type="GPUParticles3D" parent="EarthSpell/Spikes/Spike2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72403, 0.504997, 0)
+[node name="SmallDebrees2" type="GPUParticles3D" parent="Spikes/Spike2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25671, 0.2, 0)
 emitting = false
 amount = 128
 lifetime = 4.0
@@ -999,7 +1042,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_aa357")
 draw_pass_1 = ExtResource("3_yu4sb")
 
-[node name="SmokeDust2" type="GPUParticles3D" parent="EarthSpell/Spikes/Spike2"]
+[node name="SmokeDust2" type="GPUParticles3D" parent="Spikes/Spike2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25671, 0.0901878, 0)
 material_override = SubResource("StandardMaterial3D_lj3qq")
 amount = 36
@@ -1007,38 +1050,38 @@ lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_sewn2")
 draw_pass_1 = SubResource("QuadMesh_57xpo")
 
-[node name="Spike3" type="Node3D" parent="EarthSpell/Spikes"]
+[node name="Spike3" type="Node3D" parent="Spikes"]
 
-[node name="Stone3" type="MeshInstance3D" parent="EarthSpell/Spikes/Spike3"]
+[node name="Stone3" type="MeshInstance3D" parent="Spikes/Spike3"]
 transform = Transform3D(0.876678, 0.959065, 0.0308248, -0.481069, 1.74674, 0.0609146, 0.0028614, -0.170578, 0.797082, 2.24753, -0.58357, 0.0490222)
 material_override = ExtResource("1_8ub2g")
 mesh = SubResource("ArrayMesh_clas0")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="EarthSpell/Spikes/Spike3/Stone3"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Spikes/Spike3/Stone3"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EarthSpell/Spikes/Spike3/Stone3/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spikes/Spike3/Stone3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_u7pp6")
 
-[node name="stone11" type="MeshInstance3D" parent="EarthSpell/Spikes/Spike3/Stone3"]
+[node name="stone11" type="MeshInstance3D" parent="Spikes/Spike3/Stone3"]
 transform = Transform3D(0.911041, 0.0297128, 0.105613, -0.00341728, 0.377207, -0.0814323, -0.0899984, 0.226265, 1.34677, 0.0691352, 0.291503, -0.599573)
 material_override = ExtResource("1_8ub2g")
 mesh = SubResource("ArrayMesh_hcuv1")
 skeleton = NodePath("")
 
-[node name="Stone7" type="MeshInstance3D" parent="EarthSpell/Spikes/Spike3/Stone3"]
+[node name="Stone7" type="MeshInstance3D" parent="Spikes/Spike3/Stone3"]
 transform = Transform3D(0.950301, -0.416255, -0.225922, 0.0998597, 0.858578, -0.058726, 0.426494, 0.192772, 0.872488, -0.213451, 0.144553, 0.392905)
 material_override = ExtResource("1_8ub2g")
 mesh = SubResource("ArrayMesh_lobbc")
 skeleton = NodePath("")
 
-[node name="Decal3" type="Decal" parent="EarthSpell/Spikes/Spike3"]
+[node name="Decal3" type="Decal" parent="Spikes/Spike3"]
 transform = Transform3D(0.292956, 0, -0.956126, 0, 1, 0, 0.956126, 0, 0.292956, 2.38156, 0, 0)
 size = Vector3(3.1, 0.5, 3.1)
 texture_albedo = ExtResource("2_xkmqk")
 
-[node name="SmallDebrees3" type="GPUParticles3D" parent="EarthSpell/Spikes/Spike3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72403, 0.504997, 0)
+[node name="SmallDebrees3" type="GPUParticles3D" parent="Spikes/Spike3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47927, 0.2, 0)
 emitting = false
 amount = 128
 lifetime = 4.0
@@ -1046,7 +1089,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_aa357")
 draw_pass_1 = ExtResource("3_yu4sb")
 
-[node name="SmokeDust3" type="GPUParticles3D" parent="EarthSpell/Spikes/Spike3"]
+[node name="SmokeDust3" type="GPUParticles3D" parent="Spikes/Spike3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47927, 0.0901878, 0)
 material_override = SubResource("StandardMaterial3D_lj3qq")
 amount = 36
@@ -1054,44 +1097,44 @@ lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_sewn2")
 draw_pass_1 = SubResource("QuadMesh_57xpo")
 
-[node name="Spike4" type="Node3D" parent="EarthSpell/Spikes"]
+[node name="Spike4" type="Node3D" parent="Spikes"]
 
-[node name="Stone4" type="MeshInstance3D" parent="EarthSpell/Spikes/Spike4"]
+[node name="Stone4" type="MeshInstance3D" parent="Spikes/Spike4"]
 transform = Transform3D(1.0577, 1.41259, -0.0446737, -0.566644, 2.62979, -0.111284, -0.0132385, 0.297957, 1.19399, 3.70515, -0.276891, 0.000553706)
 material_override = ExtResource("1_8ub2g")
 mesh = SubResource("ArrayMesh_lobbc")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="EarthSpell/Spikes/Spike4/Stone4"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Spikes/Spike4/Stone4"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EarthSpell/Spikes/Spike4/Stone4/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spikes/Spike4/Stone4/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_gbohe")
 
-[node name="stone11" type="MeshInstance3D" parent="EarthSpell/Spikes/Spike4/Stone4"]
+[node name="stone11" type="MeshInstance3D" parent="Spikes/Spike4/Stone4"]
 transform = Transform3D(-0.662547, 0.182083, 0.102738, -0.0297311, -0.0284366, -0.319283, -0.139804, -0.808484, 0.124209, 0.20241, 0.142647, -0.285815)
 material_override = ExtResource("1_8ub2g")
 mesh = SubResource("ArrayMesh_psyoq")
 skeleton = NodePath("")
 
-[node name="stone12" type="MeshInstance3D" parent="EarthSpell/Spikes/Spike4/Stone4"]
+[node name="stone12" type="MeshInstance3D" parent="Spikes/Spike4/Stone4"]
 transform = Transform3D(-0.405944, 0.346704, -0.477673, -0.0630616, 0.333092, 0.135765, 0.399562, 0.825377, -0.292457, -0.154524, 0.0440478, -0.520419)
 material_override = ExtResource("1_8ub2g")
 mesh = SubResource("ArrayMesh_psyoq")
 skeleton = NodePath("")
 
-[node name="stone14" type="MeshInstance3D" parent="EarthSpell/Spikes/Spike4/Stone4"]
+[node name="stone14" type="MeshInstance3D" parent="Spikes/Spike4/Stone4"]
 transform = Transform3D(0.583025, -0.528642, 0.54271, 0.079107, 0.274422, 0.184938, -0.545573, -0.206817, 0.821307, -0.177452, 0.05503, 0.428181)
 material_override = ExtResource("1_8ub2g")
 mesh = SubResource("ArrayMesh_hcuv1")
 skeleton = NodePath("")
 
-[node name="Decal4" type="Decal" parent="EarthSpell/Spikes/Spike4"]
+[node name="Decal4" type="Decal" parent="Spikes/Spike4"]
 transform = Transform3D(0.446651, 0, -0.894709, 0, 1, 0, 0.894709, 0, 0.446651, 3.74822, 0, 0)
 size = Vector3(3.2, 0.5, 3.2)
 texture_albedo = ExtResource("2_xkmqk")
 
-[node name="SmallDebrees4" type="GPUParticles3D" parent="EarthSpell/Spikes/Spike4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72403, 0.504997, 0)
+[node name="SmallDebrees4" type="GPUParticles3D" parent="Spikes/Spike4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7501, 0.2, 0)
 emitting = false
 amount = 128
 lifetime = 4.0
@@ -1099,7 +1142,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_aa357")
 draw_pass_1 = ExtResource("3_yu4sb")
 
-[node name="SmokeDust4" type="GPUParticles3D" parent="EarthSpell/Spikes/Spike4"]
+[node name="SmokeDust4" type="GPUParticles3D" parent="Spikes/Spike4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7501, 0.0901878, 0)
 material_override = SubResource("StandardMaterial3D_lj3qq")
 emitting = false
@@ -1108,26 +1151,26 @@ lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_sewn2")
 draw_pass_1 = SubResource("QuadMesh_57xpo")
 
-[node name="Spike5" type="Node3D" parent="EarthSpell/Spikes"]
+[node name="Spike5" type="Node3D" parent="Spikes"]
 
-[node name="Stone5" type="MeshInstance3D" parent="EarthSpell/Spikes/Spike5"]
+[node name="Stone5" type="MeshInstance3D" parent="Spikes/Spike5"]
 transform = Transform3D(0.298177, 1.67581, -0.949609, -0.0174644, 2.45707, 0.68829, 1.16223, -0.393017, 0.25397, 4.79636, -0.282959, 0.117231)
 material_override = ExtResource("1_8ub2g")
 mesh = SubResource("ArrayMesh_lobbc")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="EarthSpell/Spikes/Spike5/Stone5"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Spikes/Spike5/Stone5"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EarthSpell/Spikes/Spike5/Stone5/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spikes/Spike5/Stone5/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_gbohe")
 
-[node name="Decal5" type="Decal" parent="EarthSpell/Spikes/Spike5"]
+[node name="Decal5" type="Decal" parent="Spikes/Spike5"]
 transform = Transform3D(0.70797, 0, -0.706242, 0, 1, 0, 0.706242, 0, 0.70797, 4.99377, 0, 0)
 size = Vector3(3, 0.5, 3)
 texture_albedo = ExtResource("2_xkmqk")
 
-[node name="SmallDebrees5" type="GPUParticles3D" parent="EarthSpell/Spikes/Spike5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72403, 0.504997, 0)
+[node name="SmallDebrees5" type="GPUParticles3D" parent="Spikes/Spike5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95913, 0.2, 0)
 emitting = false
 amount = 128
 lifetime = 4.0
@@ -1135,7 +1178,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_aa357")
 draw_pass_1 = ExtResource("3_yu4sb")
 
-[node name="SmokeDust5" type="GPUParticles3D" parent="EarthSpell/Spikes/Spike5"]
+[node name="SmokeDust5" type="GPUParticles3D" parent="Spikes/Spike5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95913, 0.0901878, 0)
 material_override = SubResource("StandardMaterial3D_lj3qq")
 amount = 36
@@ -1143,38 +1186,38 @@ lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_sewn2")
 draw_pass_1 = SubResource("QuadMesh_57xpo")
 
-[node name="Spike6" type="Node3D" parent="EarthSpell/Spikes"]
+[node name="Spike6" type="Node3D" parent="Spikes"]
 
-[node name="Stone6" type="MeshInstance3D" parent="EarthSpell/Spikes/Spike6"]
+[node name="Stone6" type="MeshInstance3D" parent="Spikes/Spike6"]
 transform = Transform3D(-0.745729, 1.20461, 0.28481, 0.573436, 1.59577, -0.185886, -0.339205, 0.0493993, -0.940388, 6.23342, 0.00420393, -0.00338417)
 material_override = ExtResource("1_8ub2g")
 mesh = SubResource("ArrayMesh_hcuv1")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="EarthSpell/Spikes/Spike6/Stone6"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Spikes/Spike6/Stone6"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EarthSpell/Spikes/Spike6/Stone6/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spikes/Spike6/Stone6/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_moo2s")
 
-[node name="stoneB3" type="MeshInstance3D" parent="EarthSpell/Spikes/Spike6/Stone6"]
+[node name="stoneB3" type="MeshInstance3D" parent="Spikes/Spike6/Stone6"]
 transform = Transform3D(-0.554463, 0.409518, -0.471982, 0.254898, 0.28233, -0.0626869, 0.213389, -0.284917, -0.92686, 0.344043, -0.113611, 0.220548)
 material_override = ExtResource("1_8ub2g")
 mesh = SubResource("ArrayMesh_7txrw")
 skeleton = NodePath("")
 
-[node name="stone13" type="MeshInstance3D" parent="EarthSpell/Spikes/Spike6/Stone6"]
+[node name="stone13" type="MeshInstance3D" parent="Spikes/Spike6/Stone6"]
 transform = Transform3D(-0.152616, 0.518581, -0.943741, 0.1227, 0.419734, 0.257993, 0.781266, -0.162379, -0.346428, 0.0437207, -0.0996571, -0.370918)
 material_override = ExtResource("1_8ub2g")
 mesh = SubResource("ArrayMesh_hcuv1")
 skeleton = NodePath("")
 
-[node name="Decal6" type="Decal" parent="EarthSpell/Spikes/Spike6"]
+[node name="Decal6" type="Decal" parent="Spikes/Spike6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.04624, 0, 0)
 size = Vector3(3, 0.5, 3)
 texture_albedo = ExtResource("2_xkmqk")
 
-[node name="SmallDebrees6" type="GPUParticles3D" parent="EarthSpell/Spikes/Spike6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72403, 0.504997, 0)
+[node name="SmallDebrees6" type="GPUParticles3D" parent="Spikes/Spike6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11256, 0.2, 0)
 emitting = false
 amount = 128
 lifetime = 4.0
@@ -1182,7 +1225,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_aa357")
 draw_pass_1 = ExtResource("3_yu4sb")
 
-[node name="SmokeDust6" type="GPUParticles3D" parent="EarthSpell/Spikes/Spike6"]
+[node name="SmokeDust6" type="GPUParticles3D" parent="Spikes/Spike6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11256, 0.0901878, 0)
 material_override = SubResource("StandardMaterial3D_lj3qq")
 amount = 36
@@ -1190,377 +1233,41 @@ lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_sewn2")
 draw_pass_1 = SubResource("QuadMesh_57xpo")
 
-[node name="SmallDebrees" type="GPUParticles3D" parent="EarthSpell"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0277146, 0.504774, 0)
-visible = false
-amount = 128
-lifetime = 4.0
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_aa357")
-draw_pass_1 = ExtResource("3_yu4sb")
+[node name="GroundSensor" type="Node3D" parent="."]
 
-[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="EarthSpell"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.46758, -0.2, 0)
-layers = 495
-size = Vector3(10, 1, 5)
-
-[node name="GroundSensor" type="Node3D" parent="EarthSpell"]
-
-[node name="GroundSensor1" type="RayCast3D" parent="EarthSpell/GroundSensor"]
+[node name="GroundSensor1" type="RayCast3D" parent="GroundSensor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.596, 0.1, 0)
 target_position = Vector3(0, -0.2, 0)
 collision_mask = 8
 
-[node name="GroundSensor2" type="RayCast3D" parent="EarthSpell/GroundSensor"]
+[node name="GroundSensor2" type="RayCast3D" parent="GroundSensor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41942, 0.1, 0)
 target_position = Vector3(0, -0.2, 0)
 collision_mask = 8
 
-[node name="GroundSensor3" type="RayCast3D" parent="EarthSpell/GroundSensor"]
+[node name="GroundSensor3" type="RayCast3D" parent="GroundSensor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68377, 0.1, 0)
 target_position = Vector3(0, -0.2, 0)
 collision_mask = 8
 
-[node name="GroundSensor4" type="RayCast3D" parent="EarthSpell/GroundSensor"]
+[node name="GroundSensor4" type="RayCast3D" parent="GroundSensor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.92672, 0.1, 0)
 target_position = Vector3(0, -0.2, 0)
 collision_mask = 8
 
-[node name="GroundSensor5" type="RayCast3D" parent="EarthSpell/GroundSensor"]
+[node name="GroundSensor5" type="RayCast3D" parent="GroundSensor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04417, 0.1, 0)
 target_position = Vector3(0, -0.2, 0)
 collision_mask = 8
 
-[node name="GroundSensor6" type="RayCast3D" parent="EarthSpell/GroundSensor"]
+[node name="GroundSensor6" type="RayCast3D" parent="GroundSensor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.25249, 0.1, 0)
 target_position = Vector3(0, -0.2, 0)
 collision_mask = 8
 
-[node name="EarthSpell2" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -2.32491)
-script = ExtResource("1_pvmkf")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EarthSpell2"]
-libraries = {
-"": SubResource("AnimationLibrary_pr5jp")
-}
-autoplay = "Init"
-
-[node name="Spikes" type="Node3D" parent="EarthSpell2"]
-
-[node name="Spike1" type="Node3D" parent="EarthSpell2/Spikes"]
-
-[node name="Stone1" type="MeshInstance3D" parent="EarthSpell2/Spikes/Spike1"]
-transform = Transform3D(-1.25125, -0.250784, -0.644478, -0.189008, 1.98277, -0.042904, 0.80538, 0.0756978, -1.01134, 0.072254, 0.0172135, -0.0109559)
-material_override = ExtResource("1_8ub2g")
-mesh = SubResource("ArrayMesh_hcuv1")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="EarthSpell2/Spikes/Spike1/Stone1"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EarthSpell2/Spikes/Spike1/Stone1/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_moo2s")
-
-[node name="Stone8" type="MeshInstance3D" parent="EarthSpell2/Spikes/Spike1/Stone1"]
-transform = Transform3D(-0.455776, -0.34559, 0.340793, -0.201346, 0.816028, 0.00489954, -0.546335, -0.384909, -0.44924, 0.067995, -0.17258, -0.234819)
-material_override = ExtResource("1_8ub2g")
-mesh = SubResource("ArrayMesh_lobbc")
-skeleton = NodePath("")
-
-[node name="Decal1" type="Decal" parent="EarthSpell2/Spikes/Spike1"]
-transform = Transform3D(0.619587, 0, -0.784928, 0, 1, 0, 0.784928, 0, 0.619587, 0.00777912, 0, 0.0233393)
-size = Vector3(2.5, 0.5, 2.5)
-texture_albedo = ExtResource("2_xkmqk")
-
-[node name="SmallDebrees1" type="GPUParticles3D" parent="EarthSpell2/Spikes/Spike1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72403, 0.504997, 0)
-emitting = false
-amount = 128
-lifetime = 4.0
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_aa357")
-draw_pass_1 = ExtResource("3_yu4sb")
-
-[node name="SmokeDust1" type="GPUParticles3D" parent="EarthSpell2/Spikes/Spike1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0901878, 0)
-material_override = SubResource("StandardMaterial3D_lj3qq")
-amount = 36
-lifetime = 2.0
-process_material = SubResource("ParticleProcessMaterial_sewn2")
-draw_pass_1 = SubResource("QuadMesh_57xpo")
-
-[node name="Spike2" type="Node3D" parent="EarthSpell2/Spikes"]
-
-[node name="Stone2" type="MeshInstance3D" parent="EarthSpell2/Spikes/Spike2"]
-transform = Transform3D(1.25751, 1.11819, 0.484416, -0.410715, 2.81791, -0.32322, -0.707102, 0.351817, 1.04922, 1.1705, -0.127615, 0.00264426)
-material_override = ExtResource("1_8ub2g")
-mesh = SubResource("ArrayMesh_lobbc")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="EarthSpell2/Spikes/Spike2/Stone2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EarthSpell2/Spikes/Spike2/Stone2/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_gbohe")
-
-[node name="stone15" type="MeshInstance3D" parent="EarthSpell2/Spikes/Spike2/Stone2"]
-transform = Transform3D(0.503335, -0.269983, 0.115916, -0.0982048, -0.203897, 0.258591, -0.150344, -0.521399, -0.701555, -0.267703, 0.120443, 0.44035)
-material_override = ExtResource("1_8ub2g")
-mesh = SubResource("ArrayMesh_hcuv1")
-skeleton = NodePath("")
-
-[node name="stone12" type="MeshInstance3D" parent="EarthSpell2/Spikes/Spike2/Stone2"]
-transform = Transform3D(-0.32086, -0.250898, -0.255596, 0.0889688, -0.219386, 0.0698405, -0.269517, -0.00174476, 0.624579, 0.0461789, 0.0547689, -0.484059)
-material_override = ExtResource("1_8ub2g")
-mesh = SubResource("ArrayMesh_hcuv1")
-skeleton = NodePath("")
-
-[node name="Decal2" type="Decal" parent="EarthSpell2/Spikes/Spike2"]
-transform = Transform3D(-0.994049, 0, 0.108936, 0, 1, 0, -0.108936, 0, -0.994049, 1.242, 0, 0)
-size = Vector3(3, 0.5, 3)
-texture_albedo = ExtResource("2_xkmqk")
-
-[node name="SmallDebrees2" type="GPUParticles3D" parent="EarthSpell2/Spikes/Spike2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72403, 0.504997, 0)
-emitting = false
-amount = 128
-lifetime = 4.0
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_aa357")
-draw_pass_1 = ExtResource("3_yu4sb")
-
-[node name="SmokeDust2" type="GPUParticles3D" parent="EarthSpell2/Spikes/Spike2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25671, 0.0901878, 0)
-material_override = SubResource("StandardMaterial3D_lj3qq")
-amount = 36
-lifetime = 2.0
-process_material = SubResource("ParticleProcessMaterial_sewn2")
-draw_pass_1 = SubResource("QuadMesh_57xpo")
-
-[node name="Spike3" type="Node3D" parent="EarthSpell2/Spikes"]
-
-[node name="Stone3" type="MeshInstance3D" parent="EarthSpell2/Spikes/Spike3"]
-transform = Transform3D(0.876678, 0.959065, 0.0308248, -0.481069, 1.74674, 0.0609146, 0.0028614, -0.170578, 0.797082, 2.24753, -0.58357, 0.0490222)
-material_override = ExtResource("1_8ub2g")
-mesh = SubResource("ArrayMesh_clas0")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="EarthSpell2/Spikes/Spike3/Stone3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EarthSpell2/Spikes/Spike3/Stone3/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_u7pp6")
-
-[node name="stone11" type="MeshInstance3D" parent="EarthSpell2/Spikes/Spike3/Stone3"]
-transform = Transform3D(0.911041, 0.0297128, 0.105613, -0.00341728, 0.377207, -0.0814323, -0.0899984, 0.226265, 1.34677, 0.0691352, 0.291503, -0.599573)
-material_override = ExtResource("1_8ub2g")
-mesh = SubResource("ArrayMesh_hcuv1")
-skeleton = NodePath("")
-
-[node name="Stone7" type="MeshInstance3D" parent="EarthSpell2/Spikes/Spike3/Stone3"]
-transform = Transform3D(0.950301, -0.416255, -0.225922, 0.0998597, 0.858578, -0.058726, 0.426494, 0.192772, 0.872488, -0.213451, 0.144553, 0.392905)
-material_override = ExtResource("1_8ub2g")
-mesh = SubResource("ArrayMesh_lobbc")
-skeleton = NodePath("")
-
-[node name="Decal3" type="Decal" parent="EarthSpell2/Spikes/Spike3"]
-transform = Transform3D(0.292956, 0, -0.956126, 0, 1, 0, 0.956126, 0, 0.292956, 2.38156, 0, 0)
-size = Vector3(3.1, 0.5, 3.1)
-texture_albedo = ExtResource("2_xkmqk")
-
-[node name="SmallDebrees3" type="GPUParticles3D" parent="EarthSpell2/Spikes/Spike3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72403, 0.504997, 0)
-emitting = false
-amount = 128
-lifetime = 4.0
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_aa357")
-draw_pass_1 = ExtResource("3_yu4sb")
-
-[node name="SmokeDust3" type="GPUParticles3D" parent="EarthSpell2/Spikes/Spike3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47927, 0.0901878, 0)
-material_override = SubResource("StandardMaterial3D_lj3qq")
-amount = 36
-lifetime = 2.0
-process_material = SubResource("ParticleProcessMaterial_sewn2")
-draw_pass_1 = SubResource("QuadMesh_57xpo")
-
-[node name="Spike4" type="Node3D" parent="EarthSpell2/Spikes"]
-
-[node name="Stone4" type="MeshInstance3D" parent="EarthSpell2/Spikes/Spike4"]
-transform = Transform3D(1.0577, 1.41259, -0.0446737, -0.566644, 2.62979, -0.111284, -0.0132385, 0.297957, 1.19399, 3.70515, -0.276891, 0.000553706)
-material_override = ExtResource("1_8ub2g")
-mesh = SubResource("ArrayMesh_lobbc")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="EarthSpell2/Spikes/Spike4/Stone4"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EarthSpell2/Spikes/Spike4/Stone4/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_gbohe")
-
-[node name="stone11" type="MeshInstance3D" parent="EarthSpell2/Spikes/Spike4/Stone4"]
-transform = Transform3D(-0.662547, 0.182083, 0.102738, -0.0297311, -0.0284366, -0.319283, -0.139804, -0.808484, 0.124209, 0.20241, 0.142647, -0.285815)
-material_override = ExtResource("1_8ub2g")
-mesh = SubResource("ArrayMesh_psyoq")
-skeleton = NodePath("")
-
-[node name="stone12" type="MeshInstance3D" parent="EarthSpell2/Spikes/Spike4/Stone4"]
-transform = Transform3D(-0.405944, 0.346704, -0.477673, -0.0630616, 0.333092, 0.135765, 0.399562, 0.825377, -0.292457, -0.154524, 0.0440478, -0.520419)
-material_override = ExtResource("1_8ub2g")
-mesh = SubResource("ArrayMesh_psyoq")
-skeleton = NodePath("")
-
-[node name="stone14" type="MeshInstance3D" parent="EarthSpell2/Spikes/Spike4/Stone4"]
-transform = Transform3D(0.583025, -0.528642, 0.54271, 0.079107, 0.274422, 0.184938, -0.545573, -0.206817, 0.821307, -0.177452, 0.05503, 0.428181)
-material_override = ExtResource("1_8ub2g")
-mesh = SubResource("ArrayMesh_hcuv1")
-skeleton = NodePath("")
-
-[node name="Decal4" type="Decal" parent="EarthSpell2/Spikes/Spike4"]
-transform = Transform3D(0.446651, 0, -0.894709, 0, 1, 0, 0.894709, 0, 0.446651, 3.74822, 0, 0)
-size = Vector3(3.2, 0.5, 3.2)
-texture_albedo = ExtResource("2_xkmqk")
-
-[node name="SmallDebrees4" type="GPUParticles3D" parent="EarthSpell2/Spikes/Spike4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72403, 0.504997, 0)
-emitting = false
-amount = 128
-lifetime = 4.0
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_aa357")
-draw_pass_1 = ExtResource("3_yu4sb")
-
-[node name="SmokeDust4" type="GPUParticles3D" parent="EarthSpell2/Spikes/Spike4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7501, 0.0901878, 0)
-material_override = SubResource("StandardMaterial3D_lj3qq")
-emitting = false
-amount = 36
-lifetime = 2.0
-process_material = SubResource("ParticleProcessMaterial_sewn2")
-draw_pass_1 = SubResource("QuadMesh_57xpo")
-
-[node name="Spike5" type="Node3D" parent="EarthSpell2/Spikes"]
-
-[node name="Stone5" type="MeshInstance3D" parent="EarthSpell2/Spikes/Spike5"]
-transform = Transform3D(0.298177, 1.67581, -0.949609, -0.0174644, 2.45707, 0.68829, 1.16223, -0.393017, 0.25397, 4.79636, -0.282959, 0.117231)
-material_override = ExtResource("1_8ub2g")
-mesh = SubResource("ArrayMesh_lobbc")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="EarthSpell2/Spikes/Spike5/Stone5"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EarthSpell2/Spikes/Spike5/Stone5/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_gbohe")
-
-[node name="Decal5" type="Decal" parent="EarthSpell2/Spikes/Spike5"]
-transform = Transform3D(0.70797, 0, -0.706242, 0, 1, 0, 0.706242, 0, 0.70797, 4.99377, 0, 0)
-size = Vector3(3, 0.5, 3)
-texture_albedo = ExtResource("2_xkmqk")
-
-[node name="SmallDebrees5" type="GPUParticles3D" parent="EarthSpell2/Spikes/Spike5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72403, 0.504997, 0)
-emitting = false
-amount = 128
-lifetime = 4.0
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_aa357")
-draw_pass_1 = ExtResource("3_yu4sb")
-
-[node name="SmokeDust5" type="GPUParticles3D" parent="EarthSpell2/Spikes/Spike5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95913, 0.0901878, 0)
-material_override = SubResource("StandardMaterial3D_lj3qq")
-amount = 36
-lifetime = 2.0
-process_material = SubResource("ParticleProcessMaterial_sewn2")
-draw_pass_1 = SubResource("QuadMesh_57xpo")
-
-[node name="Spike6" type="Node3D" parent="EarthSpell2/Spikes"]
-
-[node name="Stone6" type="MeshInstance3D" parent="EarthSpell2/Spikes/Spike6"]
-transform = Transform3D(-0.745729, 1.20461, 0.28481, 0.573436, 1.59577, -0.185886, -0.339205, 0.0493993, -0.940388, 6.23342, 0.00420393, -0.00338417)
-material_override = ExtResource("1_8ub2g")
-mesh = SubResource("ArrayMesh_hcuv1")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="EarthSpell2/Spikes/Spike6/Stone6"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EarthSpell2/Spikes/Spike6/Stone6/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_moo2s")
-
-[node name="stoneB3" type="MeshInstance3D" parent="EarthSpell2/Spikes/Spike6/Stone6"]
-transform = Transform3D(-0.554463, 0.409518, -0.471982, 0.254898, 0.28233, -0.0626869, 0.213389, -0.284917, -0.92686, 0.344043, -0.113611, 0.220548)
-material_override = ExtResource("1_8ub2g")
-mesh = SubResource("ArrayMesh_7txrw")
-skeleton = NodePath("")
-
-[node name="stone13" type="MeshInstance3D" parent="EarthSpell2/Spikes/Spike6/Stone6"]
-transform = Transform3D(-0.152616, 0.518581, -0.943741, 0.1227, 0.419734, 0.257993, 0.781266, -0.162379, -0.346428, 0.0437207, -0.0996571, -0.370918)
-material_override = ExtResource("1_8ub2g")
-mesh = SubResource("ArrayMesh_hcuv1")
-skeleton = NodePath("")
-
-[node name="Decal6" type="Decal" parent="EarthSpell2/Spikes/Spike6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.04624, 0, 0)
-size = Vector3(3, 0.5, 3)
-texture_albedo = ExtResource("2_xkmqk")
-
-[node name="SmallDebrees6" type="GPUParticles3D" parent="EarthSpell2/Spikes/Spike6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72403, 0.504997, 0)
-emitting = false
-amount = 128
-lifetime = 4.0
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_aa357")
-draw_pass_1 = ExtResource("3_yu4sb")
-
-[node name="SmokeDust6" type="GPUParticles3D" parent="EarthSpell2/Spikes/Spike6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11256, 0.0901878, 0)
-material_override = SubResource("StandardMaterial3D_lj3qq")
-amount = 36
-lifetime = 2.0
-process_material = SubResource("ParticleProcessMaterial_sewn2")
-draw_pass_1 = SubResource("QuadMesh_57xpo")
-
-[node name="SmallDebrees" type="GPUParticles3D" parent="EarthSpell2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0277146, 0.504774, 0)
-visible = false
-amount = 128
-lifetime = 4.0
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_aa357")
-draw_pass_1 = ExtResource("3_yu4sb")
-
-[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="EarthSpell2"]
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.46758, -0.2, 0)
 layers = 495
 size = Vector3(10, 1, 5)
 
-[node name="GroundSensor" type="Node3D" parent="EarthSpell2"]
-
-[node name="GroundSensor1" type="RayCast3D" parent="EarthSpell2/GroundSensor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.596, 0.1, 0)
-target_position = Vector3(0, -0.2, 0)
-collision_mask = 8
-
-[node name="GroundSensor2" type="RayCast3D" parent="EarthSpell2/GroundSensor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41942, 0.1, 0)
-target_position = Vector3(0, -0.2, 0)
-collision_mask = 8
-
-[node name="GroundSensor3" type="RayCast3D" parent="EarthSpell2/GroundSensor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68377, 0.1, 0)
-target_position = Vector3(0, -0.2, 0)
-collision_mask = 8
-
-[node name="GroundSensor4" type="RayCast3D" parent="EarthSpell2/GroundSensor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.92672, 0.1, 0)
-target_position = Vector3(0, -0.2, 0)
-collision_mask = 8
-
-[node name="GroundSensor5" type="RayCast3D" parent="EarthSpell2/GroundSensor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04417, 0.1, 0)
-target_position = Vector3(0, -0.2, 0)
-collision_mask = 8
-
-[node name="GroundSensor6" type="RayCast3D" parent="EarthSpell2/GroundSensor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.25249, 0.1, 0)
-target_position = Vector3(0, -0.2, 0)
-collision_mask = 8
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
