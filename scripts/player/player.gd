@@ -171,8 +171,8 @@ func spawn_spell()->void:
 	
 	if is_flipped:
 		spell.rotation.y = deg_to_rad(180)
-		spell.global_position.x -= 0.15
+		spell.global_position.x -= 0.10
 	else:
-		spell.global_position.x += 0.15
+		spell.global_position.x += 0.10
 	
 	pass

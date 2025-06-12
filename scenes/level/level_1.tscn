@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/environment/Weather.gd" id="7_mouy5"]
 [ext_resource type="Texture2D" uid="uid://bbvqsd22bwuc5" path="res://scenes/vfx/weather/wind/texture/Circle.png" id="9_m0sxx"]
 [ext_resource type="Texture2D" uid="uid://ct0xdcjn10f0u" path="res://scenes/vfx/weather/rain/texture/Circle.png" id="10_idsnd"]
-[ext_resource type="AudioStream" uid="uid://fs5pp2tb71pt" path="res://assets/sounds/effects/thunder/lighting_spell_electric_impact_thunder_dark_dry_01.wav" id="11_pxp3n"]
+[ext_resource type="AudioStream" uid="uid://fs5pp2tb71pt" path="res://assets/sounds/effects/Thunder/lighting_spell_electric_impact_thunder_dark_dry_01.wav" id="11_pxp3n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0rfp7"]
 render_priority = 0

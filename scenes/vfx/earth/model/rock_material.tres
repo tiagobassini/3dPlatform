@@ -3,4 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://bh57ogodeq1lf" path="res://scenes/vfx/earth/model/textures/T_rocks_A_color.png" id="1_8rhob"]
 
 [resource]
+albedo_color = Color(0.968627, 0.772549, 0.690196, 1)
 albedo_texture = ExtResource("1_8rhob")
