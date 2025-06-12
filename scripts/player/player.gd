@@ -23,6 +23,7 @@ var current_spear: Spear
 
 @export var is_flipped : bool = false
 @export var is_attacking : bool = false
+@export var is_casting : bool = false
 
 var state_machine: AnimationNodeStateMachinePlayback
 
@@ -45,7 +46,7 @@ func _physics_process(delta):
 
 	var direction:Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
-	if direction and not is_attacking:
+	if direction and not is_casting:
 		velocity.x += direction.x * SPEED
 		if abs(velocity.x) > SPEED:
 			velocity.x = direction.x * SPEED
@@ -65,30 +66,30 @@ func _physics_process(delta):
 	pass
 
 func change_player_direction()->void:
-	if current_spear !=null: 
-		if is_flipped  :
-			left_socket.remove_child(current_spear)
-			right_socket.add_child(current_spear)
-			current_spear.rotation = Vector3.ZERO
-			current_spear.position = Vector3.ZERO
-		else:
-			right_socket.remove_child(current_spear)
-			left_socket.add_child(current_spear)
-			current_spear.rotation = Vector3.ZERO
-			current_spear.position = Vector3.ZERO
-		
-	is_flipped = not is_flipped
-	mesh.rotation.y *= -1
-	mesh.position.x *= -1
-	throw_position.position.x *= -1
+	if not is_casting:
+		if current_spear !=null : 
+			if is_flipped  :
+				left_socket.remove_child(current_spear)
+				right_socket.add_child(current_spear)
+				current_spear.rotation = Vector3.ZERO
+				current_spear.position = Vector3.ZERO
+			else:
+				right_socket.remove_child(current_spear)
+				left_socket.add_child(current_spear)
+				current_spear.rotation = Vector3.ZERO
+				current_spear.position = Vector3.ZERO
+			
+		is_flipped = not is_flipped
+		mesh.rotation.y *= -1
+		mesh.position.x *= -1
+		throw_position.position.x *= -1
 	pass
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action("ui_throw") and not is_attacking  and current_spear != null:
 		throw_spear()
-	elif event.is_action("ui_spell") and not is_attacking  and current_spear != null:
-		print("teste")
+	elif event.is_action("ui_spell") and not is_attacking  and not is_casting:
 		spell_attack()
 	pass
 
@@ -103,7 +104,9 @@ func throw_spear()->void:
 
 func spell_attack()->void:
 	if is_on_floor():
+		is_casting = true
 		state_machine.travel("CastSpell")
+		spawn_spell()
 	pass
 
 func shoot_spear()->void:
@@ -141,8 +144,9 @@ func on_animation_finished(anim_name: StringName) -> void:
 	print("-----  anim_name: ", anim_name)
 	if anim_name.to_lower().contains("throw"):
 		is_attacking = false
+	elif anim_name.to_lower().contains("castspell"):
+		is_casting = false
 	
-	spawn_spell()
 	pass # Replace with function body.
 
 
@@ -163,8 +167,12 @@ func spawn_spell()->void:
 	
 	get_tree().root.add_child(spell)
 	spell.global_position = throw_position.global_position
-	spell.global_position.y -= 0.3
+	spell.global_position.y -= 0.27
+	
 	if is_flipped:
 		spell.rotation.y = deg_to_rad(180)
+		spell.global_position.x -= 0.15
+	else:
+		spell.global_position.x += 0.15
 	
 	pass
