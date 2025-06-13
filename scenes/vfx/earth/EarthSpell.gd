@@ -1,13 +1,17 @@
 extends Node3D
 
+@onready var sound_player_1: AudioStreamPlayer = $Sfx/SoundPlayer1
+
+@onready var sfx: Node = $Sfx
 @onready var ground_sensor: Node3D = $GroundSensor
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
 @onready var spikes: Node3D = $Spikes
 
 var passed: bool = false
 
 var spikes_count: int = 0
+var sound_count: int =0
+
 
 
 func _ready() -> void:
@@ -44,6 +48,7 @@ func _verify_ground_size()->void:
 		else:
 			#print("i: ", spikes_count , " colidiu")
 			spikes.get_child(spikes_count).show()
+			sound_count+=1
 			#print("spike ",spikes_count, ": ",spikes.get_child(spikes_count).name, " foi exibido")
 		spikes_count+=1
 	
@@ -56,3 +61,23 @@ func _verify_ground_size()->void:
 func _on_animation_finished(_anim_name: StringName) -> void:
 	queue_free()
 	pass # Replace with function body.
+
+
+
+func play_sound()->void:
+	#var players: Array =sfx.get_children()	
+	#var sound_player:AudioStreamPlayer = players[spikes_count]
+	
+	sound_count = sound_count-1
+	
+	if sound_count>=0:
+		print("sound count: ",sound_count)
+		var sound_player:AudioStreamPlayer = sfx.get_child(sound_count)
+		sound_player.play()
+	
+	pass
+
+
+
+
+
