@@ -46,7 +46,7 @@ func _physics_process(delta):
 
 	var direction:Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
-	if direction and not is_casting:
+	if direction and not is_casting and not is_attacking:
 		velocity.x += direction.x * SPEED
 		if abs(velocity.x) > SPEED:
 			velocity.x = direction.x * SPEED

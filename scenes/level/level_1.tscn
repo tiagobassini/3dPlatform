@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dt6g3p2mkc22g"]
+[gd_scene load_steps=36 format=3 uid="uid://dt6g3p2mkc22g"]
 
 [ext_resource type="Environment" uid="uid://2cbpwttvx5cx" path="res://resources/sky/enviroment_day2.tres" id="1_hraek"]
 [ext_resource type="MeshLibrary" uid="uid://b1n1fatuvec08" path="res://resources/tiles/FlootMeshLibrary.tres" id="1_ms4c7"]
@@ -11,6 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://bbvqsd22bwuc5" path="res://scenes/vfx/weather/wind/texture/Circle.png" id="9_m0sxx"]
 [ext_resource type="Texture2D" uid="uid://ct0xdcjn10f0u" path="res://scenes/vfx/weather/rain/texture/Circle.png" id="10_idsnd"]
 [ext_resource type="AudioStream" uid="uid://fs5pp2tb71pt" path="res://assets/sounds/effects/thunder/lighting_spell_electric_impact_thunder_dark_dry_01.wav" id="11_pxp3n"]
+[ext_resource type="PackedScene" uid="uid://0mhd7bnbad2h" path="res://assets/decorations/rocks/rock_desert/big_rock_01.glb" id="12_voyhl"]
+[ext_resource type="PackedScene" uid="uid://csdwaaarhi26k" path="res://assets/decorations/rocks/rock_desert/big_rock_02.glb" id="13_7dtdx"]
+[ext_resource type="PackedScene" uid="uid://bsbejimrss6gq" path="res://assets/decorations/rocks/rock_desert/big_rock_03.glb" id="14_teo6r"]
+[ext_resource type="PackedScene" uid="uid://8r6o5hgll06d" path="res://assets/decorations/rocks/rocks_stylized/rocks_08.glb" id="15_r6w3s"]
+[ext_resource type="PackedScene" uid="uid://g2q5e23bfdhi" path="res://assets/decorations/rocks/rocks_stylized/rocks_07.glb" id="16_1m13f"]
+[ext_resource type="PackedScene" uid="uid://cixfw1untm1yu" path="res://assets/decorations/rocks/rocks_stylized/rocks_06.glb" id="17_i2lmx"]
+[ext_resource type="PackedScene" uid="uid://cgnxv2cibf6v4" path="res://assets/decorations/rocks/rocks_stylized/rocks_04.glb" id="18_obi7d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0rfp7"]
 render_priority = 0
@@ -26,7 +33,7 @@ shader_parameter/wave_speed = 1.5
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_sj2fh"]
 material = SubResource("ShaderMaterial_0rfp7")
-size = Vector2(100, 8)
+size = Vector2(100, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kjuso"]
 size = Vector3(100, 1, 10)
@@ -218,6 +225,10 @@ curve = SubResource("Curve_8i0d1")
 [node name="Level1" type="Node3D"]
 script = ExtResource("4_d3xbu")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.487814, 0.872948, 0, -0.872948, 0.487814, 0, 9.1726, 11.1209)
+shadow_enabled = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_hraek")
 
@@ -232,12 +243,8 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 7, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.651079, 0.75901, 0, -0.75901, 0.651079, 0, 2.3117, 11.1209)
-shadow_enabled = true
-
 [node name="Water" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.45042, 0.334976, 1.52146)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.45042, 0.334976, 0.52146)
 mesh = SubResource("PlaneMesh_sj2fh")
 
 [node name="Area3D" type="Area3D" parent="Water"]
@@ -247,7 +254,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 shape = SubResource("BoxShape3D_kjuso")
 
 [node name="Player" parent="." instance=ExtResource("4_w1j54")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -6, 0.671383, 2)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 12.4757, 3.93333, 2)
 platform_on_leave = 2
 JUMP_VELOCITY = 5.2
 SHOOT_SPEED = 2.8
@@ -333,6 +340,34 @@ draw_pass_1 = SubResource("RibbonTrailMesh_r687n")
 [node name="WeatherUpdateTimer" type="Timer" parent="Weather"]
 wait_time = 30.0
 autostart = true
+
+[node name="Decoration" type="Node3D" parent="."]
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="big_rock_01" parent="Background" instance=ExtResource("12_voyhl")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.27753, 1.93948, -4.69197)
+
+[node name="big_rock_02" parent="Background" instance=ExtResource("13_7dtdx")]
+transform = Transform3D(-0.85425, 0, -0.519862, 0, 1, 0, 0.519862, 0, -0.85425, 7.51162, 2.29797, -8.65546)
+
+[node name="big_rock_03" parent="Background" instance=ExtResource("14_teo6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.044, 3.95954, -6.40109)
+
+[node name="rocks_08" parent="Background" instance=ExtResource("15_r6w3s")]
+transform = Transform3D(-0.587851, 0.101862, 0.796875, 0.0827321, 0.723781, -0.112149, -0.804728, 0, -0.593644, -3.80564, -0.553546, -6.76874)
+
+[node name="rocks_07" parent="Background" instance=ExtResource("16_1m13f")]
+transform = Transform3D(0.828881, 0, 0.559424, 0, 1, 0, -0.559424, 0, 0.828881, 6.61291, 4.04951, -5.75924)
+
+[node name="rocks_09" parent="Background" instance=ExtResource("16_1m13f")]
+transform = Transform3D(3.11207, 0, 0.338348, 0, 4.19941, 0, -0.35551, 0, 2.96183, -10.443, -0.273926, -0.982028)
+
+[node name="rocks_06" parent="Background" instance=ExtResource("17_i2lmx")]
+transform = Transform3D(0.417063, 0, 1.09926, 0, 1, 0, -1.37981, 0, 0.332263, 11.5956, 2.23532, -6.72275)
+
+[node name="rocks_04" parent="Background" instance=ExtResource("18_obi7d")]
+transform = Transform3D(-0.999809, 0, 0.0195289, 0, 1.31437, 0, -0.0195289, 0, -0.999809, 41.1049, -1.61361, -3.89849)
 
 [connection signal="body_entered" from="Water/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="animation_finished" from="Weather/ThunderVFX/ThunderAnimationPlayer" to="Weather" method="_on__animation_finished"]
