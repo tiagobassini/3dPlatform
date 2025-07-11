@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dt6g3p2mkc22g"]
+[gd_scene load_steps=37 format=3 uid="uid://dt6g3p2mkc22g"]
 
 [ext_resource type="Environment" uid="uid://2cbpwttvx5cx" path="res://resources/sky/enviroment_day2.tres" id="1_hraek"]
 [ext_resource type="MeshLibrary" uid="uid://b1n1fatuvec08" path="res://resources/tiles/FlootMeshLibrary.tres" id="1_ms4c7"]
@@ -14,10 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://0mhd7bnbad2h" path="res://assets/decorations/rocks/rock_desert/big_rock_01.glb" id="12_voyhl"]
 [ext_resource type="PackedScene" uid="uid://csdwaaarhi26k" path="res://assets/decorations/rocks/rock_desert/big_rock_02.glb" id="13_7dtdx"]
 [ext_resource type="PackedScene" uid="uid://bsbejimrss6gq" path="res://assets/decorations/rocks/rock_desert/big_rock_03.glb" id="14_teo6r"]
-[ext_resource type="PackedScene" uid="uid://8r6o5hgll06d" path="res://assets/decorations/rocks/rocks_stylized/rocks_08.glb" id="15_r6w3s"]
+[ext_resource type="PackedScene" uid="uid://8r6o5hgll06d" path="res://assets/decorations/rocks/rocks_stylized/rocks_09.glb" id="15_r6w3s"]
 [ext_resource type="PackedScene" uid="uid://g2q5e23bfdhi" path="res://assets/decorations/rocks/rocks_stylized/rocks_07.glb" id="16_1m13f"]
 [ext_resource type="PackedScene" uid="uid://cixfw1untm1yu" path="res://assets/decorations/rocks/rocks_stylized/rocks_06.glb" id="17_i2lmx"]
 [ext_resource type="PackedScene" uid="uid://cgnxv2cibf6v4" path="res://assets/decorations/rocks/rocks_stylized/rocks_04.glb" id="18_obi7d"]
+[ext_resource type="PackedScene" uid="uid://uk1p4yl5wbj2" path="res://scenes/vfx/tornado/tornado_vfx.tscn" id="19_onq58"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0rfp7"]
 render_priority = 0
@@ -368,6 +369,9 @@ transform = Transform3D(0.417063, 0, 1.09926, 0, 1, 0, -1.37981, 0, 0.332263, 11
 
 [node name="rocks_04" parent="Background" instance=ExtResource("18_obi7d")]
 transform = Transform3D(-0.999809, 0, 0.0195289, 0, 1.31437, 0, -0.0195289, 0, -0.999809, 41.1049, -1.61361, -3.89849)
+
+[node name="TornadoVFX" parent="." instance=ExtResource("19_onq58")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 18.4903, -0.0223482, 0.692607)
 
 [connection signal="body_entered" from="Water/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="animation_finished" from="Weather/ThunderVFX/ThunderAnimationPlayer" to="Weather" method="_on__animation_finished"]

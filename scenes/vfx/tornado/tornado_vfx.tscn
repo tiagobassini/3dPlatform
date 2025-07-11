@@ -1,7 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://uk1p4yl5wbj2"]
+[gd_scene load_steps=24 format=3 uid="uid://uk1p4yl5wbj2"]
 
 [ext_resource type="Shader" uid="uid://6yv8eor2rhmk" path="res://scenes/vfx/tornado/shader_tornado.tres" id="1_t7jqu"]
 [ext_resource type="Texture2D" uid="uid://draelsh7ddbb4" path="res://scenes/vfx/tornado/textures/T_VFX_WindNoise1.png" id="2_1x48p"]
+[ext_resource type="Shader" uid="uid://dnbx4gf5gf7dq" path="res://scenes/vfx/tornado/shader_basic_dissolver.tres" id="3_su23p"]
+[ext_resource type="ArrayMesh" uid="uid://bn74qkl4100yi" path="res://scenes/vfx/tornado/model/wave_tornado.obj" id="3_xlusg"]
+[ext_resource type="Texture2D" uid="uid://dqumtycv028fa" path="res://scenes/vfx/tornado/textures/T_Noise_HU85k.png" id="4_abpko"]
 
 [sub_resource type="Gradient" id="Gradient_l2ygb"]
 offsets = PackedFloat32Array(0.00457666, 0.402746, 0.590389, 0.624714, 0.665904, 0.796339)
@@ -22,7 +25,7 @@ fill_from = Vector2(1, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dhfxm"]
 render_priority = 0
 shader = ExtResource("1_t7jqu")
-shader_parameter/Speed_XY = Vector2(-1, 1.5)
+shader_parameter/Speed_XY = Vector2(-1.5, 1.5)
 shader_parameter/Opacity = 1.0
 shader_parameter/Alpha_Scissor_Threshold = 0.337
 shader_parameter/Base_Texture = ExtResource("2_1x48p")
@@ -69,9 +72,52 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6jfka")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l1ueo"]
+render_priority = 0
+shader = ExtResource("3_su23p")
+shader_parameter/Base_Texture = ExtResource("4_abpko")
+
+[sub_resource type="Curve" id="Curve_bv5gj"]
+_data = [Vector2(0, 0.415254), 0.0, 0.0, 0, 0, Vector2(0.977199, 1), 0.75533, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5ljxg"]
+texture_mode = 1
+curve = SubResource("Curve_bv5gj")
+
+[sub_resource type="Gradient" id="Gradient_wvi41"]
+offsets = PackedFloat32Array(0, 0.569892, 1)
+colors = PackedColorArray(0.0399, 0.065485, 0.07, 1, 0.368627, 0.494118, 0.580392, 1, 1.5, 1.5, 1.5, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_s8ey2"]
+gradient = SubResource("Gradient_wvi41")
+
+[sub_resource type="Curve" id="Curve_qhduf"]
+_data = [Vector2(0, 0.161017), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rkgqe"]
+curve = SubResource("Curve_qhduf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t5l7s"]
+particle_flag_rotate_y = true
+angle_min = -180.0
+angle_max = 180.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_max = 3.0
+angular_velocity_min = 350.0
+angular_velocity_max = 500.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_rkgqe")
+color = Color(1.5, 1.5, 1.5, 1)
+color_ramp = SubResource("GradientTexture1D_s8ey2")
+alpha_curve = SubResource("CurveTexture_5ljxg")
+
 [sub_resource type="Animation" id="Animation_8ycpd"]
 resource_name = "SpinningLoop"
-length = 1.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -80,41 +126,35 @@ tracks/0/path = NodePath("Tornado:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.6),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, -6.28319, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_hxupe"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Tornado:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -6.28319, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bqlm0"]
 _data = {
-"RESET": SubResource("Animation_hxupe"),
 "SpinningLoop": SubResource("Animation_8ycpd")
 }
 
 [node name="TornadoVFX" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.232485, 0, 0)
 
 [node name="Tornado" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0.004, 1, 0)
+transform = Transform3D(-0.335051, 0, 0.9422, 0, 1, 0, -0.9422, 0, -0.335051, 0.004, 1, 0)
 material_override = SubResource("ShaderMaterial_dhfxm")
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_3bka3")
 skeleton = NodePath("")
+
+[node name="BaseWave" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_l1ueo")
+cast_shadow = 0
+lifetime = 0.5
+fixed_fps = 60
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_t5l7s")
+draw_pass_1 = ExtResource("3_xlusg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

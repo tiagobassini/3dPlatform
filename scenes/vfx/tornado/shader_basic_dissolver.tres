@@ -1,0 +1,53 @@
+[gd_resource type="VisualShader" load_steps=4 format=3 uid="uid://dnbx4gf5gf7dq"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_rhtv5"]
+parameter_name = "Base_Texture"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_nb3vx"]
+expanded_output_ports = [0]
+source = 5
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_v8lhk"]
+expanded_output_ports = [0]
+input_name = "color"
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded;
+
+uniform sampler2D Base_Texture;
+
+
+
+void fragment() {
+// Input:4
+	vec4 n_out4p0 = COLOR;
+	float n_out4p4 = n_out4p0.a;
+
+
+	vec4 n_out3p0;
+// Texture2D:3
+	n_out3p0 = texture(Base_Texture, UV);
+	float n_out3p1 = n_out3p0.r;
+
+
+// Output:0
+	ALBEDO = vec3(n_out4p0.xyz);
+	ALPHA = n_out3p1;
+	ALPHA_SCISSOR_THRESHOLD = n_out4p4;
+
+
+}
+"
+graph_offset = Vector2(-192.687, -13.0163)
+modes/cull = 2
+flags/unshaded = true
+nodes/fragment/0/position = Vector2(520, 100)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_rhtv5")
+nodes/fragment/2/position = Vector2(-320, 140)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_nb3vx")
+nodes/fragment/3/position = Vector2(80, 140)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_v8lhk")
+nodes/fragment/4/position = Vector2(20, -100)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 3, 1, 0, 1, 4, 0, 0, 0, 4, 4, 0, 19)
