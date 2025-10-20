@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckymfdyt5yt2d"]
+
+[ext_resource type="Environment" uid="uid://2cbpwttvx5cx" path="res://scenes/level/environments/sky/resource/enviroment_day2.tres" id="1_l2cg5"]
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = ExtResource("1_l2cg5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.48781383, 0.8729477, 0, -0.8729477, 0.48781383, 0, 9.1726, 11.1209)
+shadow_enabled = true

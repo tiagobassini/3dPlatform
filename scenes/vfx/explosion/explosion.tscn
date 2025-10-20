@@ -1,10 +1,10 @@
 [gd_scene load_steps=33 format=3 uid="uid://cst7ug4kib6qq"]
 
-[ext_resource type="Material" uid="uid://coap4ogb8tma" path="res://scenes/vfx/explosion/material_explosion_cloud.tres" id="1_y5t1m"]
-[ext_resource type="Shader" uid="uid://dry7uhsf3wgrj" path="res://scenes/vfx/explosion/shader_streaks.tres" id="2_fcgkq"]
-[ext_resource type="Texture2D" uid="uid://dagwnf1h8d1ys" path="res://scenes/vfx/explosion/texture/T_vfx_hit122.jpg" id="3_k2tj0"]
-[ext_resource type="Texture2D" uid="uid://ck8qmsoreqouc" path="res://scenes/vfx/explosion/texture/T_cracks35.png" id="4_rdx25"]
-[ext_resource type="Texture2D" uid="uid://dt4iev7171oi0" path="res://scenes/vfx/explosion/texture/T_cracks33_E3.jpg" id="5_tvoph"]
+[ext_resource type="Material" uid="uid://coap4ogb8tma" path="res://scenes/vfx/explosion/resources/material_explosion_cloud.tres" id="1_y5t1m"]
+[ext_resource type="Shader" uid="uid://dry7uhsf3wgrj" path="res://scenes/vfx/explosion/resources/shader_streaks.tres" id="2_fcgkq"]
+[ext_resource type="Texture2D" uid="uid://dagwnf1h8d1ys" path="res://scenes/vfx/explosion/resources/texture/T_vfx_hit122.jpg" id="3_k2tj0"]
+[ext_resource type="Texture2D" uid="uid://ck8qmsoreqouc" path="res://scenes/vfx/explosion/resources/texture/T_cracks35.png" id="4_rdx25"]
+[ext_resource type="Texture2D" uid="uid://dt4iev7171oi0" path="res://scenes/vfx/explosion/resources/texture/T_cracks33_E3.jpg" id="5_tvoph"]
 
 [sub_resource type="Curve" id="Curve_sy5pq"]
 _data = [Vector2(0.293839, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 4.4401, 0.0, 0, 0]

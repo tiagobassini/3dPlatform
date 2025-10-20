@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cc0e4vlsoubr7"]
+
+[ext_resource type="ArrayMesh" uid="uid://bixsb2njbiklc" path="res://scenes/level/environments/weather/elements/thunder/resources/thunder_edited.tres" id="1_uftfc"]
+
+[sub_resource type="Gradient" id="Gradient_plpb3"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iyra1"]
+gradient = SubResource("Gradient_plpb3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a00sa"]
+lifetime_randomness = 0.1
+particle_flag_rotate_y = true
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_iyra1")
+
+[node name="ThunderVFX" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 1
+lifetime = 0.25
+process_material = SubResource("ParticleProcessMaterial_a00sa")
+draw_pass_1 = ExtResource("1_uftfc")

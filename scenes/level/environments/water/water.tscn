@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr74r6q0uasge"]
+
+[ext_resource type="Shader" uid="uid://clxbfv3qi7scv" path="res://scenes/level/environments/water/water.gdshader" id="1_j5ehd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0rfp7"]
+render_priority = 0
+shader = ExtResource("1_j5ehd")
+shader_parameter/WATER_COL = Color(0.360784, 0.215686, 0.909804, 1)
+shader_parameter/WATER2_COL = Color(0.290196, 0.34902, 0.780392, 1)
+shader_parameter/FOAM_COL = Color(0.811765, 0.796078, 0.964706, 1)
+shader_parameter/distortion_speed = 4.0
+shader_parameter/tile = Vector2(200, 39)
+shader_parameter/height = 0.25
+shader_parameter/wave_size = Vector2(2, 2)
+shader_parameter/wave_speed = 1.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sj2fh"]
+material = SubResource("ShaderMaterial_0rfp7")
+size = Vector2(100, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kjuso"]
+size = Vector3(100, 1, 10)
+
+[node name="Water" type="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_sj2fh")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+shape = SubResource("BoxShape3D_kjuso")

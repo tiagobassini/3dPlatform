@@ -1,0 +1,9 @@
+Word Enviroment Object
+
+contains:
+	- sky (day and night)
+	- clound
+	- sun
+	- rain
+	- wind
+	- thunder

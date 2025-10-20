@@ -1,13 +1,13 @@
 [gd_scene load_steps=46 format=3 uid="uid://ct8l3ui8ofelw"]
 
-[ext_resource type="Material" uid="uid://c133xaq6gsda7" path="res://scenes/vfx/earth/model/rock_material.tres" id="1_8ub2g"]
-[ext_resource type="Script" path="res://scenes/vfx/earth/EarthSpell.gd" id="1_pvmkf"]
-[ext_resource type="Texture2D" uid="uid://bur2iluenku6g" path="res://scenes/vfx/earth/texture/T_Groundmark19.png" id="2_xkmqk"]
-[ext_resource type="ArrayMesh" uid="uid://dh8b7o7t514h2" path="res://scenes/vfx/earth/small_piece.res" id="3_yu4sb"]
-[ext_resource type="Texture2D" uid="uid://cc8ta7prbbd8q" path="res://scenes/vfx/earth/texture/T_VFX_RoundSmoke72.png" id="4_8ubfv"]
-[ext_resource type="AudioStream" uid="uid://8ownr1qaxotq" path="res://assets/sounds/effects/earth/rock_1.mp3" id="6_osqks"]
-[ext_resource type="AudioStream" uid="uid://cvdejn5t1huk6" path="res://assets/sounds/effects/earth/rock_2.mp3" id="7_8lpcu"]
-[ext_resource type="AudioStream" uid="uid://dnoauyxbvv74m" path="res://assets/sounds/effects/earth/rock_3.mp3" id="8_6puvh"]
+[ext_resource type="Material" uid="uid://c133xaq6gsda7" path="res://scenes/vfx/earth/resources/model/rock_material.tres" id="1_8ub2g"]
+[ext_resource type="Script" uid="uid://jy1j7sqiwvwx" path="res://scenes/vfx/earth/EarthSpell.gd" id="1_pvmkf"]
+[ext_resource type="Texture2D" uid="uid://bur2iluenku6g" path="res://scenes/vfx/earth/resources/texture/T_Groundmark19.png" id="2_xkmqk"]
+[ext_resource type="ArrayMesh" uid="uid://dh8b7o7t514h2" path="res://scenes/vfx/earth/resources/small_piece.res" id="3_yu4sb"]
+[ext_resource type="Texture2D" uid="uid://cc8ta7prbbd8q" path="res://scenes/vfx/earth/resources/texture/T_VFX_RoundSmoke72.png" id="4_8ubfv"]
+[ext_resource type="AudioStream" uid="uid://8ownr1qaxotq" path="res://scenes/vfx/earth/resources/sound/rock_1.mp3" id="6_osqks"]
+[ext_resource type="AudioStream" uid="uid://cvdejn5t1huk6" path="res://scenes/vfx/earth/resources/sound/rock_2.mp3" id="7_8lpcu"]
+[ext_resource type="AudioStream" uid="uid://dnoauyxbvv74m" path="res://scenes/vfx/earth/resources/sound/rock_3.mp3" id="8_6puvh"]
 
 [sub_resource type="Animation" id="Animation_or1il"]
 resource_name = "Init"
@@ -1326,38 +1326,32 @@ size = Vector3(1.4, 0.15, 0.5)
 stream = ExtResource("8_6puvh")
 volume_db = 10.0
 max_polyphony = 6
-bus = &"Effect1"
 
 [node name="SoundPlayer2" type="AudioStreamPlayer" parent="Sfx"]
 stream = ExtResource("7_8lpcu")
 volume_db = -5.0
 max_polyphony = 6
-bus = &"Effect2"
 
 [node name="SoundPlayer3" type="AudioStreamPlayer" parent="Sfx"]
 stream = ExtResource("6_osqks")
 volume_db = 10.0
 pitch_scale = 0.8
 max_polyphony = 6
-bus = &"Effect3"
 
 [node name="SoundPlayer4" type="AudioStreamPlayer" parent="Sfx"]
 stream = ExtResource("7_8lpcu")
 volume_db = -5.0
 max_polyphony = 6
-bus = &"Effect1"
 
 [node name="SoundPlayer5" type="AudioStreamPlayer" parent="Sfx"]
 stream = ExtResource("6_osqks")
 volume_db = -5.0
 max_polyphony = 6
-bus = &"Effect2"
 
 [node name="SoundPlayer6" type="AudioStreamPlayer" parent="Sfx"]
 stream = ExtResource("8_6puvh")
 volume_db = 15.0
 pitch_scale = 0.8
 max_polyphony = 6
-bus = &"Effect3"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

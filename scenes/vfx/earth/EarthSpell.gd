@@ -76,8 +76,3 @@ func play_sound()->void:
 		sound_player.play()
 	
 	pass
-
-
-
-
-
