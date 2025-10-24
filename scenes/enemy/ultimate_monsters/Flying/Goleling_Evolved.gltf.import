@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://0ctp8ydlhcrb"
-path="res://.godot/imported/Goleling_Evolved.gltf-e837f47450b9912bbc4c24639bdf1eab.scn"
+path="res://.godot/imported/Goleling_Evolved.gltf-083e8392178901524ebad4107b68e5d5.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Flying/Goleling_Evolved.gltf"
-dest_files=["res://.godot/imported/Goleling_Evolved.gltf-e837f47450b9912bbc4c24639bdf1eab.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Flying/Goleling_Evolved.gltf"
+dest_files=["res://.godot/imported/Goleling_Evolved.gltf-083e8392178901524ebad4107b68e5d5.scn"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1ha5uovjwbtb"
-path.s3tc="res://.godot/imported/Glub_Evolved_Atlas_Monsters.png-b2ce89a5e9df0aeda08035b83d7049ab.s3tc.ctex"
+path.s3tc="res://.godot/imported/Glub_Evolved_Atlas_Monsters.png-2c64120c27c2b9a45a41832bb8fbe0ce.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Flying/Glub_Evolved_Atlas_Monsters.png"
-dest_files=["res://.godot/imported/Glub_Evolved_Atlas_Monsters.png-b2ce89a5e9df0aeda08035b83d7049ab.s3tc.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Flying/Glub_Evolved_Atlas_Monsters.png"
+dest_files=["res://.godot/imported/Glub_Evolved_Atlas_Monsters.png-2c64120c27c2b9a45a41832bb8fbe0ce.s3tc.ctex"]
 
 [params]
 

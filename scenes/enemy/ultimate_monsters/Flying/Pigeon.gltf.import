@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://k7cnj34vge6u"
-path="res://.godot/imported/Pigeon.gltf-c583419431ff635a8d2e138107d031e4.scn"
+path="res://.godot/imported/Pigeon.gltf-ea1c780e9efe658651e30744437b0ae5.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Flying/Pigeon.gltf"
-dest_files=["res://.godot/imported/Pigeon.gltf-c583419431ff635a8d2e138107d031e4.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Flying/Pigeon.gltf"
+dest_files=["res://.godot/imported/Pigeon.gltf-ea1c780e9efe658651e30744437b0ae5.scn"]
 
 [params]
 

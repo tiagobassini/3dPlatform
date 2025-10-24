@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cyjwm6ajioohs"
-path="res://.godot/imported/Frog.gltf-1eb494943a9a926e4ff18564ce7a0d06.scn"
+path="res://.godot/imported/Frog.gltf-0a516ae45f37509e1641738148f2400f.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Big/Frog.gltf"
-dest_files=["res://.godot/imported/Frog.gltf-1eb494943a9a926e4ff18564ce7a0d06.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Big/Frog.gltf"
+dest_files=["res://.godot/imported/Frog.gltf-0a516ae45f37509e1641738148f2400f.scn"]
 
 [params]
 

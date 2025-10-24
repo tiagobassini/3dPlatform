@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d14ane5qp11e8"
-path="res://.godot/imported/MushroomKing.gltf-1c34b1d088d143d5f68242c7af9fb8dc.scn"
+path="res://.godot/imported/MushroomKing.gltf-f7e0e69836063413d019f1a6e634994c.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Big/MushroomKing.gltf"
-dest_files=["res://.godot/imported/MushroomKing.gltf-1c34b1d088d143d5f68242c7af9fb8dc.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Big/MushroomKing.gltf"
+dest_files=["res://.godot/imported/MushroomKing.gltf-f7e0e69836063413d019f1a6e634994c.scn"]
 
 [params]
 

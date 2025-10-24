@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cetvoyeeu5x2"
-path.s3tc="res://.godot/imported/Ghost_Skull_Atlas_Monsters.png-1f2e288686c1a3f77b295ef0f89fcad8.s3tc.ctex"
+path.s3tc="res://.godot/imported/Ghost_Skull_Atlas_Monsters.png-8197f389357327c977f30c62a1f6f47c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Flying/Ghost_Skull_Atlas_Monsters.png"
-dest_files=["res://.godot/imported/Ghost_Skull_Atlas_Monsters.png-1f2e288686c1a3f77b295ef0f89fcad8.s3tc.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Flying/Ghost_Skull_Atlas_Monsters.png"
+dest_files=["res://.godot/imported/Ghost_Skull_Atlas_Monsters.png-8197f389357327c977f30c62a1f6f47c.s3tc.ctex"]
 
 [params]
 

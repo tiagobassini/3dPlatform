@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1qtrcekdpwmr"
-path.s3tc="res://.godot/imported/Cat_Atlas_Monsters.png-0460477dee3d467aad9859d96a0abb52.s3tc.ctex"
+path.s3tc="res://.godot/imported/Cat_Atlas_Monsters.png-29ae6bdc8c7e0850a3907a8ed0abe493.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Blob/Cat_Atlas_Monsters.png"
-dest_files=["res://.godot/imported/Cat_Atlas_Monsters.png-0460477dee3d467aad9859d96a0abb52.s3tc.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Blob/Cat_Atlas_Monsters.png"
+dest_files=["res://.godot/imported/Cat_Atlas_Monsters.png-29ae6bdc8c7e0850a3907a8ed0abe493.s3tc.ctex"]
 
 [params]
 

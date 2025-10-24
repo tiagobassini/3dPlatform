@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://nvy38iathldr"
-path="res://.godot/imported/Mushnub.gltf-2d94d8eb554770f66368e695fbc99d17.scn"
+path="res://.godot/imported/Mushnub.gltf-54e40db53c5ee047f49f4b2535114da1.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Blob/Mushnub.gltf"
-dest_files=["res://.godot/imported/Mushnub.gltf-2d94d8eb554770f66368e695fbc99d17.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Blob/Mushnub.gltf"
+dest_files=["res://.godot/imported/Mushnub.gltf-54e40db53c5ee047f49f4b2535114da1.scn"]
 
 [params]
 

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Black Ox Beetle
+* source:	https://sketchfab.com/3d-models/black-ox-beetle-77257801e7d84521b61d84d18ba90076
+* author:	naviogutierrezdavid (https://sketchfab.com/naviogutierrezdavid)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Black Ox Beetle" (https://sketchfab.com/3d-models/black-ox-beetle-77257801e7d84521b61d84d18ba90076) by naviogutierrezdavid (https://sketchfab.com/naviogutierrezdavid) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

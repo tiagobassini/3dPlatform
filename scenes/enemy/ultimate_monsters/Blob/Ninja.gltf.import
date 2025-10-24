@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://douwsdsmo3nmc"
-path="res://.godot/imported/Ninja.gltf-5843576f085c31cbe9b6fd4ee302d52f.scn"
+path="res://.godot/imported/Ninja.gltf-e9b00826adff00692c12f2a0cbd312fe.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Blob/Ninja.gltf"
-dest_files=["res://.godot/imported/Ninja.gltf-5843576f085c31cbe9b6fd4ee302d52f.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Blob/Ninja.gltf"
+dest_files=["res://.godot/imported/Ninja.gltf-e9b00826adff00692c12f2a0cbd312fe.scn"]
 
 [params]
 

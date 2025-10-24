@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bqrpd0i8melqm"
-path="res://.godot/imported/Dino.gltf-05b4c43186ca012104196c097d5e47d4.scn"
+path="res://.godot/imported/Dino.gltf-a4e782dc895b306bd8263c7e337c0cb5.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Big/Dino.gltf"
-dest_files=["res://.godot/imported/Dino.gltf-05b4c43186ca012104196c097d5e47d4.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Big/Dino.gltf"
+dest_files=["res://.godot/imported/Dino.gltf-a4e782dc895b306bd8263c7e337c0cb5.scn"]
 
 [params]
 

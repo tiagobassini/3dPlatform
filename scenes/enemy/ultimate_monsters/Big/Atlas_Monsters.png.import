@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwwmeanweuyv7"
-path="res://.godot/imported/Atlas_Monsters.png-b6fb58527af49aed18d3b160d9533212.ctex"
+path="res://.godot/imported/Atlas_Monsters.png-b05013370f0bef48cda0add1868bbd21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Big/Atlas_Monsters.png"
-dest_files=["res://.godot/imported/Atlas_Monsters.png-b6fb58527af49aed18d3b160d9533212.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Big/Atlas_Monsters.png"
+dest_files=["res://.godot/imported/Atlas_Monsters.png-b05013370f0bef48cda0add1868bbd21.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ffssoeptjvuf"
-path="res://.godot/imported/Cat.gltf-93f981580e7a9db0301f6318a6f4a4ac.scn"
+path="res://.godot/imported/Cat.gltf-a7dc916e89bf64b83ac28e9c81410697.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Blob/Cat.gltf"
-dest_files=["res://.godot/imported/Cat.gltf-93f981580e7a9db0301f6318a6f4a4ac.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Blob/Cat.gltf"
+dest_files=["res://.godot/imported/Cat.gltf-a7dc916e89bf64b83ac28e9c81410697.scn"]
 
 [params]
 

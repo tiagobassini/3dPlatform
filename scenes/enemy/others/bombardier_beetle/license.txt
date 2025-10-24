@@ -1,0 +1,11 @@
+Model Information:
+* title:	Bombardier Beetle
+* source:	https://sketchfab.com/3d-models/bombardier-beetle-e445f1e90dc14cfa9701ff98c0430965
+* author:	naviogutierrezdavid (https://sketchfab.com/naviogutierrezdavid)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Bombardier Beetle" (https://sketchfab.com/3d-models/bombardier-beetle-e445f1e90dc14cfa9701ff98c0430965) by naviogutierrezdavid (https://sketchfab.com/naviogutierrezdavid) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

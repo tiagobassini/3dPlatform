@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dj23jbmhtcxok"
-path="res://.godot/imported/Demon.gltf-953e9235ba379e80d0542cad34fc36c7.scn"
+path="res://.godot/imported/Demon.gltf-034d2599305eef0a287b4b27e7e5854b.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Big/Demon.gltf"
-dest_files=["res://.godot/imported/Demon.gltf-953e9235ba379e80d0542cad34fc36c7.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Big/Demon.gltf"
+dest_files=["res://.godot/imported/Demon.gltf-034d2599305eef0a287b4b27e7e5854b.scn"]
 
 [params]
 

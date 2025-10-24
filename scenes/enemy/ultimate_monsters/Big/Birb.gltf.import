@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cg5mkimpax3ii"
-path="res://.godot/imported/Birb.gltf-5ff9bcb765a0dd9ac2c6fe05a73ad8a8.scn"
+path="res://.godot/imported/Birb.gltf-3b0774231020ff2ffffcd083c62e2276.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Big/Birb.gltf"
-dest_files=["res://.godot/imported/Birb.gltf-5ff9bcb765a0dd9ac2c6fe05a73ad8a8.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Big/Birb.gltf"
+dest_files=["res://.godot/imported/Birb.gltf-3b0774231020ff2ffffcd083c62e2276.scn"]
 
 [params]
 

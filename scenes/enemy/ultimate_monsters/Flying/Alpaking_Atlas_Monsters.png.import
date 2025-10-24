@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cluj7awhaou4x"
-path.s3tc="res://.godot/imported/Alpaking_Atlas_Monsters.png-c43a3134854699376c64700b94eeae9f.s3tc.ctex"
+path.s3tc="res://.godot/imported/Alpaking_Atlas_Monsters.png-fc704465a359af6759996db903b3259f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Flying/Alpaking_Atlas_Monsters.png"
-dest_files=["res://.godot/imported/Alpaking_Atlas_Monsters.png-c43a3134854699376c64700b94eeae9f.s3tc.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Flying/Alpaking_Atlas_Monsters.png"
+dest_files=["res://.godot/imported/Alpaking_Atlas_Monsters.png-fc704465a359af6759996db903b3259f.s3tc.ctex"]
 
 [params]
 

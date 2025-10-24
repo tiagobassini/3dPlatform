@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dp6m2p1ig65da"
-path="res://.godot/imported/Orc.gltf-c317939a01e8af999bacef33abfded05.scn"
+path="res://.godot/imported/Orc.gltf-bb52cdae246f419e7c33c5a8d5d44a30.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Big/Orc.gltf"
-dest_files=["res://.godot/imported/Orc.gltf-c317939a01e8af999bacef33abfded05.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Big/Orc.gltf"
+dest_files=["res://.godot/imported/Orc.gltf-bb52cdae246f419e7c33c5a8d5d44a30.scn"]
 
 [params]
 

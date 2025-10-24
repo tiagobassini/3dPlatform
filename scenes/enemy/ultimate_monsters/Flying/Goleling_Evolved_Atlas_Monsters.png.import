@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8w6xr8bkfi3k"
-path.s3tc="res://.godot/imported/Goleling_Evolved_Atlas_Monsters.png-3dbaecf8bddfd5fa52f458049e9b582e.s3tc.ctex"
+path.s3tc="res://.godot/imported/Goleling_Evolved_Atlas_Monsters.png-a03443023a0b1b4408658f2df6b55991.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Flying/Goleling_Evolved_Atlas_Monsters.png"
-dest_files=["res://.godot/imported/Goleling_Evolved_Atlas_Monsters.png-3dbaecf8bddfd5fa52f458049e9b582e.s3tc.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Flying/Goleling_Evolved_Atlas_Monsters.png"
+dest_files=["res://.godot/imported/Goleling_Evolved_Atlas_Monsters.png-a03443023a0b1b4408658f2df6b55991.s3tc.ctex"]
 
 [params]
 

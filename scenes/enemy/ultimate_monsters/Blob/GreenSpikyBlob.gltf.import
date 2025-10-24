@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dy5fufat5c8b"
-path="res://.godot/imported/GreenSpikyBlob.gltf-00c487cecb4cc90826d9236762331296.scn"
+path="res://.godot/imported/GreenSpikyBlob.gltf-44e15fcfb7a653736fd78be77efedfdd.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Blob/GreenSpikyBlob.gltf"
-dest_files=["res://.godot/imported/GreenSpikyBlob.gltf-00c487cecb4cc90826d9236762331296.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Blob/GreenSpikyBlob.gltf"
+dest_files=["res://.godot/imported/GreenSpikyBlob.gltf-44e15fcfb7a653736fd78be77efedfdd.scn"]
 
 [params]
 

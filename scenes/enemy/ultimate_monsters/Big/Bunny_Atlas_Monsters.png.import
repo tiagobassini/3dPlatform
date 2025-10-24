@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://calq31kmkvf10"
-path.s3tc="res://.godot/imported/Bunny_Atlas_Monsters.png-3d635f4b845976ab8e922f43a449fcf3.s3tc.ctex"
+path.s3tc="res://.godot/imported/Bunny_Atlas_Monsters.png-d39bb726a2fc81741a55772710564880.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Big/Bunny_Atlas_Monsters.png"
-dest_files=["res://.godot/imported/Bunny_Atlas_Monsters.png-3d635f4b845976ab8e922f43a449fcf3.s3tc.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Big/Bunny_Atlas_Monsters.png"
+dest_files=["res://.godot/imported/Bunny_Atlas_Monsters.png-d39bb726a2fc81741a55772710564880.s3tc.ctex"]
 
 [params]
 

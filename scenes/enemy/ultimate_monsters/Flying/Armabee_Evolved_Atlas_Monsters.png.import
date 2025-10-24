@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3e7tw8ok4gjb"
-path.s3tc="res://.godot/imported/Armabee_Evolved_Atlas_Monsters.png-a1237b24ddd2df00689b351ab3aef835.s3tc.ctex"
+path.s3tc="res://.godot/imported/Armabee_Evolved_Atlas_Monsters.png-d1aa16f6edf18c8620017813f606ffb5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Flying/Armabee_Evolved_Atlas_Monsters.png"
-dest_files=["res://.godot/imported/Armabee_Evolved_Atlas_Monsters.png-a1237b24ddd2df00689b351ab3aef835.s3tc.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Flying/Armabee_Evolved_Atlas_Monsters.png"
+dest_files=["res://.godot/imported/Armabee_Evolved_Atlas_Monsters.png-d1aa16f6edf18c8620017813f606ffb5.s3tc.ctex"]
 
 [params]
 

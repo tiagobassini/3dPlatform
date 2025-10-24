@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cf14nvmu3wa42"
-path="res://.godot/imported/Monkroose.gltf-b337ee7138c668b26d9420a788c75b91.scn"
+path="res://.godot/imported/Monkroose.gltf-69d4a5b1ce99452b6f378549778f8244.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Big/Monkroose.gltf"
-dest_files=["res://.godot/imported/Monkroose.gltf-b337ee7138c668b26d9420a788c75b91.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Big/Monkroose.gltf"
+dest_files=["res://.godot/imported/Monkroose.gltf-69d4a5b1ce99452b6f378549778f8244.scn"]
 
 [params]
 

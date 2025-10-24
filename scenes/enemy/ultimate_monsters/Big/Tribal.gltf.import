@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cisxnsywscg15"
-path="res://.godot/imported/Tribal.gltf-ad1f3f6bc3f8c69aaea96ff46db94854.scn"
+path="res://.godot/imported/Tribal.gltf-e967e97179bddc979eb73bb0a80fd6a3.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Big/Tribal.gltf"
-dest_files=["res://.godot/imported/Tribal.gltf-ad1f3f6bc3f8c69aaea96ff46db94854.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Big/Tribal.gltf"
+dest_files=["res://.godot/imported/Tribal.gltf-e967e97179bddc979eb73bb0a80fd6a3.scn"]
 
 [params]
 

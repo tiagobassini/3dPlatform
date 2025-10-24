@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://wxo5daho2074"
-path="res://.godot/imported/Hywirl.gltf-bb3138ca256d9e4921351b17d7d04a4a.scn"
+path="res://.godot/imported/Hywirl.gltf-8f293535ac6295df263fef4b404e14bb.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Flying/Hywirl.gltf"
-dest_files=["res://.godot/imported/Hywirl.gltf-bb3138ca256d9e4921351b17d7d04a4a.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Flying/Hywirl.gltf"
+dest_files=["res://.godot/imported/Hywirl.gltf-8f293535ac6295df263fef4b404e14bb.scn"]
 
 [params]
 

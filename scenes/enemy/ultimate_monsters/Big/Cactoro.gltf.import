@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://di7bco0swqb32"
-path="res://.godot/imported/Cactoro.gltf-fa09268f5f1425af58ee2400f0b32672.scn"
+path="res://.godot/imported/Cactoro.gltf-b2cd3e2c55ffea08a193a22bdacfeafc.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Big/Cactoro.gltf"
-dest_files=["res://.godot/imported/Cactoro.gltf-fa09268f5f1425af58ee2400f0b32672.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Big/Cactoro.gltf"
+dest_files=["res://.godot/imported/Cactoro.gltf-b2cd3e2c55ffea08a193a22bdacfeafc.scn"]
 
 [params]
 

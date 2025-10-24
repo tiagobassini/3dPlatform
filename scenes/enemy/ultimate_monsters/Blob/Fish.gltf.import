@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dqafpdcdu7i1d"
-path="res://.godot/imported/Fish.gltf-d70413674f2342f0f199598f9d82d45b.scn"
+path="res://.godot/imported/Fish.gltf-d367a7e8c7fe974aa1d2d3966b3cf0e6.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Blob/Fish.gltf"
-dest_files=["res://.godot/imported/Fish.gltf-d70413674f2342f0f199598f9d82d45b.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Blob/Fish.gltf"
+dest_files=["res://.godot/imported/Fish.gltf-d367a7e8c7fe974aa1d2d3966b3cf0e6.scn"]
 
 [params]
 

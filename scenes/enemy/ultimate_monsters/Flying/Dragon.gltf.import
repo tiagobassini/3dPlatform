@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dtdndb4obqsgy"
-path="res://.godot/imported/Dragon.gltf-ed9602c475393537dc048c362b9feb94.scn"
+path="res://.godot/imported/Dragon.gltf-a639bffb870f81c5d6b9d9f8756c04a1.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Flying/Dragon.gltf"
-dest_files=["res://.godot/imported/Dragon.gltf-ed9602c475393537dc048c362b9feb94.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Flying/Dragon.gltf"
+dest_files=["res://.godot/imported/Dragon.gltf-a639bffb870f81c5d6b9d9f8756c04a1.scn"]
 
 [params]
 

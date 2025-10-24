@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpirjwwh6tbb3"
-path.s3tc="res://.godot/imported/Wizard_Atlas_Monsters.png-0f0fbec1e97b3526b80fb6b49d6248f3.s3tc.ctex"
+path.s3tc="res://.godot/imported/Wizard_Atlas_Monsters.png-ec01809fe638c454d9c9d529f152e651.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Blob/Wizard_Atlas_Monsters.png"
-dest_files=["res://.godot/imported/Wizard_Atlas_Monsters.png-0f0fbec1e97b3526b80fb6b49d6248f3.s3tc.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Blob/Wizard_Atlas_Monsters.png"
+dest_files=["res://.godot/imported/Wizard_Atlas_Monsters.png-ec01809fe638c454d9c9d529f152e651.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2jui8gicvtgg"
-path.s3tc="res://.godot/imported/Demon_Atlas_Monsters.png-a7880dfaa1253340c116a93f67b1b713.s3tc.ctex"
+path.s3tc="res://.godot/imported/Demon_Atlas_Monsters.png-278f7a79afb2f6569b654b8b2da758e2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Flying/Demon_Atlas_Monsters.png"
-dest_files=["res://.godot/imported/Demon_Atlas_Monsters.png-a7880dfaa1253340c116a93f67b1b713.s3tc.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Flying/Demon_Atlas_Monsters.png"
+dest_files=["res://.godot/imported/Demon_Atlas_Monsters.png-278f7a79afb2f6569b654b8b2da758e2.s3tc.ctex"]
 
 [params]
 

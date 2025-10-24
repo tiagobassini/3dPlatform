@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cvay50cqxse5s"
-path="res://.godot/imported/Alien.gltf-3421302b70937b72b0ec068c30d8640d.scn"
+path="res://.godot/imported/Alien.gltf-b951939f6bd7448fea8258bcf2c1db67.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Blob/Alien.gltf"
-dest_files=["res://.godot/imported/Alien.gltf-3421302b70937b72b0ec068c30d8640d.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Blob/Alien.gltf"
+dest_files=["res://.godot/imported/Alien.gltf-b951939f6bd7448fea8258bcf2c1db67.scn"]
 
 [params]
 

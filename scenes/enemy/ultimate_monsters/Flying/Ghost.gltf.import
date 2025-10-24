@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d1el8vufbjnic"
-path="res://.godot/imported/Ghost.gltf-bde2f06c5303c58d7fdfa84992c8883a.scn"
+path="res://.godot/imported/Ghost.gltf-fdca17424921a098df2dcf23e4da6e34.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Flying/Ghost.gltf"
-dest_files=["res://.godot/imported/Ghost.gltf-bde2f06c5303c58d7fdfa84992c8883a.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Flying/Ghost.gltf"
+dest_files=["res://.godot/imported/Ghost.gltf-fdca17424921a098df2dcf23e4da6e34.scn"]
 
 [params]
 

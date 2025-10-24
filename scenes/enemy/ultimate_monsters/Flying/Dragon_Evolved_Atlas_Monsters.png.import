@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1o3qk6d1e7o6"
-path.s3tc="res://.godot/imported/Dragon_Evolved_Atlas_Monsters.png-5c7c40083d212ec9b9e052eb1863c5f8.s3tc.ctex"
+path.s3tc="res://.godot/imported/Dragon_Evolved_Atlas_Monsters.png-02fe87e71b74c6f8dcd2836a5e36a5b8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Flying/Dragon_Evolved_Atlas_Monsters.png"
-dest_files=["res://.godot/imported/Dragon_Evolved_Atlas_Monsters.png-5c7c40083d212ec9b9e052eb1863c5f8.s3tc.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Flying/Dragon_Evolved_Atlas_Monsters.png"
+dest_files=["res://.godot/imported/Dragon_Evolved_Atlas_Monsters.png-02fe87e71b74c6f8dcd2836a5e36a5b8.s3tc.ctex"]
 
 [params]
 

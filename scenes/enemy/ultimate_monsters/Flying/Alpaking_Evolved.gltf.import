@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://nt2j6i5ksjrr"
-path="res://.godot/imported/Alpaking_Evolved.gltf-43f201bd5923abfbbd778cf25349077e.scn"
+path="res://.godot/imported/Alpaking_Evolved.gltf-a9a3f21a778ff0eb16e1e7c4b64b99a1.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Flying/Alpaking_Evolved.gltf"
-dest_files=["res://.godot/imported/Alpaking_Evolved.gltf-43f201bd5923abfbbd778cf25349077e.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Flying/Alpaking_Evolved.gltf"
+dest_files=["res://.godot/imported/Alpaking_Evolved.gltf-a9a3f21a778ff0eb16e1e7c4b64b99a1.scn"]
 
 [params]
 

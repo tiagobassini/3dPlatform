@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://db35557ndiehr"
-path="res://.godot/imported/Armabee_Evolved.gltf-90330c6c11630f3017c07847ba1894ab.scn"
+path="res://.godot/imported/Armabee_Evolved.gltf-f12cf68ff4e20cbd17546aff11b5e85b.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Flying/Armabee_Evolved.gltf"
-dest_files=["res://.godot/imported/Armabee_Evolved.gltf-90330c6c11630f3017c07847ba1894ab.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Flying/Armabee_Evolved.gltf"
+dest_files=["res://.godot/imported/Armabee_Evolved.gltf-f12cf68ff4e20cbd17546aff11b5e85b.scn"]
 
 [params]
 

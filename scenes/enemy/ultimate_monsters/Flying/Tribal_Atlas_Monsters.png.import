@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpy5q3puhu0ge"
-path.s3tc="res://.godot/imported/Tribal_Atlas_Monsters.png-22efa3c713284c009b78c9f8cb54b9dd.s3tc.ctex"
+path.s3tc="res://.godot/imported/Tribal_Atlas_Monsters.png-2fa412186aba7f2f8515ab3a41b345cf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Flying/Tribal_Atlas_Monsters.png"
-dest_files=["res://.godot/imported/Tribal_Atlas_Monsters.png-22efa3c713284c009b78c9f8cb54b9dd.s3tc.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Flying/Tribal_Atlas_Monsters.png"
+dest_files=["res://.godot/imported/Tribal_Atlas_Monsters.png-2fa412186aba7f2f8515ab3a41b345cf.s3tc.ctex"]
 
 [params]
 

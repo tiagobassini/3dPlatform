@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bwacgj2dt01vl"
-path="res://.godot/imported/Glub_Evolved.gltf-46ebca72dbb1c294ec18f3ddb1e4c5f6.scn"
+path="res://.godot/imported/Glub_Evolved.gltf-036617f101e57de0dc212a1661d218ee.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Flying/Glub_Evolved.gltf"
-dest_files=["res://.godot/imported/Glub_Evolved.gltf-46ebca72dbb1c294ec18f3ddb1e4c5f6.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Flying/Glub_Evolved.gltf"
+dest_files=["res://.godot/imported/Glub_Evolved.gltf-036617f101e57de0dc212a1661d218ee.scn"]
 
 [params]
 

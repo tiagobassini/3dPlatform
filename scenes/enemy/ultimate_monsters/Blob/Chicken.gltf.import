@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://n4jkifdlh01n"
-path="res://.godot/imported/Chicken.gltf-c303ef291b32b8000a91bc22cf39cea2.scn"
+path="res://.godot/imported/Chicken.gltf-7248d40b8170b4e33610111a4e858ed5.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Blob/Chicken.gltf"
-dest_files=["res://.godot/imported/Chicken.gltf-c303ef291b32b8000a91bc22cf39cea2.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Blob/Chicken.gltf"
+dest_files=["res://.godot/imported/Chicken.gltf-7248d40b8170b4e33610111a4e858ed5.scn"]
 
 [params]
 

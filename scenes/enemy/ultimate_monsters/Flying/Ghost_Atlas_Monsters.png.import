@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2bxw3sf25vxh"
-path.s3tc="res://.godot/imported/Ghost_Atlas_Monsters.png-e7c01c8150df29fac466000876d39931.s3tc.ctex"
+path.s3tc="res://.godot/imported/Ghost_Atlas_Monsters.png-abdbffac5ba35bd139b53f65ea98318c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Flying/Ghost_Atlas_Monsters.png"
-dest_files=["res://.godot/imported/Ghost_Atlas_Monsters.png-e7c01c8150df29fac466000876d39931.s3tc.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Flying/Ghost_Atlas_Monsters.png"
+dest_files=["res://.godot/imported/Ghost_Atlas_Monsters.png-abdbffac5ba35bd139b53f65ea98318c.s3tc.ctex"]
 
 [params]
 

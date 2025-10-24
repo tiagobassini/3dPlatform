@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dl6r3n6r3skbh"
-path="res://.godot/imported/Yeti.gltf-489689f553f06fe1b02bb89020f51e80.scn"
+path="res://.godot/imported/Yeti.gltf-e5f4ca336258cc7a0df3a816487ee7f5.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Blob/Yeti.gltf"
-dest_files=["res://.godot/imported/Yeti.gltf-489689f553f06fe1b02bb89020f51e80.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Blob/Yeti.gltf"
+dest_files=["res://.godot/imported/Yeti.gltf-e5f4ca336258cc7a0df3a816487ee7f5.scn"]
 
 [params]
 

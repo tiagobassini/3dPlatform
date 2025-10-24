@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://f8aswj1g3e2"
-path="res://.godot/imported/Bunny.gltf-949419fb4282be4abe2786e9923b3aaf.scn"
+path="res://.godot/imported/Bunny.gltf-8ee19099a1b7d921bcbf856683a38345.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Big/Bunny.gltf"
-dest_files=["res://.godot/imported/Bunny.gltf-949419fb4282be4abe2786e9923b3aaf.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Big/Bunny.gltf"
+dest_files=["res://.godot/imported/Bunny.gltf-8ee19099a1b7d921bcbf856683a38345.scn"]
 
 [params]
 

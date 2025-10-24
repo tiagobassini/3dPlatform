@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://jsn0ryf4f8aa"
-path="res://.godot/imported/Dog.gltf-31ec55d3442eec7a5393ace63ead5e69.scn"
+path="res://.godot/imported/Dog.gltf-e3c3e7671ee71f3eb5278355ccfce8aa.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Blob/Dog.gltf"
-dest_files=["res://.godot/imported/Dog.gltf-31ec55d3442eec7a5393ace63ead5e69.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Blob/Dog.gltf"
+dest_files=["res://.godot/imported/Dog.gltf-e3c3e7671ee71f3eb5278355ccfce8aa.scn"]
 
 [params]
 

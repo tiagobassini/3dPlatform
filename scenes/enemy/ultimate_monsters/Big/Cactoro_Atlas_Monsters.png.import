@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c01madrh3pmw7"
-path.s3tc="res://.godot/imported/Cactoro_Atlas_Monsters.png-e502dfb1ae54da10b68df1be92028676.s3tc.ctex"
+path.s3tc="res://.godot/imported/Cactoro_Atlas_Monsters.png-26f642b548206f494bf105ec24a7f236.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Big/Cactoro_Atlas_Monsters.png"
-dest_files=["res://.godot/imported/Cactoro_Atlas_Monsters.png-e502dfb1ae54da10b68df1be92028676.s3tc.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Big/Cactoro_Atlas_Monsters.png"
+dest_files=["res://.godot/imported/Cactoro_Atlas_Monsters.png-26f642b548206f494bf105ec24a7f236.s3tc.ctex"]
 
 [params]
 

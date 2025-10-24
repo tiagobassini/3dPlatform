@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dlbujvgvcsn2d"
-path="res://.godot/imported/Wizard.gltf-ab0ecfd1b41365f933bd5710d5f763d7.scn"
+path="res://.godot/imported/Wizard.gltf-561ac4667ffa66fbf8da8006a9c9cb7e.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Blob/Wizard.gltf"
-dest_files=["res://.godot/imported/Wizard.gltf-ab0ecfd1b41365f933bd5710d5f763d7.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Blob/Wizard.gltf"
+dest_files=["res://.godot/imported/Wizard.gltf-561ac4667ffa66fbf8da8006a9c9cb7e.scn"]
 
 [params]
 

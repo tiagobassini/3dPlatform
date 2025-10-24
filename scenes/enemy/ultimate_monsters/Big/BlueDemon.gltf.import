@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ctf6y54t1gufj"
-path="res://.godot/imported/BlueDemon.gltf-557044e45420a600842389c9b676e153.scn"
+path="res://.godot/imported/BlueDemon.gltf-76201dd8d33cb28a336a70e7b0249e98.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Big/BlueDemon.gltf"
-dest_files=["res://.godot/imported/BlueDemon.gltf-557044e45420a600842389c9b676e153.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Big/BlueDemon.gltf"
+dest_files=["res://.godot/imported/BlueDemon.gltf-76201dd8d33cb28a336a70e7b0249e98.scn"]
 
 [params]
 

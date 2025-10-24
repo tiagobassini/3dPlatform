@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d0mpoju8wsk5j"
-path="res://.godot/imported/PinkBlob.gltf-53bcc47fc8ded6b77071193e5ef3c229.scn"
+path="res://.godot/imported/PinkBlob.gltf-01c9e7cd90f0ead0bf5969f14daed283.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Blob/PinkBlob.gltf"
-dest_files=["res://.godot/imported/PinkBlob.gltf-53bcc47fc8ded6b77071193e5ef3c229.scn"]
+source_file="res://scenes/enemy/ultimate_monsters/Blob/PinkBlob.gltf"
+dest_files=["res://.godot/imported/PinkBlob.gltf-01c9e7cd90f0ead0bf5969f14daed283.scn"]
 
 [params]
 

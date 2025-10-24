@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmw010k8u6tkv"
-path.s3tc="res://.godot/imported/Yeti_Atlas_Monsters.png-1dc5ee7cd545996b789ab8b52938842d.s3tc.ctex"
+path.s3tc="res://.godot/imported/Yeti_Atlas_Monsters.png-6f9810664f5fd6764642213023f4de70.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Big/Yeti_Atlas_Monsters.png"
-dest_files=["res://.godot/imported/Yeti_Atlas_Monsters.png-1dc5ee7cd545996b789ab8b52938842d.s3tc.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Big/Yeti_Atlas_Monsters.png"
+dest_files=["res://.godot/imported/Yeti_Atlas_Monsters.png-6f9810664f5fd6764642213023f4de70.s3tc.ctex"]
 
 [params]
 

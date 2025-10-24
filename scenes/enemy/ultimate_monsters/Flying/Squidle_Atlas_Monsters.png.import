@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ct2b5n2rf64jl"
-path.s3tc="res://.godot/imported/Squidle_Atlas_Monsters.png-ddf5bcf6c92239018751aa3ea1f0c1bd.s3tc.ctex"
+path.s3tc="res://.godot/imported/Squidle_Atlas_Monsters.png-daa6ab8aca587b9165f0166dcad5f714.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Flying/Squidle_Atlas_Monsters.png"
-dest_files=["res://.godot/imported/Squidle_Atlas_Monsters.png-ddf5bcf6c92239018751aa3ea1f0c1bd.s3tc.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Flying/Squidle_Atlas_Monsters.png"
+dest_files=["res://.godot/imported/Squidle_Atlas_Monsters.png-daa6ab8aca587b9165f0166dcad5f714.s3tc.ctex"]
 
 [params]
 

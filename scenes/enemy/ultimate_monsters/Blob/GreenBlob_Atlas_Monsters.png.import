@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bapuuw0kla3q3"
-path.s3tc="res://.godot/imported/GreenBlob_Atlas_Monsters.png-783e768d2d95a1c7017da5f919d8c99b.s3tc.ctex"
+path.s3tc="res://.godot/imported/GreenBlob_Atlas_Monsters.png-4269064c0cf936af56862868f6c31bdc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Blob/GreenBlob_Atlas_Monsters.png"
-dest_files=["res://.godot/imported/GreenBlob_Atlas_Monsters.png-783e768d2d95a1c7017da5f919d8c99b.s3tc.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Blob/GreenBlob_Atlas_Monsters.png"
+dest_files=["res://.godot/imported/GreenBlob_Atlas_Monsters.png-4269064c0cf936af56862868f6c31bdc.s3tc.ctex"]
 
 [params]
 

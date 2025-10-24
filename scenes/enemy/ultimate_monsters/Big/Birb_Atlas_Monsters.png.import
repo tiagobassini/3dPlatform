@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dr3twwrrefxyx"
-path.s3tc="res://.godot/imported/Birb_Atlas_Monsters.png-413a6f840b246752afd4e6acfc3563de.s3tc.ctex"
+path.s3tc="res://.godot/imported/Birb_Atlas_Monsters.png-4352d5113d87c7b0adfe9838d2d2abe6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Big/Birb_Atlas_Monsters.png"
-dest_files=["res://.godot/imported/Birb_Atlas_Monsters.png-413a6f840b246752afd4e6acfc3563de.s3tc.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Big/Birb_Atlas_Monsters.png"
+dest_files=["res://.godot/imported/Birb_Atlas_Monsters.png-4352d5113d87c7b0adfe9838d2d2abe6.s3tc.ctex"]
 
 [params]
 

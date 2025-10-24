@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://i3xvcxpstpax"
-path.s3tc="res://.godot/imported/Frog_Atlas_Monsters.png-f009bcf78428e7309df3e6cde4769913.s3tc.ctex"
+path.s3tc="res://.godot/imported/Frog_Atlas_Monsters.png-7a79a9ac152c5277d37534ed17c146a8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/UltimateMonsters/Big/Frog_Atlas_Monsters.png"
-dest_files=["res://.godot/imported/Frog_Atlas_Monsters.png-f009bcf78428e7309df3e6cde4769913.s3tc.ctex"]
+source_file="res://scenes/enemy/ultimate_monsters/Big/Frog_Atlas_Monsters.png"
+dest_files=["res://.godot/imported/Frog_Atlas_Monsters.png-7a79a9ac152c5277d37534ed17c146a8.s3tc.ctex"]
 
 [params]
 
