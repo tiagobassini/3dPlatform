@@ -1,10 +1,10 @@
-[gd_resource type="Environment" load_steps=2 format=3 uid="uid://2cbpwttvx5cx"]
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://bhcm26l2wmdiy"]
 
-[ext_resource type="Sky" uid="uid://cx7mu40upp5ml" path="res://scenes/level/environments/sky/resource/sky_day_background.tres" id="1_6pesh"]
+[ext_resource type="Sky" path="res://scenes/level/environments/sky/resource/sky_night_background.tres" id="1_lix5y"]
 
 [resource]
 background_mode = 2
-sky = ExtResource("1_6pesh")
+sky = ExtResource("1_lix5y")
 sky_rotation = Vector3(0, 3.14159, 0)
 volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0.0509804, 0.0509804, 0.0509804, 1)

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://iroli1j1ahqh"
-path="res://.godot/imported/lighting_spell_electric_zap_blast_sparkle_bright_03.wav-d22615f1ad7dc2e0cfee734b3ad1a577.sample"
+path="res://.godot/imported/lighting_spell_electric_zap_blast_sparkle_bright_03.wav-973215fbc720e266c443a758400d6826.sample"
 
 [deps]
 
-source_file="res://assets/sounds/effects/thunder/lighting_spell_electric_zap_blast_sparkle_bright_03.wav"
-dest_files=["res://.godot/imported/lighting_spell_electric_zap_blast_sparkle_bright_03.wav-d22615f1ad7dc2e0cfee734b3ad1a577.sample"]
+source_file="res://assets/sounds/effects/Thunder/lighting_spell_electric_zap_blast_sparkle_bright_03.wav"
+dest_files=["res://.godot/imported/lighting_spell_electric_zap_blast_sparkle_bright_03.wav-973215fbc720e266c443a758400d6826.sample"]
 
 [params]
 

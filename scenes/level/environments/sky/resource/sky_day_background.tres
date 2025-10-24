@@ -1,6 +1,0 @@
-[gd_resource type="Sky" load_steps=2 format=3 uid="uid://cx7mu40upp5ml"]
-
-[ext_resource type="Material" uid="uid://bip03vxec07kn" path="res://scenes/level/environments/sky/resource/shader/shader_material.tres" id="1_icbt4"]
-
-[resource]
-sky_material = ExtResource("1_icbt4")
