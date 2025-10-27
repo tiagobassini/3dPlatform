@@ -47,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 shape = SubResource("BoxShape3D_kjuso")
 
 [node name="Player" parent="." instance=ExtResource("4_w1j54")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 12.218085, 2.3899636, 1.3737615)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 12.218085, 1.8899636, 1.3737615)
 platform_on_leave = 2
 JUMP_VELOCITY = 5.2
 SHOOT_SPEED = 2.8
@@ -69,9 +69,20 @@ bus = &"Music"
 [node name="Decoration" type="Node3D" parent="."]
 
 [node name="Platforms" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms"]
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Platforms"]
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Platforms"]
+skeleton = NodePath("../..")
+
+[node name="Node3D" type="Node3D" parent="."]
 script = ExtResource("5_cubbl")
 
-[node name="GridMap" type="GridMap" parent="Platforms"]
+[node name="GridMap" type="GridMap" parent="Node3D"]
 mesh_library = ExtResource("6_cubbl")
 cell_size = Vector3(0.5, 0.5, 0.5)
 collision_layer = 8

@@ -15,10 +15,6 @@ run/main_scene="res://scenes/level/level_01/level_1.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-CsgToolkitAutoload="*res://addons/csg_toolkit/scripts/csg_toolkit_config.gd"
-
 [debug]
 
 shapes/collision/shape_color=Color(0.835294, 0, 0.803922, 0.803922)
@@ -26,7 +22,7 @@ shapes/collision/contact_color=Color(1, 0.2, 0.101961, 0.878431)
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/csg_toolkit/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 
