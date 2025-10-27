@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://dt6g3p2mkc22g"]
+
+[ext_resource type="Script" uid="uid://b0h8qrh16ab65" path="res://scenes/level/level_01/level_1.gd" id="4_d3xbu"]
+[ext_resource type="Shader" uid="uid://clxbfv3qi7scv" path="res://scenes/level/environments/water/water.gdshader" id="4_g6sy5"]
+[ext_resource type="PackedScene" uid="uid://dt6flgldb5qw3" path="res://scenes/player/character/player.tscn" id="4_w1j54"]
+[ext_resource type="Script" uid="uid://w8ad8q4lneis" path="res://addons/csg_toolkit/scripts/csg_toolkit_config.gd" id="5_h3duj"]
+[ext_resource type="AudioStream" uid="uid://b3cv4lrip73dx" path="res://assets/sounds/musics/musica 2.mp3" id="7_kpw5j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u8rbc"]
+render_priority = 0
+shader = ExtResource("4_g6sy5")
+shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
+shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
+shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
+shader_parameter/distortion_speed = 1.5
+shader_parameter/tile = Vector2(20, 20)
+shader_parameter/height = 2.0
+shader_parameter/wave_size = Vector2(1, 1)
+shader_parameter/wave_speed = 1.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0f3yk"]
+size = Vector2(20, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kjuso"]
+size = Vector3(100, 1, 10)
+
+[sub_resource type="MeshLibrary" id="MeshLibrary_puijj"]
+
+[node name="Level1" type="Node3D"]
+script = ExtResource("4_d3xbu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.48781383, 0.8729477, 0, -0.8729477, 0.48781383, 0, 9.1726, 11.1209)
+shadow_enabled = true
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.45042, 0.334976, 0.52146)
+visible = false
+material_override = SubResource("ShaderMaterial_u8rbc")
+mesh = SubResource("PlaneMesh_0f3yk")
+
+[node name="Area3D" type="Area3D" parent="Water"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Water/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+shape = SubResource("BoxShape3D_kjuso")
+
+[node name="Player" parent="." instance=ExtResource("4_w1j54")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 12.4757, 3.93333, 2)
+platform_on_leave = 2
+JUMP_VELOCITY = 5.2
+SHOOT_SPEED = 2.8
+
+[node name="Camera3D2" type="Camera3D" parent="Player"]
+transform = Transform3D(0.0158707, 1.41318, -3.74201, -0.00599354, 3.74205, 1.41317, 3.99996, 0, 0.0169647, -6.06849, 2.26289, 0.09342)
+
+[node name="Camera3D3" type="Camera3D" parent="Player"]
+transform = Transform3D(4, -1.46682e-14, -2.38419e-07, 6.17072e-08, 3.8637, 1.03528, 2.30295e-07, -1.03528, 3.8637, 0.498896, 2.4679, 8)
+current = true
+
+[node name="Sound" type="Node3D" parent="."]
+
+[node name="LevelMusicPlayer" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("7_kpw5j")
+autoplay = true
+bus = &"Music"
+
+[node name="Decoration" type="Node3D" parent="."]
+
+[node name="Platforms" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms"]
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Platforms"]
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Platforms"]
+skeleton = NodePath("../..")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = SubResource("MeshLibrary_puijj")
+
+[node name="MyTiles" type="Node" parent="."]
+script = ExtResource("5_h3duj")
+metadata/_custom_type_script = "uid://w8ad8q4lneis"
+
+[connection signal="body_entered" from="Water/Area3D" to="." method="_on_area_3d_body_entered"]

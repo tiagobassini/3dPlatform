@@ -1,6 +1,6 @@
 [gd_resource type="Environment" load_steps=2 format=3 uid="uid://bhcm26l2wmdiy"]
 
-[ext_resource type="Sky" path="res://scenes/level/environments/sky/resource/sky_night_background.tres" id="1_lix5y"]
+[ext_resource type="Sky" uid="uid://cx7mu40upp5ml" path="res://scenes/level/environments/sky/resource/sky_night.tres" id="1_lix5y"]
 
 [resource]
 background_mode = 2

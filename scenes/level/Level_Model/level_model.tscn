@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://dt75qa0tiwtto"]
 
-[ext_resource type="Script" uid="uid://b0h8qrh16ab65" path="res://scenes/level/level_1.gd" id="1_yg20i"]
-[ext_resource type="Environment" uid="uid://2cbpwttvx5cx" path="res://scenes/level/environments/sky/resource/enviroment_day2.tres" id="2_vyx4a"]
-[ext_resource type="MeshLibrary" uid="uid://b1n1fatuvec08" path="res://resources/tiles/FlootMeshLibrary.tres" id="3_1hsnf"]
+[ext_resource type="Script" uid="uid://b0h8qrh16ab65" path="res://scenes/level/level_01/level_1.gd" id="1_yg20i"]
+[ext_resource type="Environment" path="res://scenes/level/environments/sky/resource/enviroment_day2.tres" id="2_vyx4a"]
+[ext_resource type="MeshLibrary" uid="uid://b1n1fatuvec08" path="res://assets/resources/tiles/FlootMeshLibrary.tres" id="3_1hsnf"]
 [ext_resource type="Shader" uid="uid://clxbfv3qi7scv" path="res://scenes/level/environments/water/water.gdshader" id="4_tw6kv"]
 [ext_resource type="PackedScene" uid="uid://dt6flgldb5qw3" path="res://scenes/player/character/player.tscn" id="5_0gnky"]
 [ext_resource type="AudioStream" uid="uid://b3cv4lrip73dx" path="res://assets/sounds/musics/musica 2.mp3" id="6_75meg"]

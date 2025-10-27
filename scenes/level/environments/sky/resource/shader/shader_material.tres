@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=12 format=3 uid="uid://bip03vxec07kn"]
 
-[ext_resource type="Shader" uid="uid://yt3783rahc07" path="res://scenes/level/environments/sky/resource/shader/stylized_sky_and_backbround.gdshader" id="1_metr0"]
+[ext_resource type="Shader" uid="uid://yt3783rahc07" path="res://scenes/level/environments/sky/resource/shader/stylized_sky_night.gdshader" id="1_fg2wa"]
 [ext_resource type="Texture2D" uid="uid://cyc0xbdk6ph2w" path="res://scenes/level/environments/sky/resource/textures/shooting_star_sampler.png" id="2_olngs"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0iogl"]
@@ -42,7 +42,7 @@ seamless = true
 invert = true
 
 [resource]
-shader = ExtResource("1_metr0")
+shader = ExtResource("1_fg2wa")
 shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_v7m2v")
 shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_u733s")
 shader_parameter/cloud_curves = SubResource("CurveTexture_kpaia")
