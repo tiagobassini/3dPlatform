@@ -35,7 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 0.48781383, 0.8729477, 0, -0.8729477, 0.4878
 shadow_enabled = true
 
 [node name="Water" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.45042, 0.334976, 0.52146)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.45042, -2.165024, 0.52146)
 visible = false
 material_override = SubResource("ShaderMaterial_u8rbc")
 mesh = SubResource("PlaneMesh_0f3yk")
@@ -77,8 +77,8 @@ cell_size = Vector3(0.5, 0.5, 0.5)
 collision_layer = 8
 collision_mask = 0
 data = {
-"cells": PackedInt32Array(0, 65535, 0, 24, 2, 0, 65560, 2, 1, 131096, 2, 2)
+"cells": PackedInt32Array(24, 2, 0, 65560, 2, 1, 131096, 2, 2, 25, 2, 4, 26, 2, 3, 27, 2, 3, 28, 2, 3, 29, 2, 6, 31, 2, 4, 32, 2, 3, 33, 2, 3, 34, 2, 3, 35, 2, 3, 65570, 2, 14, 65571, 2, 15, 36, 2, 3, 37, 2, 3, 38, 2, 3, 39, 2, 3, 40, 2, 3, 41, 2, 3, 65576, 2, 1, 131112, 2, 1, 196648, 2, 2, 42, 2, 3, 43, 2, 3, 44, 2, 6, 47, 2, 4, 48, 2, 3, 49, 2, 6, 50, 2, 8, 51, 2, 7, 52, 2, 7, 53, 2, 7, 65586, 2, 11, 65587, 2, 10, 65588, 2, 10, 65589, 2, 10, 65590, 2, 12, 54, 2, 9, 131122, 2, 14, 131123, 2, 13, 131124, 2, 13, 131125, 2, 15, 65592, 2, 5, 58, 2, 5, -65476, 2, 5, -65474, 2, 5, -65472, 2, 5, -131005, 2, 0, -65469, 2, 1, 67, 2, 1, 65603, 2, 1, 131139, 2, 1, 196675, 2, 2)
 }
-metadata/_editor_floor_ = Vector3(0, 2, 0)
+metadata/_editor_floor_ = Vector3(0, 3, 0)
 
 [connection signal="body_entered" from="Water/Area3D" to="." method="_on_area_3d_body_entered"]

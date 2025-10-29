@@ -41,7 +41,7 @@ func gerar_colisoes_visiveis():
 		var corpo = StaticBody3D.new()
 		var colisor = CollisionShape3D.new()
 		colisor.shape = BoxShape3D.new()
-		colisor.shape.size = aabb.size
+		colisor.shape.size = gridmap.cell_size
 		corpo.add_child(colisor)
 
 		# ✅ Copia layers e masks do GridMap
