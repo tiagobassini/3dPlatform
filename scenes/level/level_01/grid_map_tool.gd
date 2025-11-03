@@ -37,18 +37,27 @@ func gerar_colisoes_visiveis():
 		if not mesh:
 			continue
 
-		var aabb = mesh.get_aabb()
+		
 		var corpo = StaticBody3D.new()
 		var colisor = CollisionShape3D.new()
-		colisor.shape = BoxShape3D.new()
-		colisor.shape.size = gridmap.cell_size
+		
+		if mesh.resource_name.contains("slope"):
+			#colisor.shape = mesh.create_trimesh_shape()
+			colisor.shape = mesh.create_trimesh_shape()
+			colisor.position.y = -0.25
+		else:
+			colisor.shape = BoxShape3D.new()
+			colisor.shape.size = gridmap.cell_size
+		
+		
 		corpo.add_child(colisor)
 
 		# ✅ Copia layers e masks do GridMap
 		corpo.collision_layer = gridmap.collision_layer
 		corpo.collision_mask = gridmap.collision_mask
 
-		corpo.position = gridmap.map_to_local(cell) + aabb.position + aabb.size * 0.5
+		corpo.position = gridmap.map_to_local(cell) + gridmap.cell_size*Vector3(0,0.5,0)
+		
 		add_child(corpo)
 
 		contador += 1
