@@ -414,6 +414,7 @@ tracks/14/keys = PackedFloat32Array(0, 1, -0.02542194, 6.825405e-07, 6.353203e-0
 [sub_resource type="Animation" id="Animation_mpxta"]
 resource_name = "Snake_Idle"
 length = 2.0833333
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -748,6 +749,7 @@ _data = {
 }
 
 [node name="Snake" type="Node3D"]
+transform = Transform3D(-5.2453664e-09, 0, -0.12, 0, 0.12, 0, 0.12, 0, -5.2453664e-09, 0, 0, 0)
 
 [node name="SnakeArmature" type="Node3D" parent="."]
 
@@ -866,3 +868,4 @@ skin = SubResource("Skin_q5kh3")
 libraries = {
 &"": SubResource("AnimationLibrary_fc17l")
 }
+autoplay = "Snake_Idle"
