@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcmtvrn531kn6"
-path.s3tc="res://.godot/imported/CH_Mob_Bat_MI_normal.jpeg-c6d69aae26ccadf293db8e479a455997.s3tc.ctex"
+path.s3tc="res://.godot/imported/CH_Mob_Bat_MI_normal.jpeg-399f0262820a3f044a287aac77b2fe6b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/enemy/animals/bat/model/textures/CH_Mob_Bat_MI_normal.jpeg"
-dest_files=["res://.godot/imported/CH_Mob_Bat_MI_normal.jpeg-c6d69aae26ccadf293db8e479a455997.s3tc.ctex"]
+source_file="res://scenes/enemy/Animals/bat/model/textures/CH_Mob_Bat_MI_normal.jpeg"
+dest_files=["res://.godot/imported/CH_Mob_Bat_MI_normal.jpeg-399f0262820a3f044a287aac77b2fe6b.s3tc.ctex"]
 
 [params]
 

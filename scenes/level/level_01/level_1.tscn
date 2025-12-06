@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dt6g3p2mkc22g"]
+[gd_scene load_steps=15 format=3 uid="uid://dt6g3p2mkc22g"]
 
 [ext_resource type="Script" uid="uid://b0h8qrh16ab65" path="res://scenes/level/level_01/level_1.gd" id="4_d3xbu"]
 [ext_resource type="Shader" uid="uid://clxbfv3qi7scv" path="res://scenes/level/environments/water/water.gdshader" id="4_g6sy5"]
@@ -7,9 +7,8 @@
 [ext_resource type="Script" uid="uid://deo4uqagry6xg" path="res://scenes/level/level_01/grid_map_tool.gd" id="5_cubbl"]
 [ext_resource type="MeshLibrary" uid="uid://c65hicd8b4mp6" path="res://assets/environments/my_tiles/FloorMeshLib.tres" id="6_cubbl"]
 [ext_resource type="AudioStream" uid="uid://b3cv4lrip73dx" path="res://assets/sounds/musics/musica 2.mp3" id="7_kpw5j"]
-[ext_resource type="PackedScene" uid="uid://bog1qdf4vsi1i" path="res://scenes/enemy/animals/beetle_black_ox/beetle_black_ox.tscn" id="8_t3qm4"]
-[ext_resource type="PackedScene" uid="uid://cr2q0h6a8hlo5" path="res://scenes/enemy/animals/wasp/wasp.tscn" id="9_nfdu3"]
-[ext_resource type="PackedScene" uid="uid://b8exiilekock5" path="res://scenes/enemy/animals/snake/snake.tscn" id="10_vf3om"]
+[ext_resource type="PackedScene" uid="uid://cr2q0h6a8hlo5" path="res://scenes/enemy/Animals/wasp/wasp.tscn" id="9_nfdu3"]
+[ext_resource type="PackedScene" uid="uid://ccyly51l7fcmx" path="res://scenes/enemy/Animals/boss_boitata/boitata.tscn" id="11_fuwox"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u8rbc"]
 render_priority = 0
@@ -59,7 +58,7 @@ shape = SubResource("BoxShape3D_kjuso")
 disabled = true
 
 [node name="Player" parent="." instance=ExtResource("4_w1j54")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 14.438911, 1.6025698, 1.2667904)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 104.374985, 1.6025698, 1.2667904)
 platform_on_leave = 2
 JUMP_VELOCITY = 5.2
 SHOOT_SPEED = 2.8
@@ -99,13 +98,10 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, -2, 2)
 
-[node name="BeetleBlackOx" parent="." instance=ExtResource("8_t3qm4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.874581, 0.5082075, 1.2212353)
-
 [node name="Wasp2" parent="." instance=ExtResource("9_nfdu3")]
 transform = Transform3D(-0.19449435, 0, -0.046604242, 0, 0.2, 0, 0.046604242, 0, -0.19449435, 19.097965, 0.6524154, 1.1468449)
 
-[node name="Snake" parent="." instance=ExtResource("10_vf3om")]
-transform = Transform3D(-5.2453664e-09, 0, -0.12, 0, 0.12, 0, 0.12, 0, -5.2453664e-09, 21.196161, 0.5174782, 1.2732031)
+[node name="Serpent" parent="." instance=ExtResource("11_fuwox")]
+transform = Transform3D(-0.0076445034, 0, -0.9999708, 0, 1, 0, 0.9999708, 0, -0.0076445034, 107.01546, -0.51475465, 1.2789788)
 
 [connection signal="body_entered" from="Water/Area3D" to="." method="_on_area_3d_body_entered"]

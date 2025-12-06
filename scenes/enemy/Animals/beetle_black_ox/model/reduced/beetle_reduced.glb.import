@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://52gecexvd87o"
-path="res://.godot/imported/beetle_reduced.glb-da79b0e5b70f7cb7eafaad455b358e49.scn"
+path="res://.godot/imported/beetle_reduced.glb-f906db1eeb437a64ea307ff422ca31fd.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/animals/beetle_black_ox/model/reduced/beetle_reduced.glb"
-dest_files=["res://.godot/imported/beetle_reduced.glb-da79b0e5b70f7cb7eafaad455b358e49.scn"]
+source_file="res://scenes/enemy/Animals/beetle_black_ox/model/reduced/beetle_reduced.glb"
+dest_files=["res://.godot/imported/beetle_reduced.glb-f906db1eeb437a64ea307ff422ca31fd.scn"]
 
 [params]
 

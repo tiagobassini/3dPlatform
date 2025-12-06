@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bsy5bupx35mwn"
-path="res://.godot/imported/Wasp.glb-44d42b51e22f8c12149d7f603a97eaab.scn"
+path="res://.godot/imported/Wasp.glb-04924d7bb309b25b1f7bc3b1c00bf986.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/animals/wasp/mesh/Wasp.glb"
-dest_files=["res://.godot/imported/Wasp.glb-44d42b51e22f8c12149d7f603a97eaab.scn"]
+source_file="res://scenes/enemy/Animals/wasp/mesh/Wasp.glb"
+dest_files=["res://.godot/imported/Wasp.glb-04924d7bb309b25b1f7bc3b1c00bf986.scn"]
 
 [params]
 

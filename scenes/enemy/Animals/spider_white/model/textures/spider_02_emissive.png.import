@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bg4q0n6d758di"
-path.s3tc="res://.godot/imported/spider_02_emissive.png-f85a861eee6b871780fa4ed39718fba2.s3tc.ctex"
+path.s3tc="res://.godot/imported/spider_02_emissive.png-df3607459ee2b7189e637a49f2acadc1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/enemy/animals/spider_white/model/textures/spider_02_emissive.png"
-dest_files=["res://.godot/imported/spider_02_emissive.png-f85a861eee6b871780fa4ed39718fba2.s3tc.ctex"]
+source_file="res://scenes/enemy/Animals/spider_white/model/textures/spider_02_emissive.png"
+dest_files=["res://.godot/imported/spider_02_emissive.png-df3607459ee2b7189e637a49f2acadc1.s3tc.ctex"]
 
 [params]
 

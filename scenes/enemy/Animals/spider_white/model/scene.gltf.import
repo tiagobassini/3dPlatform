@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://di1jihekr2vnp"
-path="res://.godot/imported/scene.gltf-202a010841235a59bcc2c3d1463e9ea5.scn"
+path="res://.godot/imported/scene.gltf-d09ea585585dc61ef5215041a14e10a0.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/animals/spider_white/model/scene.gltf"
-dest_files=["res://.godot/imported/scene.gltf-202a010841235a59bcc2c3d1463e9ea5.scn"]
+source_file="res://scenes/enemy/Animals/spider_white/model/scene.gltf"
+dest_files=["res://.godot/imported/scene.gltf-d09ea585585dc61ef5215041a14e10a0.scn"]
 
 [params]
 
