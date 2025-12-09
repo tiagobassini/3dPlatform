@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bpryociwlbltj"
-path="res://.godot/imported/Frog.glb-7b014e4c2866710789c284dfd4172358.scn"
+path="res://.godot/imported/Frog.glb-a6930a468e1ceda39144f12694308c43.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/Animals/frog/model/Frog.glb"
-dest_files=["res://.godot/imported/Frog.glb-7b014e4c2866710789c284dfd4172358.scn"]
+source_file="res://scenes/enemy/animals/frog/model/Frog.glb"
+dest_files=["res://.godot/imported/Frog.glb-a6930a468e1ceda39144f12694308c43.scn"]
 
 [params]
 

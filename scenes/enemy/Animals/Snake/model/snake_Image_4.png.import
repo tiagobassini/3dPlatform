@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://df7oam5l6fpq"
-path="res://.godot/imported/snake_Image_4.png-8e7db0bdd6dbed6675ab313ad9b97751.ctex"
+path="res://.godot/imported/snake_Image_4.png-6690d2cb4746bc688c10366ec94824c2.ctex"
 metadata={
 "vram_texture": false
 }
@@ -13,8 +13,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/Animals/Snake/model/snake_Image_4.png"
-dest_files=["res://.godot/imported/snake_Image_4.png-8e7db0bdd6dbed6675ab313ad9b97751.ctex"]
+source_file="res://scenes/enemy/animals/snake/model/snake_Image_4.png"
+dest_files=["res://.godot/imported/snake_Image_4.png-6690d2cb4746bc688c10366ec94824c2.ctex"]
 
 [params]
 

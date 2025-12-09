@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0arbq15agod5"
-path.s3tc="res://.godot/imported/spider_02_metallicRoughness.png-9a32514032cb62e95958f0e428a5e6a9.s3tc.ctex"
+path.s3tc="res://.godot/imported/spider_02_metallicRoughness.png-67a8ced713ce8cfc72f1fe64a7fab4fd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/enemy/Animals/spider_white/model/textures/spider_02_metallicRoughness.png"
-dest_files=["res://.godot/imported/spider_02_metallicRoughness.png-9a32514032cb62e95958f0e428a5e6a9.s3tc.ctex"]
+source_file="res://scenes/enemy/animals/spider_white/model/textures/spider_02_metallicRoughness.png"
+dest_files=["res://.godot/imported/spider_02_metallicRoughness.png-67a8ced713ce8cfc72f1fe64a7fab4fd.s3tc.ctex"]
 
 [params]
 

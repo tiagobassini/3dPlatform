@@ -278,7 +278,7 @@ damping_min = 0.5
 damping_max = 1.0
 scale_min = 0.049999997
 scale_max = 0.25
-color = Color(0.2, 0.1254902, 0.17254902, 0.78431374)
+color = Color(0.25783852, 0.17512956, 0.2604482, 0.74509805)
 
 [sub_resource type="QuadMesh" id="QuadMesh_w8lo1"]
 
@@ -291,13 +291,6 @@ shader_parameter/DissolveSpeed = Vector2(0, 0)
 shader_parameter/DissolveTexture = ExtResource("2_oeqj2")
 shader_parameter/DissolveAmount = 0.0
 
-[sub_resource type="Gradient" id="Gradient_rf7f0"]
-offsets = PackedFloat32Array(0.36792454, 1)
-colors = PackedColorArray(0.17358261, 0.07323667, 0.22562024, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_oeqj2"]
-gradient = SubResource("Gradient_rf7f0")
-
 [sub_resource type="Curve" id="Curve_3106q"]
 _data = [Vector2(0, 0), 0.407471, 1.10356, 0, 0, Vector2(0.15625, 0.395775), 0.878873, 0.878873, 0, 0, Vector2(0.430556, 0.633803), 0.0, 0.0, 0, 0, Vector2(0.760417, 0.340845), -0.922817, -0.922817, 0, 0, Vector2(0.933573, 0), -0.253895, 0.0, 0, 0]
 point_count = 5
@@ -309,19 +302,18 @@ curve = SubResource("Curve_3106q")
 lifetime_randomness = 0.15
 particle_flag_rotate_y = true
 emission_shape = 3
-emission_box_extents = Vector3(0.05, 0.02, 0.1)
+emission_box_extents = Vector3(0.05, 0.025, 0.1)
 angle_min = -360.0
 angle_max = 360.0
 angular_velocity_min = -180.0
 angular_velocity_max = 180.0
-gravity = Vector3(0, 1, 0)
+gravity = Vector3(0, 1.1, 0)
 damping_min = 0.5
 damping_max = 1.0
 scale_min = 0.19999999
 scale_max = 0.5
 scale_curve = SubResource("CurveTexture_44dka")
-color = Color(0.6388213, 0.23129338, 0.3178633, 0.78431374)
-color_ramp = SubResource("GradientTexture1D_oeqj2")
+color = Color(0.20057496, 0.1504497, 0.25162897, 0.8039216)
 
 [sub_resource type="QuadMesh" id="QuadMesh_q4jbv"]
 
@@ -340,19 +332,26 @@ curve = SubResource("Curve_gh1a3")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q5w8w"]
 particle_flag_rotate_y = true
 emission_shape = 3
-emission_box_extents = Vector3(0.05, 0.02, 0.1)
-gravity = Vector3(0, 0.5, 0)
+emission_box_extents = Vector3(0.05, 0.025, 0.1)
+gravity = Vector3(0, 0.7, 0)
 scale_min = 0.0
 scale_max = 0.19999999
 scale_curve = SubResource("CurveTexture_fvrou")
-color = Color(0.7164011, 0.26223555, 0.49253118, 0.78431374)
+color = Color(0.2, 0.14901961, 0.2509804, 0.8039216)
 turbulence_enabled = true
-turbulence_noise_strength = 4.0
+turbulence_noise_strength = 2.5
 turbulence_noise_scale = 2.0
 turbulence_influence_min = 0.05
 turbulence_influence_max = 0.12
 
 [sub_resource type="QuadMesh" id="QuadMesh_jtb4n"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sigxs"]
+radius = 0.07
+height = 0.3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f08di"]
+size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="Animation" id="Animation_mmjdv"]
 resource_name = "Attack_01_01"
@@ -4305,6 +4304,7 @@ bone_idx = 33
 
 [node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/HeadBoneAttach"]
 transform = Transform3D(-0.98196185, 0.1462688, 0.11982241, 0.0887693, -0.20290601, 0.97516763, 0.1669491, 0.9682129, 0.18626186, -0.0027508885, 0.007727474, 0.037514925)
+visible = false
 
 [node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/HeadBoneAttach/FireVFX"]
 transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
@@ -4337,6 +4337,15 @@ visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
 process_material = SubResource("ParticleProcessMaterial_q5w8w")
 draw_pass_1 = SubResource("QuadMesh_jtb4n")
 
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/HeadBoneAttach"]
+transform = Transform3D(1, 0, -4.5474735e-12, 4.656613e-10, 1, -2.3283064e-10, -5.456968e-12, 0, 0.99999994, -3.570877e-05, 0.008863568, 2.4721026e-05)
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/HeadBoneAttach/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("CapsuleShape3D_sigxs")
+
 [node name="NeckBoneAttach" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
 transform = Transform3D(-0.89319384, 0.13301611, 0.4295485, 0.38016352, -0.28682315, 0.87932265, 0.24016845, 0.9487038, 0.20562086, 0.0037715454, 0.749897, 0.25704986)
 bone_name = "Body.013"
@@ -4344,6 +4353,7 @@ bone_idx = 31
 
 [node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/NeckBoneAttach"]
 transform = Transform3D(-0.9704664, 0.2354103, -0.052699253, -0.054098442, 0.0005147755, 0.998536, 0.23509261, 0.971896, 0.012235597, 0.0016786754, 0.04053782, 0.046123564)
+visible = false
 
 [node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/NeckBoneAttach/FireVFX"]
 transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
@@ -4376,13 +4386,22 @@ visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
 process_material = SubResource("ParticleProcessMaterial_q5w8w")
 draw_pass_1 = SubResource("QuadMesh_jtb4n")
 
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/NeckBoneAttach"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/NeckBoneAttach/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
 [node name="BodyBoneAttach" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(-0.9596377, 0.18403992, 0.21266231, 0.2710452, 0.8069583, 0.52474093, -0.07503627, 0.5612021, -0.82427037, -0.03512609, 0.6416871, 0.099507324)
-bone_name = "Body.011"
-bone_idx = 29
+transform = Transform3D(-0.9189584, 0.18997233, 0.3455811, 0.38418227, 0.23351225, 0.8932392, 0.08899328, 0.9536155, -0.28757182, -0.015985781, 0.72561145, 0.15787283)
+bone_name = "Body.012"
+bone_idx = 30
 
 [node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach"]
 transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
 
 [node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach/FireVFX"]
 transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
@@ -4415,13 +4434,22 @@ visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
 process_material = SubResource("ParticleProcessMaterial_q5w8w")
 draw_pass_1 = SubResource("QuadMesh_jtb4n")
 
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
 [node name="BodyBoneAttach2" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(-0.9999594, 0.008994509, 0.00069727283, -0.0006404431, -0.14787078, 0.9890065, 0.008998735, 0.98896563, 0.14787045, 0.0012186217, 0.020215236, 0.10200648)
-bone_name = "Body.001"
-bone_idx = 19
+transform = Transform3D(-0.9596377, 0.18403992, 0.21266231, 0.2710452, 0.8069583, 0.52474093, -0.07503627, 0.5612021, -0.82427037, -0.03512609, 0.6416871, 0.099507324)
+bone_name = "Body.011"
+bone_idx = 29
 
 [node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach2"]
 transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
 
 [node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach2/FireVFX"]
 transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
@@ -4454,13 +4482,22 @@ visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
 process_material = SubResource("ParticleProcessMaterial_q5w8w")
 draw_pass_1 = SubResource("QuadMesh_jtb4n")
 
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach2"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach2/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
 [node name="BodyBoneAttach3" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(-0.99993074, 0.011717405, 0.0011881086, -0.0011143102, -0.19455156, 0.9808917, 0.011724655, 0.9808222, 0.19455104, 0, 0.040448792, 0)
-bone_name = "Body"
-bone_idx = 18
+transform = Transform3D(-0.9902007, 0.08281633, 0.11244769, 0.06606169, 0.98717797, -0.145313, -0.12304008, -0.13646045, -0.9829749, -0.043739073, 0.5390196, 0.11369935)
+bone_name = "Body.010"
+bone_idx = 28
 
 [node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach3"]
 transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
 
 [node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach3/FireVFX"]
 transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
@@ -4493,13 +4530,22 @@ visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
 process_material = SubResource("ParticleProcessMaterial_q5w8w")
 draw_pass_1 = SubResource("QuadMesh_jtb4n")
 
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach3"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach3/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
 [node name="BodyBoneAttach4" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(0.99991614, 0.012946507, -0.00032264553, -0.0001564864, 0.03699048, 0.99931544, 0.012949572, -0.9992316, 0.036989495, -0.0060297707, 0.015767079, -0.11538575)
-bone_name = "Tail.001"
-bone_idx = 2
+transform = Transform3D(-0.99451333, -0.03667979, 0.09797108, -0.092972234, 0.739228, -0.66700697, -0.047957264, -0.6724556, -0.738582, -0.039924342, 0.46213916, 0.18363537)
+bone_name = "Body.009"
+bone_idx = 27
 
 [node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach4"]
 transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
 
 [node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach4/FireVFX"]
 transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
@@ -4532,13 +4578,22 @@ visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
 process_material = SubResource("ParticleProcessMaterial_q5w8w")
 draw_pass_1 = SubResource("QuadMesh_jtb4n")
 
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach4"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach4/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
 [node name="BodyBoneAttach5" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(0.88309085, -0.32881048, -0.33471516, 0.17821315, -0.42485514, 0.88754594, -0.43403995, -0.8434344, -0.3165873, 0.048679635, 0.4014389, -0.5868264)
-bone_name = "Tail.007"
-bone_idx = 8
+transform = Transform3D(-0.987583, -0.10084495, 0.12046025, -0.15401791, 0.47037232, -0.8689238, 0.030965406, -0.876687, -0.4800635, -0.029436363, 0.41321996, 0.2748117)
+bone_name = "Body.008"
+bone_idx = 26
 
 [node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach5"]
 transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
 
 [node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach5/FireVFX"]
 transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
@@ -4571,13 +4626,22 @@ visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
 process_material = SubResource("ParticleProcessMaterial_q5w8w")
 draw_pass_1 = SubResource("QuadMesh_jtb4n")
 
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach5"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach5/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
 [node name="BodyBoneAttach6" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(0.820054, -0.35094196, -0.45205224, 0.07201259, -0.72034836, 0.68986386, -0.5677373, -0.59827906, -0.5654522, 0.009830665, 0.35124224, -0.6864782)
-bone_name = "Tail.008"
-bone_idx = 9
+transform = Transform3D(-0.9873954, -0.10197123, 0.121047966, -0.1547516, 0.46153143, -0.87352204, 0.033206686, -0.8812437, -0.47149414, -0.018831255, 0.36522025, 0.36646193)
+bone_name = "Body.007"
+bone_idx = 25
 
 [node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach6"]
 transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
 
 [node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach6/FireVFX"]
 transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
@@ -4610,13 +4674,22 @@ visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
 process_material = SubResource("ParticleProcessMaterial_q5w8w")
 draw_pass_1 = SubResource("QuadMesh_jtb4n")
 
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach6"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach6/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
 [node name="BodyBoneAttach7" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(0.99991614, 0.012946507, -0.00032264553, -0.0001564864, 0.03699048, 0.99931544, 0.012949572, -0.9992316, 0.036989495, -0.0060297707, 0.015767079, -0.11538575)
-bone_name = "Tail.001"
-bone_idx = 2
+transform = Transform3D(-0.99484867, -0.049940053, 0.08821796, -0.08852718, 0.8519844, -0.5160287, -0.049389794, -0.52118003, -0.8520163, -0.01363744, 0.27661303, 0.42066517)
+bone_name = "Body.006"
+bone_idx = 24
 
 [node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach7"]
 transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
 
 [node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach7/FireVFX"]
 transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
@@ -4649,13 +4722,22 @@ visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
 process_material = SubResource("ParticleProcessMaterial_q5w8w")
 draw_pass_1 = SubResource("QuadMesh_jtb4n")
 
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach7"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach7/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
 [node name="BodyBoneAttach8" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(0.7602925, -0.44747537, -0.4708727, -0.055298176, -0.7668412, 0.6394501, -0.6472228, -0.46013075, -0.60776806, -0.072129175, 0.16826355, -0.8095196)
-bone_name = "Tail.010"
-bone_idx = 11
+transform = Transform3D(-0.9961754, -0.057834864, 0.06549777, -0.06585648, 0.9896112, -0.12779933, -0.057426047, -0.13162401, -0.9896349, -0.007622556, 0.17369246, 0.43435422)
+bone_name = "Body.005"
+bone_idx = 23
 
 [node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach8"]
 transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
 
 [node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach8/FireVFX"]
 transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
@@ -4688,13 +4770,22 @@ visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
 process_material = SubResource("ParticleProcessMaterial_q5w8w")
 draw_pass_1 = SubResource("QuadMesh_jtb4n")
 
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach8"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach8/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
 [node name="BodyBoneAttach9" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(0.23690452, -0.9392053, 0.24853514, -0.2768089, 0.17996117, 0.9439229, -0.93126416, -0.29241627, -0.2173467, -0.2145229, 0.023377191, -0.9186378)
-bone_name = "Tail.012"
-bone_idx = 13
+transform = Transform3D(-0.9979621, -0.053421404, 0.03490158, -0.035233185, 0.9173084, 0.3966158, -0.053203266, 0.39457768, -0.9173209, -0.0020666772, 0.078291476, 0.39331776)
+bone_name = "Body.004"
+bone_idx = 22
 
 [node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach9"]
-transform = Transform3D(-0.97571385, 0.18773645, 0.11286026, 0.077525094, -0.18592304, 0.9795017, 0.2048713, 0.9644626, 0.16685331, -0.0017488599, 0.042766273, 0.0578119)
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
 
 [node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach9/FireVFX"]
 transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
@@ -4726,6 +4817,1022 @@ randomness = 0.01
 visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
 process_material = SubResource("ParticleProcessMaterial_q5w8w")
 draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach9"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach9/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach10" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(-0.99940574, -0.032937746, 0.010180015, -0.010384312, 0.5691827, 0.8221456, -0.0328739, 0.82155097, -0.56918633, 0.0013588809, 0.01909592, 0.30787566)
+bone_name = "Body.003"
+bone_idx = 21
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach10"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach10/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach10/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach10/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach10"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach10/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach11" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(-0.9999708, -0.0076458747, 0.00050311734, -0.00054996193, 0.1371082, 0.990556, -0.0076426426, 0.99052644, -0.1371084, 0.0021540597, 0.0048365276, 0.20485991)
+bone_name = "Body.002"
+bone_idx = 20
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach11"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach11/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach11/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach11/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach11"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach11/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach12" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(-0.9999594, 0.008994509, 0.00069727283, -0.0006404431, -0.14787078, 0.9890065, 0.008998735, 0.98896563, 0.14787045, 0.0012186217, 0.020215236, 0.10200648)
+bone_name = "Body.001"
+bone_idx = 19
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach12"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach12/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach12/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach12/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach12"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach12/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach13" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(-0.99993074, 0.011717405, 0.0011881086, -0.0011143102, -0.19455156, 0.9808917, 0.011724655, 0.9808222, 0.19455104, 0, 0.040448792, 0)
+bone_name = "Body"
+bone_idx = 18
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach13"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach13/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach13/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach13/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach13"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach13/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach14" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(0.99868405, -0.051034883, -0.0050630397, -0.005717542, -0.20890151, 0.9779198, -0.05096571, -0.976604, -0.20891832, 0, 0.040448792, 0)
+bone_name = "Tail"
+bone_idx = 1
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach14"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach14/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach14/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach14/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach14"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach14/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach15" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(0.99991614, 0.012946507, -0.00032264553, -0.0001564864, 0.03699048, 0.99931544, 0.012949572, -0.9992316, 0.036989495, -0.0060297707, 0.015767079, -0.11538575)
+bone_name = "Tail.001"
+bone_idx = 2
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach15"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach15/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach15/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach15/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach15"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach15/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach16" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(0.9893215, 0.13983956, -0.04108468, -0.039286748, 0.52730775, 0.84876543, 0.14035523, -0.83808774, 0.5271708, -0.004500141, 0.020137504, -0.23344496)
+bone_name = "Tail.002"
+bone_idx = 3
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach16"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach16/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach16/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach16/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach16"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach16/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach17" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(0.9623798, 0.22994648, -0.14474015, -0.14177726, 0.87942076, 0.4544426, 0.2317849, -0.4168255, 0.87893796, 0.012021903, 0.082438916, -0.33246502)
+bone_name = "Tail.003"
+bone_idx = 4
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach17"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach17/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach17/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach17/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach17"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach17/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach18" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(0.9410373, 0.2509707, -0.22685337, -0.22361386, 0.96463096, 0.1395838, 0.25386116, -0.08062601, 0.9638743, 0.039190084, 0.18634251, -0.38171297)
+bone_name = "Tail.004"
+bone_idx = 5
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach18"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach18/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach18/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach18/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach18"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach18/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach19" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(0.9902073, 0.034289345, -0.13532817, 0.06808439, 0.7276588, 0.68255174, 0.12187692, -0.6850815, 0.7181985, 0.068842255, 0.3003136, -0.39123893)
+bone_name = "Tail.005"
+bone_idx = 6
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach19"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach19/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach19/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach19/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach19"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach19/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach20" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(0.95975536, -0.20494214, -0.19201158, 0.22081584, 0.12824732, 0.96684676, -0.1735227, -0.97033554, 0.16834056, 0.07289354, 0.38628647, -0.4721813)
+bone_name = "Tail.006"
+bone_idx = 7
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach20"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach20/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach20/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach20/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach20"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach20/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach21" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(0.88309085, -0.32881048, -0.33471516, 0.17821315, -0.42485514, 0.88754594, -0.43403995, -0.8434344, -0.3165873, 0.048679635, 0.4014389, -0.5868264)
+bone_name = "Tail.007"
+bone_idx = 8
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach21"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach21/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach21/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach21/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach21"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach21/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach22" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(0.820054, -0.35094196, -0.45205224, 0.07201259, -0.72034836, 0.68986386, -0.5677373, -0.59827906, -0.5654522, 0.009830665, 0.35124224, -0.6864782)
+bone_name = "Tail.008"
+bone_idx = 9
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach22"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach22/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach22/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach22/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach22"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach22/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach23" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(0.78885335, -0.3427515, -0.5101292, 0.002355949, -0.82835066, 0.5602047, -0.61457694, -0.4431212, -0.6526396, -0.03163313, 0.26613307, -0.7571649)
+bone_name = "Tail.009"
+bone_idx = 10
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach23"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach23/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach23/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach23/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach23"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach23/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach24" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(0.7602925, -0.44747537, -0.4708727, -0.055298176, -0.7668412, 0.6394501, -0.6472228, -0.46013075, -0.60776806, -0.072129175, 0.16826355, -0.8095196)
+bone_name = "Tail.010"
+bone_idx = 11
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach24"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach24/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach24/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach24/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach24"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach24/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach25" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(0.60162944, -0.7577205, -0.25278783, -0.21673793, -0.45945132, 0.8613529, -0.76880854, -0.46342662, -0.44064608, -0.12499839, 0.07766127, -0.86388403)
+bone_name = "Tail.011"
+bone_idx = 12
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach25"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach25/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach25/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach25/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach25"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach25/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach26" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(0.23690452, -0.9392053, 0.24853514, -0.2768089, 0.17996117, 0.9439229, -0.93126416, -0.29241627, -0.2173467, -0.2145229, 0.023377191, -0.9186378)
+bone_name = "Tail.012"
+bone_idx = 13
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach26"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach26/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach26/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach26/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach26"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach26/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach27" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(-0.13735074, -0.6316872, 0.76295865, -0.049609467, 0.7736789, 0.6316323, -0.9892793, 0.048905335, -0.13760304, -0.32549018, 0.044639636, -0.95318687)
+bone_name = "Tail.013"
+bone_idx = 14
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach27"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach27/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach27/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach27/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach27"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach27/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach28" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(-0.27869493, -0.07758519, 0.9572406, 0.29240367, 0.94255435, 0.16152668, -0.91478354, 0.3249175, -0.23999903, -0.40012392, 0.13604967, -0.94740874)
+bone_name = "Tail.014"
+bone_idx = 15
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach28"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach28/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach28/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach28/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach28"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach28/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach29" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(-0.24357685, 0.33829463, 0.9089703, 0.5312543, 0.83063406, -0.16677947, -0.8114424, 0.44227085, -0.38204384, -0.4092906, 0.24741247, -0.9090197)
+bone_name = "Tail.015"
+bone_idx = 16
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach29"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach29/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach29/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach29/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach29"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach29/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
+
+[node name="BodyBoneAttach30" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(-0.1854881, 0.527394, 0.8291259, 0.6345353, 0.70854974, -0.308742, -0.75030565, 0.4688418, -0.46607783, -0.3693211, 0.3455519, -0.8567654)
+bone_name = "Tail.016"
+bone_idx = 17
+
+[node name="FireVFX" type="Node3D" parent="Armature/Skeleton3D/BodyBoneAttach30"]
+transform = Transform3D(-0.9757139, 0.18773644, 0.11286025, 0.07752508, -0.18592301, 0.9795018, 0.20487133, 0.96446264, 0.16685331, 0.001678735, 0.040537834, 0.04612355)
+visible = false
+
+[node name="StaticFlames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach30/FireVFX"]
+transform = Transform3D(0.9999626, -0.008546997, -0.00039884076, 0.008488961, 0.9968522, -0.078817725, 0.0010711849, 0.07881147, 0.9968896, -0.0011257753, 0.002752915, 0.01065433)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_h4l2x")
+lifetime = 0.5
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_6v1lu")
+draw_pass_1 = SubResource("QuadMesh_w8lo1")
+
+[node name="Flames" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach30/FireVFX"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_fu4d0")
+amount = 20
+lifetime = 0.8
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_y0ovc")
+draw_pass_1 = SubResource("QuadMesh_q4jbv")
+
+[node name="FloatingParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/BodyBoneAttach30/FireVFX"]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_wbjcc")
+amount = 16
+lifetime = 1.3
+randomness = 0.01
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_q5w8w")
+draw_pass_1 = SubResource("QuadMesh_jtb4n")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Armature/Skeleton3D/BodyBoneAttach30"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BodyBoneAttach30/CharacterBody3D"]
+transform = Transform3D(1, -1.221881e-06, -4.7683375e-07, 1.2218817e-06, 1, 1.519882e-06, 4.768319e-07, -1.5198825e-06, 1, 0, 0.06474608, -1.1920929e-07)
+shape = SubResource("BoxShape3D_f08di")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
