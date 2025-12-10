@@ -2,6 +2,7 @@ extends Node3D
 class_name Spear
 
 
+
 @onready var blade_area: Area3D = $BladeArea
 @onready var spring_area: Area3D = $SpringArea
 @onready var shaft_body_collision: CollisionShape3D = $ShaftBody/CollisionShape3D
@@ -16,11 +17,21 @@ class_name Spear
 @export var spring_force: float = 5.0
 
 @export var spell: PackedScene
+@export var spear_broken_pack: PackedScene
+
+var spear_broked_instance: Node3D
 
 
 var player: Player = null
 var throwed: bool = false
 var spring: bool = false
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	spear_broked_instance = spear_broken_pack.instantiate()
+	pass # Replace with function body.
+
 
 var is_flipped: bool = false :
 	get : return is_flipped
@@ -36,10 +47,6 @@ func set_flipped()->void:
 	else:
 		global_rotation_degrees = Vector3(0, 180, -90.0)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -108,7 +115,7 @@ func _on_shaft_area_detector_body_exited(body: Node3D) -> void:
 
 
 func _on_timer_timeout() -> void:
-	queue_free()
+	broken_spear()
 	pass # Replace with function body.
 
 
@@ -146,3 +153,8 @@ func call_spell()->void:
 		spell_instance.global_position = spell_socket.global_position
 	
 	pass
+
+
+func broken_spear()->void:
+	
+	queue_free()

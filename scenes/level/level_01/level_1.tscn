@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://dt6g3p2mkc22g"]
+[gd_scene load_steps=16 format=3 uid="uid://dt6g3p2mkc22g"]
 
+[ext_resource type="Environment" uid="uid://bhcm26l2wmdiy" path="res://scenes/level/environments/sky/enviroment_night.tres" id="2_vf3om"]
 [ext_resource type="Script" uid="uid://b0h8qrh16ab65" path="res://scenes/level/level_01/level_1.gd" id="4_d3xbu"]
 [ext_resource type="Shader" uid="uid://clxbfv3qi7scv" path="res://scenes/level/environments/water/water.gdshader" id="4_g6sy5"]
 [ext_resource type="PackedScene" uid="uid://dt6flgldb5qw3" path="res://scenes/player/character/player.tscn" id="4_w1j54"]
@@ -7,8 +8,8 @@
 [ext_resource type="Script" uid="uid://deo4uqagry6xg" path="res://scenes/level/level_01/grid_map_tool.gd" id="5_cubbl"]
 [ext_resource type="MeshLibrary" uid="uid://c65hicd8b4mp6" path="res://assets/environments/my_tiles/FloorMeshLib.tres" id="6_cubbl"]
 [ext_resource type="AudioStream" uid="uid://b3cv4lrip73dx" path="res://assets/sounds/musics/musica 2.mp3" id="7_kpw5j"]
-[ext_resource type="PackedScene" uid="uid://cr2q0h6a8hlo5" path="res://scenes/enemy/Animals/wasp/wasp.tscn" id="9_nfdu3"]
-[ext_resource type="PackedScene" uid="uid://ccyly51l7fcmx" path="res://scenes/enemy/Animals/boss_boitata/boitata.tscn" id="11_fuwox"]
+[ext_resource type="PackedScene" uid="uid://cr2q0h6a8hlo5" path="res://scenes/enemy/animals/wasp/wasp.tscn" id="9_nfdu3"]
+[ext_resource type="PackedScene" uid="uid://ccyly51l7fcmx" path="res://scenes/enemy/animals/boss_boitata/boitata.tscn" id="11_fuwox"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u8rbc"]
 render_priority = 0
@@ -39,6 +40,7 @@ size = Vector2(100, 7)
 script = ExtResource("4_d3xbu")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_vf3om")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.48781383, 0.8729477, 0, -0.8729477, 0.48781383, 0, 9.1726, 11.1209)

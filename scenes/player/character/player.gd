@@ -27,15 +27,23 @@ var current_spear: Spear
 
 var state_machine: AnimationNodeStateMachinePlayback
 
+var initial_z_position:float = 0.0
 
 
 func _ready() -> void:
 	state_machine = $AnimationTree.get("parameters/playback")
+	
+	initial_z_position = position.z;
+	print("position z: ", initial_z_position)
+	
 	reload_spear()	
 	pass	
 
 func _physics_process(delta):
 	# Add the gravity.
+	#if position.z != initial_z_position:
+#		position.z = position.z + ((initial_z_position - position.z) * delta)
+		#velocity.z = move_toward(position.x, initial_z_position, SPEED*0.65)
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -50,8 +58,13 @@ func _physics_process(delta):
 		velocity.x += direction.x * SPEED
 		if abs(velocity.x) > SPEED:
 			velocity.x = direction.x * SPEED
+		if position.z != initial_z_position:
+			print("position. z : ",position.z)
+			
+			position.z = position.z - ((position.z - initial_z_position) * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED*0.65)
+		
 	
 	if direction.x >0 and is_flipped:
 		change_player_direction()

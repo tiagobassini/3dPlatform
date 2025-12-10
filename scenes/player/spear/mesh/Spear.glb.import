@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://e6mdatkejfrw"
-path="res://.godot/imported/Spear.glb-3f39da15a8a5f5dd6fd5939f64fb636c.scn"
+path="res://.godot/imported/Spear.glb-2948a6a25cb55ea50748464a08d366b1.scn"
 
 [deps]
 
-source_file="res://scenes/player/spear/mash/Spear.glb"
-dest_files=["res://.godot/imported/Spear.glb-3f39da15a8a5f5dd6fd5939f64fb636c.scn"]
+source_file="res://scenes/player/spear/mesh/Spear.glb"
+dest_files=["res://.godot/imported/Spear.glb-2948a6a25cb55ea50748464a08d366b1.scn"]
 
 [params]
 

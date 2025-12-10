@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://boqmul6o4m75k"]
+
+[ext_resource type="Script" uid="uid://bgxx3i50i33rl" path="res://scenes/player/spear_broked/spear_broked.gd" id="1_ig6wi"]
+[ext_resource type="PackedScene" uid="uid://b8d5k06vhnpgv" path="res://scenes/player/spear_broked/mesh/spear_broken_part_1.glb" id="1_ygqw2"]
+[ext_resource type="PackedScene" uid="uid://bxkv85xst6vnc" path="res://scenes/player/spear_broked/mesh/spear_broken_part_2.glb" id="2_ig6wi"]
+[ext_resource type="PackedScene" uid="uid://b8qehk7eu706t" path="res://scenes/player/spear_broked/mesh/spear_broken_part_3.glb" id="3_j47ec"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ig6wi"]
+size = Vector3(0.2, 2.5, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j47ec"]
+size = Vector3(0.2, 4.5, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nfcbd"]
+size = Vector3(0.2, 2, 0.2)
+
+[node name="SpearBroked" type="Node3D"]
+script = ExtResource("1_ig6wi")
+
+[node name="Parts" type="Node3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.16, 0, 0, 0, 0.25, 0, -0.554, 0)
+
+[node name="Part1" type="RigidBody3D" parent="Parts"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parts/Part1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.9050794, 0)
+shape = SubResource("BoxShape3D_ig6wi")
+
+[node name="spear_broken_part_1" parent="Parts/Part1" instance=ExtResource("1_ygqw2")]
+
+[node name="Part2" type="RigidBody3D" parent="Parts"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parts/Part2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2946978, 0)
+shape = SubResource("BoxShape3D_j47ec")
+
+[node name="spear_broken_part_2" parent="Parts/Part2" instance=ExtResource("2_ig6wi")]
+
+[node name="Part3" type="RigidBody3D" parent="Parts"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parts/Part3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0779583, 0)
+shape = SubResource("BoxShape3D_nfcbd")
+
+[node name="spear_broken_part_3" parent="Parts/Part3" instance=ExtResource("3_j47ec")]
