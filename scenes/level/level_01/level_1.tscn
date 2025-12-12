@@ -94,13 +94,11 @@ transform = Transform3D(-0.19449435, 0, -0.046604242, 0, 0.2, 0, 0.046604242, 0,
 transform = Transform3D(-0.0076445034, 0, -0.9999708, 0, 1, 0, 0.9999708, 0, -0.0076445034, 107.01546, -0.51475465, 1.2789788)
 
 [node name="Player2" parent="." instance=ExtResource("10_vf3om")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.7794, 0, 1.2453566)
-
-[node name="Camera3D2" type="Camera3D" parent="Player2"]
-transform = Transform3D(0.0039677313, 0.35329482, -0.93550366, -0.0014983864, 0.93551207, 0.35329163, 0.999991, -2.0372864e-08, 0.0042412328, -2.7146835, 0.24359417, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.7794, 0.9013053, 1.2453566)
 
 [node name="Camera3D3" type="Camera3D" parent="Player2"]
-transform = Transform3D(1, 1.09638095e-13, -5.9604716e-08, 1.1280132e-08, 0.9819288, 0.18925081, 5.8527604e-08, -0.18925081, 0.9819288, 0, 0.27645302, 1.8030579)
+transform = Transform3D(1, 1.09638095e-13, -5.9604716e-08, 1.1280132e-08, 0.9819288, 0.18925081, 5.8527604e-08, -0.18925081, 0.9819288, -0.11004639, 0.646631, 1.5225284)
 current = true
+fov = 65.0
 
 [connection signal="body_entered" from="Water/Area3D" to="." method="_on_area_3d_body_entered"]

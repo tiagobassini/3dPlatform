@@ -150,6 +150,9 @@ func shoot_spear()->void:
 	pass
 
 func reload_spear() ->void:
+	if spear_scene == null:
+		return
+		
 	current_spear = spear_scene.instantiate()
 	
 	if is_flipped:

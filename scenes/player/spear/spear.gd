@@ -29,7 +29,7 @@ var spring: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	spear_broked_instance = spear_broken_pack.instantiate()
+	#spear_broked_instance = spear_broken_pack.instantiate()
 	pass # Replace with function body.
 
 
