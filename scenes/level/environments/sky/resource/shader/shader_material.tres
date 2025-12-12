@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cyc0xbdk6ph2w" path="res://scenes/level/environments/sky/resource/textures/shooting_star_sampler.png" id="2_olngs"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0iogl"]
-load_path = "res://.godot/imported/Sun.png-75471fa4ee9909449d96e190c90269fb.s3tc.ctex"
 
 [sub_resource type="Curve" id="Curve_xf5f3"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.132184, 0.89011), 1.27473, 1.27473, 0, 0, Vector2(0.988506, 0.615385), -0.57942, 0.0, 0, 0]

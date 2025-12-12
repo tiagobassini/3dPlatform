@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ciu7qftp0vgql"
-path="res://.godot/imported/jaguar.glb-7e3bfb91ed3588be932d11d201365e23.scn"
+path="res://.godot/imported/jaguar.glb-f2f00c08dd2f55879e52fb7f886bbd01.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/animals/jaguar/model/jaguar.glb"
-dest_files=["res://.godot/imported/jaguar.glb-7e3bfb91ed3588be932d11d201365e23.scn"]
+source_file="res://scenes/enemy/Animals/jaguar/model/jaguar.glb"
+dest_files=["res://.godot/imported/jaguar.glb-f2f00c08dd2f55879e52fb7f886bbd01.scn"]
 
 [params]
 

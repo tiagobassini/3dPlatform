@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cyf8spuowk7sc"
-path="res://.godot/imported/Rat.glb-2b9d27802363d94ad4a0e90c55fbd4df.scn"
+path="res://.godot/imported/Rat.glb-cf85b42ef2ee46c74a518e1b50bedcdb.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/animals/rat/model/Rat.glb"
-dest_files=["res://.godot/imported/Rat.glb-2b9d27802363d94ad4a0e90c55fbd4df.scn"]
+source_file="res://scenes/enemy/Animals/rat/model/Rat.glb"
+dest_files=["res://.godot/imported/Rat.glb-cf85b42ef2ee46c74a518e1b50bedcdb.scn"]
 
 [params]
 

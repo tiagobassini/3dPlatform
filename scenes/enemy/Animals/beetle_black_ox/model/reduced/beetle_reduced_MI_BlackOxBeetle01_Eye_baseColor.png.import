@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://684oavt87ftt"
-path.s3tc="res://.godot/imported/beetle_reduced_MI_BlackOxBeetle01_Eye_baseColor.png-8e2711ea265d462683caf710c6c53a47.s3tc.ctex"
+path.s3tc="res://.godot/imported/beetle_reduced_MI_BlackOxBeetle01_Eye_baseColor.png-e3b502e0c6b4b6f80ab44abd3afe81bb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/animals/beetle_black_ox/model/reduced/beetle_reduced_MI_BlackOxBeetle01_Eye_baseColor.png"
-dest_files=["res://.godot/imported/beetle_reduced_MI_BlackOxBeetle01_Eye_baseColor.png-8e2711ea265d462683caf710c6c53a47.s3tc.ctex"]
+source_file="res://scenes/enemy/Animals/beetle_black_ox/model/reduced/beetle_reduced_MI_BlackOxBeetle01_Eye_baseColor.png"
+dest_files=["res://.godot/imported/beetle_reduced_MI_BlackOxBeetle01_Eye_baseColor.png-e3b502e0c6b4b6f80ab44abd3afe81bb.s3tc.ctex"]
 
 [params]
 

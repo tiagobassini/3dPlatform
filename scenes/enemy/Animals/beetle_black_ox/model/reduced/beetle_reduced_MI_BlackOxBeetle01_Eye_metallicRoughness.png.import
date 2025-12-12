@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bom2od82rwk5p"
-path.s3tc="res://.godot/imported/beetle_reduced_MI_BlackOxBeetle01_Eye_metallicRoughness.png-80e208e9fdcac0f8cddc3b5e5b608921.s3tc.ctex"
+path.s3tc="res://.godot/imported/beetle_reduced_MI_BlackOxBeetle01_Eye_metallicRoughness.png-43efeafca7b5078084e794aebb36d51c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://scenes/enemy/animals/beetle_black_ox/model/reduced/beetle_reduced_MI_BlackOxBeetle01_Eye_metallicRoughness.png"
-dest_files=["res://.godot/imported/beetle_reduced_MI_BlackOxBeetle01_Eye_metallicRoughness.png-80e208e9fdcac0f8cddc3b5e5b608921.s3tc.ctex"]
+source_file="res://scenes/enemy/Animals/beetle_black_ox/model/reduced/beetle_reduced_MI_BlackOxBeetle01_Eye_metallicRoughness.png"
+dest_files=["res://.godot/imported/beetle_reduced_MI_BlackOxBeetle01_Eye_metallicRoughness.png-43efeafca7b5078084e794aebb36d51c.s3tc.ctex"]
 
 [params]
 

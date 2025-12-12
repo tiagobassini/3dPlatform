@@ -31,6 +31,12 @@ var initial_z_position:float = 0.0
 
 
 func _ready() -> void:
+	
+	spear_respawn_timer.connect("timeout", spear_respawn_timeout)
+	animation_tree.connect("animation_finished", on_animation_finished)
+	
+	
+	
 	state_machine = $AnimationTree.get("parameters/playback")
 	
 	initial_z_position = position.z;
@@ -136,7 +142,7 @@ func shoot_spear()->void:
 	#current_spear.global_position = 
 	#current_spear.is_flipped = is_flipped
 	#current_spear.throwed = true
-	current_spear.scale = self.scale
+	#current_spear.scale = self.scale
 	current_spear.speed = SHOOT_SPEED
 	
 	current_spear = null

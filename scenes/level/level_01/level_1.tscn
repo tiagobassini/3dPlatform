@@ -3,13 +3,13 @@
 [ext_resource type="Environment" uid="uid://bhcm26l2wmdiy" path="res://scenes/level/environments/sky/enviroment_night.tres" id="2_vf3om"]
 [ext_resource type="Script" uid="uid://b0h8qrh16ab65" path="res://scenes/level/level_01/level_1.gd" id="4_d3xbu"]
 [ext_resource type="Shader" uid="uid://clxbfv3qi7scv" path="res://scenes/level/environments/water/water.gdshader" id="4_g6sy5"]
-[ext_resource type="PackedScene" uid="uid://dt6flgldb5qw3" path="res://scenes/player/character/player.tscn" id="4_w1j54"]
 [ext_resource type="Texture2D" uid="uid://h31mqps02wti" path="res://assets/imagens/mega-man-x-highway-pc-map.png" id="5_31bup"]
 [ext_resource type="Script" uid="uid://deo4uqagry6xg" path="res://scenes/level/level_01/grid_map_tool.gd" id="5_cubbl"]
 [ext_resource type="MeshLibrary" uid="uid://c65hicd8b4mp6" path="res://assets/environments/my_tiles/FloorMeshLib.tres" id="6_cubbl"]
 [ext_resource type="AudioStream" uid="uid://b3cv4lrip73dx" path="res://assets/sounds/musics/musica 2.mp3" id="7_kpw5j"]
-[ext_resource type="PackedScene" uid="uid://cr2q0h6a8hlo5" path="res://scenes/enemy/animals/wasp/wasp.tscn" id="9_nfdu3"]
-[ext_resource type="PackedScene" uid="uid://ccyly51l7fcmx" path="res://scenes/enemy/animals/boss_boitata/boitata.tscn" id="11_fuwox"]
+[ext_resource type="PackedScene" uid="uid://cr2q0h6a8hlo5" path="res://scenes/enemy/Animals/wasp/wasp.tscn" id="9_nfdu3"]
+[ext_resource type="PackedScene" uid="uid://bg6r8vpicbe77" path="res://scenes/player/character/indio.tscn" id="10_vf3om"]
+[ext_resource type="PackedScene" uid="uid://ccyly51l7fcmx" path="res://scenes/enemy/Animals/boss_boitata/boitata.tscn" id="11_fuwox"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u8rbc"]
 render_priority = 0
@@ -59,19 +59,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 shape = SubResource("BoxShape3D_kjuso")
 disabled = true
 
-[node name="Player" parent="." instance=ExtResource("4_w1j54")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 104.374985, 1.6025698, 1.2667904)
-platform_on_leave = 2
-JUMP_VELOCITY = 5.2
-SHOOT_SPEED = 2.8
-
-[node name="Camera3D2" type="Camera3D" parent="Player"]
-transform = Transform3D(0.0158707, 1.41318, -3.74201, -0.00599354, 3.74205, 1.41317, 3.99996, 0, 0.0169647, -6.06849, 2.26289, 0.09342)
-
-[node name="Camera3D3" type="Camera3D" parent="Player"]
-transform = Transform3D(5, 5.4819045e-13, -2.9802356e-07, 5.6400662e-08, 4.909644, 0.9462541, 2.9263802e-07, -0.9462541, 4.909644, 0.49900055, 3.8482094, 8)
-current = true
-
 [node name="Sound" type="Node3D" parent="."]
 
 [node name="LevelMusicPlayer" type="AudioStreamPlayer" parent="Sound"]
@@ -105,5 +92,15 @@ transform = Transform3D(-0.19449435, 0, -0.046604242, 0, 0.2, 0, 0.046604242, 0,
 
 [node name="Serpent" parent="." instance=ExtResource("11_fuwox")]
 transform = Transform3D(-0.0076445034, 0, -0.9999708, 0, 1, 0, 0.9999708, 0, -0.0076445034, 107.01546, -0.51475465, 1.2789788)
+
+[node name="Player2" parent="." instance=ExtResource("10_vf3om")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.7794, 0, 1.2453566)
+
+[node name="Camera3D2" type="Camera3D" parent="Player2"]
+transform = Transform3D(0.0039677313, 0.35329482, -0.93550366, -0.0014983864, 0.93551207, 0.35329163, 0.999991, -2.0372864e-08, 0.0042412328, -2.7146835, 0.24359417, 0)
+
+[node name="Camera3D3" type="Camera3D" parent="Player2"]
+transform = Transform3D(1, 1.09638095e-13, -5.9604716e-08, 1.1280132e-08, 0.9819288, 0.18925081, 5.8527604e-08, -0.18925081, 0.9819288, 0, 0.27645302, 1.8030579)
+current = true
 
 [connection signal="body_entered" from="Water/Area3D" to="." method="_on_area_3d_body_entered"]

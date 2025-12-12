@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c2bvvpbeiox80"
-path="res://.godot/imported/scene.gltf-f8383d3fd81e722fcffe15689d0c4db6.scn"
+path="res://.godot/imported/scene.gltf-04b19a2c6ef4d5a2e6bace4c2a562fe8.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/animals/beetle_bombardier/model/scene.gltf"
-dest_files=["res://.godot/imported/scene.gltf-f8383d3fd81e722fcffe15689d0c4db6.scn"]
+source_file="res://scenes/enemy/Animals/beetle_bombardier/model/scene.gltf"
+dest_files=["res://.godot/imported/scene.gltf-04b19a2c6ef4d5a2e6bace4c2a562fe8.scn"]
 
 [params]
 

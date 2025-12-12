@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bk4sqkk4dj8gv"
-path="res://.godot/imported/Snake_Angry.glb-f33d7d09cbe0d4d766d7e16ec871843e.scn"
+path="res://.godot/imported/Snake_Angry.glb-df0be09629ef1adda8b3fda9cc6a7e8a.scn"
 
 [deps]
 
-source_file="res://scenes/enemy/animals/boss_boitata/model/Snake_Angry.glb"
-dest_files=["res://.godot/imported/Snake_Angry.glb-f33d7d09cbe0d4d766d7e16ec871843e.scn"]
+source_file="res://scenes/enemy/Animals/boss_boitata/model/Snake_Angry.glb"
+dest_files=["res://.godot/imported/Snake_Angry.glb-df0be09629ef1adda8b3fda9cc6a7e8a.scn"]
 
 [params]
 

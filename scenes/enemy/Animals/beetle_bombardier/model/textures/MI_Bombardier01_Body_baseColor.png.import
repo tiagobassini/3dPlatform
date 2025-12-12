@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ba2w5xisum1do"
-path.s3tc="res://.godot/imported/MI_Bombardier01_Body_baseColor.png-500d6f6c286a0ebf5aa1da7769c93afd.s3tc.ctex"
+path.s3tc="res://.godot/imported/MI_Bombardier01_Body_baseColor.png-bde4796718feb3fbd6b3326ea7554308.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/enemy/animals/beetle_bombardier/model/textures/MI_Bombardier01_Body_baseColor.png"
-dest_files=["res://.godot/imported/MI_Bombardier01_Body_baseColor.png-500d6f6c286a0ebf5aa1da7769c93afd.s3tc.ctex"]
+source_file="res://scenes/enemy/Animals/beetle_bombardier/model/textures/MI_Bombardier01_Body_baseColor.png"
+dest_files=["res://.godot/imported/MI_Bombardier01_Body_baseColor.png-bde4796718feb3fbd6b3326ea7554308.s3tc.ctex"]
 
 [params]
 
